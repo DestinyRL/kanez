@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no viewport-fit=cover">
+  <title>Finest Steel Co.</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(120deg, #e0e7ff 0%, #f0fdfa 100%);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .bg-animated {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(circle at 20% 30%, #818cf8 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, #f472b6 0%, transparent 60%);
+      animation: moveBg 10s linear infinite alternate;
+    }
+    @keyframes moveBg {
+      0% { background-position: 20% 30%, 80% 70%; }
+      100% { background-position: 30% 40%, 70% 60%; }
+    }
+    html { scroll-behavior: smooth; }
+    #hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 40;
+    }
+    #hamburger .bar1,
+    #hamburger .bar2,
+    #hamburger .bar3 {
+      border-radius: 9999px;
+      height: 4px;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #hamburger.open .bar1 {
+      transform: translateY(8px) rotate(45deg);
+      background: #f472b6;
+    }
+    #hamburger.open .bar2 {
+      opacity: 0;
+      transform: scaleX(0.5);
+    }
+    #hamburger.open .bar3 {
+      transform: translateY(-8px) rotate(-45deg);
+      background: #818cf8;
+    }
+    #mobileNavWrapper {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #mobileNavWrapper.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #mobileNav {
+      transform: translateX(60px) scale(0.95);
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #mobileNav.open {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+    #mobileNav > a {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #mobileNav.open > a {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    #mobileNav.open > a:nth-child(1) { transition-delay: 0.15s; }
+    #mobileNav.open > a:nth-child(2) { transition-delay: 0.25s; }
+    #mobileNav.open > a:nth-child(3) { transition-delay: 0.35s; }
+    #mobileNav.open > a:nth-child(4) { transition-delay: 0.45s; }
+    #mobileOverlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800">
+  <div class="bg-animated"></div>
+  <header class="bg-white/80 backdrop-blur shadow-md sticky top-0 z-20">
+    <div class="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
+      <div class="flex items-center justify-center md:justify-start space-x-3 w-full">
+        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-indigo-500 shadow">
+          <img src="indigo.jpg" alt="Logo" class="object-cover w-full h-full">
+        </div>
+        <span class="text-xl font-bold text-indigo-700">Finest Steel & accessories limited.</span>
+      </div>
+      <div class="md:hidden">
+        <button id="hamburger" class="flex flex-col space-y-1 relative z-30 group" aria-label="Toggle navigation">
+          <span class="bar1 block w-6 h-0.5 bg-indigo-700 transition-all duration-300"></span>
+          <span class="bar2 block w-6 h-0.5 bg-indigo-700 transition-all duration-300"></span>
+          <span class="bar3 block w-6 h-0.5 bg-indigo-700 transition-all duration-300"></span>
+        </button>
+      </div>
+      <nav class="hidden md:flex space-x-6 nav-links">
+        <a href="#about" class="hover:text-indigo-600 transition">About</a>
+        <a href="#services" class="hover:text-indigo-600 transition">Services</a>
+        <a href="#projects" class="hover:text-indigo-600 transition">Products</a>
+        <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+      </nav>
+    </div>
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-20 opacity-0 pointer-events-none transition-opacity duration-500 md:hidden"></div>
+    <div id="mobileNavWrapper" class="fixed inset-0 flex items-start justify-end z-30 md:hidden hidden">
+      <nav id="mobileNav" class="w-72 max-h-[90vh] overflow-y-auto bg-white/95 rounded-2xl shadow-2xl flex flex-col items-stretch px-6 py-8 space-y-4 mt-4 transition-all duration-500">
+        <a href="#about" class="block text-lg font-semibold text-indigo-700 py-3 rounded-lg hover:bg-indigo-50 border-l-8 border-indigo-200 transition text-center">About</a>
+        <a href="#services" class="block text-lg font-semibold text-pink-600 py-3 rounded-lg hover:bg-pink-50 border-l-8 border-pink-200 transition text-center">Services</a>
+        <a href="#projects" class="block text-lg font-semibold text-yellow-700 py-3 rounded-lg hover:bg-yellow-50 border-l-8 border-yellow-200 transition text-center">Products</a>
+        <a href="#contact" class="block text-lg font-semibold text-green-700 py-3 rounded-lg hover:bg-green-50 border-l-8 border-green-200 transition text-center">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero relative flex flex-col items-center justify-center min-h-[60vh] md:min-h-[70vh] overflow-hidden">
+    <video autoplay muted loop playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none">
+      <source src="const2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="relative z-10 flex flex-col items-center space-y-6 py-16">
+      <div class="sliding-texts flex flex-col items-center space-y-2 animate-pulse">
+        <span class="text-3xl md:text-5xl font-extrabold text-indigo-700 drop-shadow text-center">Welcome to FinestSteel & accessories limited.</span>
+        <span class="text-xl md:text-3xl font-semibold text-pink-500 text-center">Explore Our Products</span>
+      </div>
+      <a href="#about" class="scroll-down mt-8 text-4xl text-indigo-500 animate-bounce hover:text-pink-500 transition">&darr;</a>
+    </div>
+  </section>
+
+  <div class="container max-w-7xl mx-auto px-4 py-8">
+    <section id="about" class="about fade-in bg-white/80 rounded-xl shadow-lg p-8 mb-10 backdrop-blur">
+      <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-4">About Us</h2>
+      <p class="mb-6 text-lg">FinestSteel. has over 25 years of experience delivering high-quality construction services for commercial and residential projects. Our expert team is committed to excellence, safety, and customer satisfaction.</p>
+      <section id="stats" class="stats flex flex-wrap gap-6">
+        <div class="stat flex flex-col items-center bg-indigo-100 rounded-lg p-4 w-32 shadow hover:scale-105 transition">
+          <span class="counter text-3xl font-bold text-indigo-700" data-target="25">0</span><span class="text-indigo-700">+</span>
+          <p class="text-sm text-gray-600">Years of Experience</p>
+        </div>
+        <div class="stat flex flex-col items-center bg-pink-100 rounded-lg p-4 w-32 shadow hover:scale-105 transition">
+          <span class="counter text-3xl font-bold text-pink-500" data-target="500">0</span><span class="text-pink-500">+</span>
+          <p class="text-sm text-gray-600">Projects Completed</p>
+        </div>
+        <div class="stat flex flex-col items-center bg-green-100 rounded-lg p-4 w-32 shadow hover:scale-105 transition">
+          <span class="counter text-3xl font-bold text-green-600" data-target="98">0</span><span class="text-green-600">%</span>
+          <p class="text-sm text-gray-600">Client Satisfaction</p>
+        </div>
+      </section>
+    </section>
+
+    <section id="services" class="services fade-in bg-white/80 rounded-xl shadow-lg p-8 mb-10 backdrop-blur">
+      <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-4">Our Services</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="service bg-indigo-50 rounded-lg p-6 shadow hover:scale-105 hover:bg-indigo-100 transition">
+          <h3 class="text-xl font-semibold text-indigo-700 mb-2">Residential Construction</h3>  
+          <p class="text-gray-700">
+            Custom buildings built with our precision, quality materials, and craftsmanship.<br>
+            <span class="font-semibold">Materials you need:</span>
+            <a href="ironforconstruction.html" class="text-indigo-600 hover:underline hover:text-pink-500 transition">Iron for Construction</a>, 
+            <a href="reinforcementmaterials.html" class="text-indigo-600 hover:underline hover:text-pink-500 transition">Reinforcement Materials</a>
+          </p>
+        </div>
+        <div class="service bg-pink-50 rounded-lg p-6 shadow hover:scale-105 hover:bg-pink-100 transition">
+          <h3 class="text-xl font-semibold text-pink-500 mb-2">Commercial Projects</h3>
+          <p class="text-gray-700">
+            From offices to retail, we provide turnkey products tailored to your needs.<br>
+            <span class="font-semibold">Materials we recommend:</span>
+            <a href="laserplates.html" class="text-pink-500 hover:underline hover:text-indigo-600 transition">Laser Plates</a>, 
+            <a href="wroughtiron.html" class="text-pink-500 hover:underline hover:text-indigo-600 transition">Wrought Iron</a>
+          </p>
+        </div>
+        <div class="service bg-green-50 rounded-lg p-6 shadow hover:scale-105 hover:bg-green-100 transition">
+          <h3 class="text-xl font-semibold text-green-600 mb-2">Renovations & Remodeling</h3>
+          <p class="text-gray-700">
+            Modernize your space with expert renovations that increase value.<br>
+            <span class="font-semibold">Accessories we provide:</span>
+            <a href="welding-accessories.html" class="text-green-600 hover:underline hover:text-indigo-700 transition">Welding Accessories</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects fade-in bg-white/80 rounded-xl shadow-lg p-8 mb-10 backdrop-blur">
+      <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-4">Products Catalogue</h2>
+      <!-- Search Bar -->
+      <div class="mb-6 flex justify-center">
+        <input id="productSearch" type="text" placeholder="Search products..." class="w-full max-w-md px-4 py-2 border rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        <button onclick="searchProducts()" class="ml-2 px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-pink-500 transition">Search</button>
+      </div>
+      <div id="productsGrid" class="grid md:grid-cols-3 gap-6">
+        <!-- Iron For Construction -->
+        <div class="project group bg-indigo-50 rounded-lg shadow hover:scale-105 hover:bg-indigo-100 transition overflow-hidden"
+          data-keywords="iron rod, rebar, steel bar, construction iron, pillar, beam, column, mild steel, high tensile, 12mm, 16mm, 20mm, 25mm, 32mm, iron for construction, iron rods, iron bar, iron pillar, iron beam, iron column, zed purlins, H-beams, IPEs, RSJs, U-Channels, Column Beams, angle irons, hot rolled sheets, cold rolled sheets">
+          <a href="ironforconstruction.html" class="block">
+            <img src="steel.jpg" alt="img 1" class="w-full h-40 object-cover group-hover:scale-110 transition" />
+            <div class="info p-4">
+              <h4 class="text-lg font-semibold text-indigo-700">Iron For Construction</h4>
+              <p class="text-gray-700">Strong and reliable iron rods for construction projects.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Wrought Iron -->
+        <div class="project group bg-pink-50 rounded-lg shadow hover:scale-105 hover:bg-pink-100 transition overflow-hidden"
+          data-keywords="wrought iron, staircase, Rosettes, wrought iron design, wrought iron pickets, pickets, panels, fences, wrought iron design, railing, fence, balustrade, custom wrought iron, iron art, iron decor">
+          <a href="wroughtiron.html" class="block">
+            <img src="wroughtiron.jpeg" alt="img 2" class="w-full h-40 object-cover group-hover:scale-110 transition" />
+            <div class="info p-4">
+              <h4 class="text-lg font-semibold text-pink-500">Wrought Iron</h4>
+              <p class="text-gray-700">Wrought iron products for various applications. Available for customization.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Laser Plates -->
+        <div class="project group bg-yellow-50 rounded-lg shadow hover:scale-105 hover:bg-yellow-100 transition overflow-hidden"
+          data-keywords="laser, laser plate, laser design, laser cutting, sheet, custom plate, metal art, laser sheet, laser cut, laser engraving, decorative plate, metal sheet, steel plate, aluminum plate, custom laser, laser plates">
+          <a href="laserplates.html" class="block">
+            <img src="laserplates.jpeg" alt="img 3" class="w-full h-40 object-cover group-hover:scale-110 transition" />
+            <div class="info p-4">
+              <h4 class="text-lg font-semibold text-yellow-600">Laser Plates</h4>
+              <p class="text-gray-700">Laser-cut plates for precision applications. Custom sizes available.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Reinforcement Materials -->
+        <div class="project group bg-green-50 rounded-lg shadow hover:scale-105 hover:bg-green-100 transition overflow-hidden"
+          data-keywords="reinforcement, mesh, base plates, bolts, nuts, rods, foundation rods, wire mesh, binding wire, stirrup, tie wire, concrete support, reinforcement materials, steel mesh, construction mesh, rebar mesh, reinforcement wire, stirrup iron, stirrup wire, tie wire, binding wire, cleats, concrete reinforcement">
+          <a href="reinforcementmaterials.html" class="block">
+            <img src="reinforcementmaterials.jpg" alt="img 4" class="w-full h-40 object-cover group-hover:scale-110 transition" />
+            <div class="info p-4">
+              <h4 class="text-lg font-semibold text-green-600">Reinforcement Materials</h4>
+              <p class="text-gray-700">Custom solutions for construction and engineering projects.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Gates -->
+        <div class="project group bg-yellow-50 rounded-lg shadow hover:scale-105 hover:bg-yellow-100 transition overflow-hidden"
+          data-keywords="gates, gate design, steel gate, iron gate, security gate, custom gate, main gate, house gate, compound gate, gate handles, wrought iron gate, modern gate, classic gate, finest steel gates">
+          <a href="gates.html" class="block">
+           <img src="gates.jpeg" alt="Gates" class="w-full h-40 object-cover group-hover:scale-110 transition" />
+           <div class="info p-4">
+             <h4 class="text-lg font-semibold text-yellow-700">Gates</h4>
+              <p class="text-gray-700">Custom steel and wrought iron gates for homes and businesses. Explore our unique designs or request your own.</p>
+          </div>
+          </a>
+        </div>
+
+        <!-- Welding Accessories -->
+        <div class="project group bg-blue-50 rounded-lg shadow hover:scale-105 hover:bg-blue-100 transition overflow-hidden"
+          data-keywords="welding, welding machine, angle grinder, cutting power tool, maxmechs, welding, generators, bosch angle grinders, angle grinders, sqiek, door handles, cutting discs, saffire regulators, regulators, electrode, saffire, saffire cutters, welding generators, grinding disc, electrode, electrode holder, door handle, welding accessories, welding helmet, welding gloves, welding apron, welding safety, welding tools, welding support, welding consumables, welding protection, welding supplies, welding machines, iron tyres, oxygen regulators, butterfly hinges, hinges, dewalt toolbox, toolbox,maxmech inverter welding machine, mma250, mma200, mma300, mma400, total spray gun, spray gun, circle rosette, rosette, basket cumbi, cumbi, electrode holder, powerflex, powwerflex grinding discs, homeflower cutting discs, tigerforce cutting discs">
+          <a href="weldingaccesories.html" class="block">
+            <img src="weldingaccessories.jpg" alt="img 5" class="w-full h-40 object-cover group-hover:scale-110 transition" />
+            <div class="info p-4">
+              <h4 class="text-lg font-semibold text-blue-600">Welding Accessories</h4>
+              <p class="text-gray-700">Welding tools and accessories for professionals. Place your order now and get your items delivered to your doorstep.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="hoverModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center space-y-4">
+    <p class="text-lg font-semibold text-indigo-700">Do you need more help?</p>
+    <div class="flex gap-4">
+      <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20need%20more%20help%20with%20your%20products" target="_blank"
+         class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-lg shadow transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="24" />
+        Contact us on WhatsApp
+      </a>
+      <button id="noThanksBtn" class="inline-flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-4 py-2 rounded-lg shadow transition">
+        No thanks
+      </button>
+    </div>
+  </div>
+</div>
+      <div id="noResults" class="hidden flex flex-col items-center justify-center py-8">
+        <p class="text-lg font-semibold text-pink-600 mb-4">No results found.</p>
+        <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20have%20an%20inquiry%20about%20your%20products" target="_blank"
+           class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-3 rounded-lg shadow transition">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="30" />
+          Contact us on WhatsApp for more inquiries
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-info fade-in bg-white/80 rounded-xl shadow-lg p-8 mb-10 backdrop-blur">
+      <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-4">Contact Us</h2>
+      <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%20Accessories.%20I%20am%20interested%20in%20your%20products" target="_blank" class="whatsapp-float flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow transition w-max mb-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="32" />
+        <span>Chat with us</span>
+      </a>
+      <p class="mb-1"><strong>Phone:</strong> 08141298704</p>
+      <p class="mb-1"><strong>Email:</strong> FinestSteelng@gmail.com</p>
+      <p class="mb-4"><strong>Address:</strong> 153 Lagos-Abeokuta Expressway, Araromi Bus-Stop, Iyana-Ipaja, Lagos, Nigeria.</p>
+      <div class="social-links flex space-x-4 mb-4">
+        <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%20Accessories.%20I%20am%20interested%20in%20your%20products" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40" height="40" class="hover:scale-110 transition" />
+        </a>
+        <a href="https://www.instagram.com/fineststeelng" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="instagram" width="40" height="40" class="hover:scale-110 transition" />
+        </a>
+        <a href="https://www.tiktok.com/@fineststeelng" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Tiktok_icon.svg" alt="tiktok" width="40" height="40" class="hover:scale-110 transition" />
+        </a>
+      </div>
+      <p><a href="mailto:FinestSteelng@gmail.com" class="text-indigo-600 hover:underline hover:text-pink-500 transition">Send us an email</a></p>
+    </section>
+  </div>
+
+  <footer class="bg-indigo-700 text-white text-center py-4">
+    &copy; 2025 FinestSteel Limited. All rights reserved.
+  </footer>
+
+  <button id="backToTop" title="Go to top" class="fixed bottom-6 right-6 bg-indigo-600 hover:bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg text-2xl transition z-30">&uarr;</button>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileNavWrapper = document.getElementById('mobileNavWrapper');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function closeMobileNav() {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      mobileNavWrapper.classList.remove('open');
+      mobileOverlay.classList.remove('open');
+      setTimeout(() => mobileNavWrapper.classList.add('hidden'), 500);
+    }
+
+    hamburger?.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+      mobileNavWrapper.classList.toggle('open');
+      mobileOverlay.classList.toggle('open');
+      if (mobileNavWrapper.classList.contains('open')) {
+        mobileNavWrapper.classList.remove('hidden');
+      } else {
+        setTimeout(() => mobileNavWrapper.classList.add('hidden'), 500);
+      }
+    });
+
+    // Close nav when clicking overlay or a link
+    mobileOverlay?.addEventListener('click', closeMobileNav);
+    mobileNav?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.remove('hidden');
+      } else {
+        backToTop.classList.add('hidden');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Counter animation
+    document.querySelectorAll('.counter').forEach(counter => {
+      const animate = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = Math.ceil(target / 100);
+        if (count < target) {
+          counter.innerText = Math.min(count + increment, target);
+          setTimeout(animate, 30);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      animate();
+    });
+
+    // Product search with sub-product support
+    function searchProducts() {
+      const query = document.getElementById('productSearch').value.toLowerCase();
+      const productsGrid = document.getElementById('productsGrid');
+      const products = productsGrid.getElementsByClassName('project');
+      let anyVisible = false;
+
+      Array.from(products).forEach(product => {
+        const title = product.querySelector('h4').innerText.toLowerCase();
+        const keywords = (product.getAttribute('data-keywords') || '').toLowerCase();
+        if (title.includes(query) || keywords.includes(query)) {
+          product.classList.remove('hidden');
+          anyVisible = true;
+        } else {
+          product.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('noResults').classList.toggle('hidden', anyVisible);
+    }
+    document.getElementById('productSearch').addEventListener('input', searchProducts);
+
+    // Full-screen hover modal logic
+ let hoverTimeout;
+let modalShown = false;
+let modalDismissed = false;
+const productsGrid = document.getElementById('productsGrid');
+const hoverModal = document.getElementById('hoverModal');
+const noThanksBtn = document.getElementById('noThanksBtn');
+
+// Show modal after 30s of continuous hover
+productsGrid.addEventListener('mouseenter', () => {
+  if (modalShown || modalDismissed) return;
+  hoverTimeout = setTimeout(() => {
+    if (!modalDismissed) {
+      hoverModal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      modalShown = true;
+    }
+  }, 30000); // 30 seconds
+});
+
+productsGrid.addEventListener('mouseleave', () => {
+  clearTimeout(hoverTimeout);
+});
+
+// No thanks button disables future modals until refresh
+noThanksBtn.addEventListener('click', () => {
+  hoverModal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+  modalDismissed = true;
+});
+
+// Resizing the window closes the modal
+window.addEventListener('resize', () => {
+  hoverModal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+});
+
+// Mobile modal logic: show after 20s if products section is visible
+(function() {
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  let mobileTimer;
+  let mobileModalShown = false;
+  let mobileModalDismissed = false;
+
+  if (isMobile) {
+    const productsSection = document.getElementById('projects');
+    const hoverModal = document.getElementById('hoverModal');
+    const noThanksBtn = document.getElementById('noThanksBtn');
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !mobileModalShown && !mobileModalDismissed) {
+        // Start 20s timer when section is visible
+        mobileTimer = setTimeout(() => {
+          if (!mobileModalDismissed) {
+            hoverModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            mobileModalShown = true;
+          }
+        }, 20000); // 20 seconds
+      } else {
+        // Stop timer if section is not visible
+        clearTimeout(mobileTimer);
+      }
+    }, { threshold: 0.1 });
+
+    observer.observe(productsSection);
+
+    noThanksBtn.addEventListener('click', () => {
+      hoverModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      mobileModalDismissed = true;
+      clearTimeout(mobileTimer);
+    });
+
+    window.addEventListener('resize', () => {
+      hoverModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      clearTimeout(mobileTimer);
+    });
+  }
+})();
+  </script>
+</body>
+</html>
