@@ -8,7 +8,7 @@
   <meta name="description" content="Buy Zed Purlins, Wrought Irons, Iron Rods, Steel and other construction materials from Finest Steel Nigeria. Reliable, affordable and high quality.">
   <title>Fineststeelng - Finest Steel and Accessories.</title>
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       background: linear-gradient(120deg, #e0e7ff 0%, #f0fdfa 100%);
@@ -96,6 +96,22 @@
       opacity: 1;
       pointer-events: auto;
     }
+    .perspective {
+      perspective: 1200px;
+    }
+    .flip-card-inner {
+      transform-style: preserve-3d;
+    }
+    .group:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
   </style>
 </head>
 <body class="font-sans text-gray-800">
@@ -120,6 +136,7 @@
         <a href="#services" class="hover:text-indigo-600 transition">Services</a>
         <a href="#projects" class="hover:text-indigo-600 transition">Products</a>
         <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+        <a href="gallery.html" class="hover:text-indigo-600 transition">Gallery</a>
       </nav>
     </div>
     <div id="mobileOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-20 opacity-0 pointer-events-none transition-opacity duration-500 md:hidden"></div>
@@ -129,6 +146,7 @@
         <a href="#services" class="block text-lg font-semibold text-pink-600 py-3 rounded-lg hover:bg-pink-50 border-l-8 border-pink-200 transition text-center">Services</a>
         <a href="#projects" class="block text-lg font-semibold text-yellow-700 py-3 rounded-lg hover:bg-yellow-50 border-l-8 border-yellow-200 transition text-center">Products</a>
         <a href="#contact" class="block text-lg font-semibold text-green-700 py-3 rounded-lg hover:bg-green-50 border-l-8 border-green-200 transition text-center">Contact</a>
+        <a href="gallery.html" class="block text-lg font-semibold text-purple-700 py-3 rounded-lg hover:bg-purple-50 border-l-8 border-purple-200 transition text-center">Gallery</a>
       </nav>
     </div>
   </header>
@@ -326,6 +344,22 @@
       </div>
       <p><a href="mailto:FinestSteelng@gmail.com" class="text-indigo-600 hover:underline hover:text-pink-500 transition">Send us an email</a></p>
     </section>
+
+    <!-- Flipbook Photo Gallery Section -->
+<section id="gallery" class="fade-in bg-white/80 rounded-xl shadow-lg p-8 mb-10 backdrop-blur flex flex-col items-center">
+  <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-4">Gallery</h2>
+  <div id="flipbook" class="mx-auto" style="width:340px;height:440px;">
+    <div><img src="yellow1000.jpg" alt="Gallery 1" class="w-full h-full object-cover rounded-lg"></div>
+    <div><img src="green800.jpg" alt="Gallery 2" class="w-full h-full object-cover rounded-lg"></div>
+    <div><img src="elephant800.jpg" alt="Gallery 3" class="w-full h-full object-cover rounded-lg"></div>
+    <!-- Add more pages as needed -->
+  </div>
+  <audio id="flipSound" src="https://cdn.pixabay.com/audio/2022/10/16/audio_12c6b6b6b6.mp3"></audio>
+  <div class="flex gap-4 mt-4">
+    <button onclick="$('#flipbook').turn('previous')" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-pink-500 transition">Previous</button>
+    <button onclick="$('#flipbook').turn('next')" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-pink-500 transition">Next</button>
+  </div>
+</section>
   </div>
 
   <footer class="bg-indigo-700 text-white text-center py-4">
@@ -500,8 +534,28 @@ window.addEventListener('resize', () => {
   }
 })();
   </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+  <script>
+// Flipbook initialization
+$(function(){
+      $('#flipbook').turn({
+        width: 340,
+        height: 440,
+        autoCenter: true,
+        gradients: true,
+        acceleration: true,
+        when: {
+          turning: function() {
+            document.getElementById('flipSound').currentTime = 0;
+            document.getElementById('flipSound').play();
+          }
+        }
+      });
+    });
+  </script>
 </body>
-
 </html>
+
 
 
