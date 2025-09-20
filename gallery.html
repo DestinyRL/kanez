@@ -548,68 +548,106 @@
   </footer>
 
   <script>
-  function isMobile() {
-    return window.innerWidth < 768;
-  }
+function isMobile() {
+  return window.innerWidth < 768;
+}
 
-  // Desktop: hover shows overlay, click opens modal (if you have a modal)
-  document.querySelectorAll('.gallery-img').forEach(img => {
-    const titleDiv = img.parentElement.querySelector('.gallery-title');
-    img.addEventListener('mouseenter', function() {
-      if (!isMobile()) {
-        titleDiv.textContent = img.getAttribute('data-title');
-        titleDiv.style.opacity = '1';
-        titleDiv.style.pointerEvents = 'auto';
+let lastOverlayImg = null;
+let overlayActive = false;
+
+document.querySelectorAll('.gallery-img').forEach(img => {
+  const titleDiv = img.parentElement.querySelector('.gallery-title');
+
+  // Remove hover events for mobile-like click behavior everywhere
+  img.removeEventListener('mouseenter', () => {});
+  img.removeEventListener('mouseleave', () => {});
+
+  img.addEventListener('click', function(e) {
+    // If overlay is not active or this is a different image
+    if (!overlayActive || lastOverlayImg !== img) {
+      // Hide previous overlay if any
+      if (lastOverlayImg) {
+        const prevTitleDiv = lastOverlayImg.parentElement.querySelector('.gallery-title');
+        prevTitleDiv.textContent = '';
+        prevTitleDiv.style.opacity = '0';
+        prevTitleDiv.style.pointerEvents = 'none';
       }
-    });
-    img.addEventListener('mouseleave', function() {
-      if (!isMobile()) {
-        titleDiv.textContent = '';
-        titleDiv.style.opacity = '0';
-        titleDiv.style.pointerEvents = 'none';
-      }
-    });
-    img.addEventListener('click', function(e) {
-      if (!isMobile()) {
-        openModal(img);
-      }
-    });
+      // Show overlay for this image
+      titleDiv.textContent = img.getAttribute('data-title');
+      titleDiv.style.opacity = '1';
+      titleDiv.style.pointerEvents = 'auto'; // Allow overlay to be clicked
+      lastOverlayImg = img;
+      overlayActive = true;
+    }
+    e.preventDefault();
   });
 
-  // Modal logic
-  const modal = document.getElementById('galleryModal');
-  const modalImg = document.getElementById('modalImg');
-  const modalTitle = document.getElementById('modalTitle');
-  function openModal(img) {
-    modalImg.src = img.src;
-    modalImg.alt = img.alt;
-    modalTitle.textContent = img.getAttribute('data-title');
-    modal.classList.remove('hidden');
-    document.body.classList.add('overflow-hidden');
-  }
-  function closeModal() {
-    modal.classList.add('hidden');
-    document.body.classList.remove('overflow-hidden');
-  }
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) closeModal();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === "Escape") closeModal();
-  });
-
-  // Scroll to top button
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
-      backToTop.classList.add('show');
-    } else {
-      backToTop.classList.remove('show');
+  // Overlay click: open modal
+  titleDiv.addEventListener('click', function(ev) {
+    if (overlayActive && lastOverlayImg === img) {
+      openModal(img);
+      titleDiv.textContent = '';
+      titleDiv.style.opacity = '0';
+      titleDiv.style.pointerEvents = 'none';
+      overlayActive = false;
+      lastOverlayImg = null;
+      ev.stopPropagation();
     }
   });
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+});
+
+// Hide overlay if user clicks outside any image or overlay
+document.body.addEventListener('click', function(ev) {
+  if (
+    overlayActive &&
+    !ev.target.classList.contains('gallery-img') &&
+    !ev.target.classList.contains('gallery-title')
+  ) {
+    if (lastOverlayImg) {
+      const prevTitleDiv = lastOverlayImg.parentElement.querySelector('.gallery-title');
+      prevTitleDiv.textContent = '';
+      prevTitleDiv.style.opacity = '0';
+      prevTitleDiv.style.pointerEvents = 'none';
+    }
+    overlayActive = false;
+    lastOverlayImg = null;
+  }
+}, true);
+
+// Modal logic
+const modal = document.getElementById('galleryModal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+function openModal(img) {
+  modalImg.src = img.src;
+  modalImg.alt = img.alt;
+  modalTitle.textContent = img.getAttribute('data-title');
+  modal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+}
+function closeModal() {
+  modal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+}
+modal.addEventListener('click', function(e) {
+  if (e.target === modal) closeModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === "Escape") closeModal();
+});
+
+// Scroll to top button
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    backToTop.classList.add('show');
+  } else {
+    backToTop.classList.remove('show');
+  }
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
   </script>
 </body>
 </html>
