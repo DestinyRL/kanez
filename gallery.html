@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no viewport-fit=cover">
+  <title>Gallery | Finest Steel Co.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(120deg, #e0e7ff 0%, #f0fdfa 100%);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .bg-animated {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(circle at 20% 30%, #818cf8 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, #f472b6 0%, transparent 60%);
+      animation: moveBg 10s linear infinite alternate;
+    }
+    @keyframes moveBg {
+      0% { background-position: 20% 30%, 80% 70%; }
+      100% { background-position: 30% 40%, 70% 60%; }
+    }
+    html { scroll-behavior: smooth; }
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #6366f1;
+      color: #fff;
+      border-radius: 9999px;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    #backToTop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800">
+  <div class="bg-animated"></div>
+  <header class="bg-white/80 backdrop-blur shadow-md sticky top-0 z-20">
+    <div class="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
+      <div class="flex items-center space-x-3">
+        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-indigo-500 shadow">
+          <img src="indigo.jpg" alt="Finest Steel Logo" class="object-cover w-full h-full">
+        </div>
+        <span class="text-xl font-bold text-indigo-700">Finest Steel & accessories limited.</span>
+      </div>
+      <nav class="hidden md:flex space-x-6 nav-links bg-white/90 rounded-xl shadow px-4 py-2">
+        <a href="index.html#about" class="block text-base font-semibold text-indigo-700 px-4 py-2 rounded-lg border-l-8 border-indigo-200 hover:bg-indigo-50 transition text-center">About</a>
+        <a href="index.html#services" class="block text-base font-semibold text-pink-600 px-4 py-2 rounded-lg border-l-8 border-pink-200 hover:bg-pink-50 transition text-center">Services</a>
+        <a href="index.html#projects" class="block text-base font-semibold text-yellow-700 px-4 py-2 rounded-lg border-l-8 border-yellow-200 hover:bg-yellow-50 transition text-center">Products</a>
+        <a href="index.html#contact" class="block text-base font-semibold text-green-700 px-4 py-2 rounded-lg border-l-8 border-green-200 hover:bg-green-50 transition text-center">Contact</a>
+        <a href="gallery.html" class="block text-base font-semibold text-purple-700 px-4 py-2 rounded-lg border-l-8 border-purple-200 bg-purple-50 hover:bg-purple-100 transition text-center">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container max-w-4xl mx-auto px-2 py-8">
+    <a href="index.html#projects" class="inline-block mb-6 text-indigo-600 hover:text-pink-500 transition font-semibold">&larr; Back to Products</a>
+    <h2 class="text-2xl md:text-3xl font-bold text-indigo-700 mb-2 text-center">Gallery</h2>
+    <p class="text-center text-gray-700 mb-6">
+      Browse through our past projects and products to get an insight or inspiration.<br>
+      You can contact us once you have an idea and we would make your idea come to life.
+    </p>
+
+    <!-- WROUGHT IRON DESIGNS -->
+    <details class="category-dropdown mb-6 bg-white/80 rounded-lg shadow" open>
+      <summary class="cursor-pointer flex items-center justify-between px-4 py-3 font-semibold text-lg text-indigo-700 select-none">
+        Wrought Iron Designs
+        <svg class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 gallery-grid">
+        <div class="relative group">
+          <img src="wroughtieondesign1.jpg" alt="Wrought Iron Design 1" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Design 1" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtirondesign2.jpg" alt="Wrought Iron Design 2" class="w-full h-72 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Design 2" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtirondesign3.jpg" alt="Wrought Iron Design 3" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Design 3" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtirondesign4.jpg" alt="Wrought Iron Design 4" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Design 4" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtirondesign5.jpg" alt="Wrought Iron Design 5" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Design 5" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtirondesign6.jpg" alt="Wrought Iron Design 6" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Design 6" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtirondesign7.jpg" alt="Wrought Iron Design 7" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Design 7" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtirondesign8.jpg" alt="Wrought Iron Design 8" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Design 8" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtironpickets&panels1.jpg" alt="Wrought Iron Pickets and Panels 1" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Pickets and Panels 1" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtironpickets&panels2.jpg" alt="Wrought Iron Pickets and Panels 2" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Pickets and Panels 2" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtironpickets&panels3.jpg" alt="Wrought Iron Pickets and Panels 3" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Pickets and Panels 3" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtironpickets&panels4.jpg" alt="Wrought Iron Pickets and Panels 4" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Pickets and Panels 4" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="wroughtironrosettes.jpg" alt="Wrought Iron Rosettes" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Rosettes" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- WROUGHT IRON GATES -->
+    <details class="category-dropdown mb-6 bg-white/80 rounded-lg shadow">
+      <summary class="cursor-pointer flex items-center justify-between px-4 py-3 font-semibold text-lg text-yellow-700 select-none">
+        Wrought Iron Gates
+        <svg class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 gallery-grid">
+        <div class="relative group">
+          <img src="gatedesign1.jpg" alt="Wrought Iron Gate 1" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Gate 1" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="gatedesign2.jpg" alt="Wrought Iron Gate 2" class="w-full h-80 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Gate 2" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="gatedesign3.jpg" alt="Wrought Iron Gate 3" class="w-full h-80 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Gate 3" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="gatedesign4.jpg" alt="Wrought Iron Gate 4" class="w-full h-80 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Gate 4" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="gatedesign5.jpg" alt="Wrought Iron Gate 5" class="w-full h-80 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Gate 5" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="gatedesign6.jpg" alt="Wrought Iron Gate 6" class="w-full h-80 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Gate 6" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="gatedesign7.jpg" alt="Wrought Iron Gate 7" class="w-full h-80 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Gate 7" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="gatedesign8.jpg" alt="Wrought Iron Gate 8" class="w-full h-80 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Gate 8" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="gatedesign9.jpg" alt="Wrought Iron Gate 9" class="w-full h-80 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Wrought Iron Gate 9" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="gatehandles.jpg" alt="Gate Handles" class="w-full h-80 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Gate Handles" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- WROUGHT IRON STAIRCASES -->
+    <details class="category-dropdown mb-6 bg-white/80 rounded-lg shadow">
+      <summary class="cursor-pointer flex items-center justify-between px-4 py-3 font-semibold text-lg text-green-700 select-none">
+        Wrought Iron Staircases
+        <svg class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 gallery-grid">
+        <div class="relative group">
+          <img src="staircases.jpeg" alt="Staircase 1" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 1" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairdesign1.jpg" alt="Staircase 2" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 2" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairdesign2.jpg" alt="Staircase 3" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 3" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairdesign3.jpg" alt="Staircase 4" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 4" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairdesign4.jpg" alt="Staircase 5" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 5" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairdesign5.jpg" alt="Staircase 6" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 6" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairdesign6.jpg" alt="Staircase 7" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 7" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairdesign7.jpg" alt="Staircase 8" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 8" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairdesign8.jpg" alt="Staircase 9" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 9" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairdesign9.jpg" alt="Staircase 10" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 10" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairdesign10.jpg" alt="Staircase 11" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 11" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="stairs.jpg" alt="Staircase 12" class="w-full h-56 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Staircase 12" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- WROUGHT IRON RAILINGS -->
+    <details class="category-dropdown mb-6 bg-white/80 rounded-lg shadow">
+      <summary class="cursor-pointer flex items-center justify-between px-4 py-3 font-semibold text-lg text-pink-700 select-none">
+        Wrought Iron Railings
+        <svg class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 gallery-grid">
+        <div class="relative group">
+          <img src="design1.jpg" alt="Railing Design 1" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 1" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="design2.jpg" alt="Railing Design 2" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 2" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="design3.jpg" alt="Railing Design 3" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 3" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="design4.jpg" alt="Railing Design 4" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 4" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="design5.jpg" alt="Railing Design 5" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 5" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="design6.jpg" alt="Railing Design 6" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 6" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="design7.jpg" alt="Railing Design 7" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 7" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="design8.jpg" alt="Railing Design 8" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 8" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="design9.jpg" alt="Railing Design 9" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 9" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="design10.jpg" alt="Railing Design 10" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 10" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="des.jpg" alt="Railing Design 11" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 11" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- LASERPLATES DESIGN -->
+    <details class="category-dropdown mb-6 bg-white/80 rounded-lg shadow">
+      <summary class="cursor-pointer flex items-center justify-between px-4 py-3 font-semibold text-lg text-purple-700 select-none">
+        Laserplates Design
+        <svg class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 gallery-grid">
+        <div class="relative group">
+          <img src="laser1.jpg" alt="Laserplate Design 1" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Laserplate Design 1" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="laser2.jpg" alt="Laserplate Design 2" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Laserplate Design 2" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="laser3.jpg" alt="Laserplate Design 3" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Laserplate Design 3" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="laser4.jpg" alt="Laserplate Design 4" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Laserplate Design 4" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="laser5.jpg" alt="Laserplate Design 5" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Laserplate Design 5" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="laser6.jpg" alt="Laserplate Design 6" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Laserplate Design 6" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="laser7.jpg" alt="Laserplate Design 7" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Laserplate Design 7" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="laserdrawings.jpg" alt="Laserplate Drawings" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Laserplate Drawings" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- IRON FOR CONSTRUCTION/REINFORCEMENT MATERIALS -->
+    <details class="category-dropdown mb-6 bg-white/80 rounded-lg shadow">
+      <summary class="cursor-pointer flex items-center justify-between px-4 py-3 font-semibold text-lg text-blue-700 select-none">
+        Iron for Construction/Reinforcement Materials
+        <svg class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 gallery-grid">
+        <div class="relative group">
+          <img src="Hbeams.webp" alt="H-Beams/IPEs/RSJs" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="H-Beams/IPEs/RSJs" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="cleats.jpg" alt="Cleats" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Cleats" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="zedpurlins.webp" alt="Zed Purlins" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Zed Purlins" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="baseplate.webp" alt="Base Plates" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Base Plates" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="uchannels.jpeg" alt="U-Channels" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="U-Channels" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="foundationrods.jpeg" alt="Foundation Rods" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Foundation Rods" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="columnbeams.webp" alt="Column Beams" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Column Beams" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="bolts&nuts.webp" alt="Bolts and Nuts" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Bolts and Nuts" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="angleirons.webp" alt="Angle Irons" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Angle Irons" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="hotrolledsheets.webp" alt="Hot Rolled Sheets" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Hot Rolled Sheets" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="cold-rolled-sheet.jpg" alt="Cold Rolled Sheets" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Cold Rolled Sheets" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- WELDING AND ACCESSORIES -->
+    <details class="category-dropdown mb-6 bg-white/80 rounded-lg shadow">
+      <summary class="cursor-pointer flex items-center justify-between px-4 py-3 font-semibold text-lg text-fuchsia-700 select-none">
+        Welding and Accessories
+        <svg class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 gallery-grid">
+        <div class="relative group">
+          <img src="maxmechweldinggenerator.JPG" alt="Maxmech Welding Generator" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Maxmech Welding Generator" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="anglegrinder.jpg" alt="Bosch Angle Grinder" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Bosch Angle Grinder" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="doorhandlesqiek.JPG" alt="Door Handle (Sqiek)" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Door Handle (Sqiek)" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="doorhandlesothis.JPG" alt="Door Handle (Othis)" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Door Handle (Othis)" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="homeflower9.jpg" alt="9inch Homeflower Cutting Disc" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="9inch Homeflower Cutting Disc" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="g12stonebridge electrode.JPG" alt="G12 Stonebridge Electrode" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="G12 Stonebridge Electrode" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="Saffirecutter.JPG" alt="Saffire Cutter" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Saffire Cutter" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="saffireregulator.JPG" alt="Saffire Regulator" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Saffire Regulator" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="beanddecker.JPG" alt="BeandDecker Mini-250amps Welding Machine" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="BeandDecker Mini-250amps Welding Machine" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="irontyres.JPG" alt="Iron Tyres" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Iron Tyres" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="oxygenregulator.JPG" alt="Oxygen Regulator" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Oxygen Regulator" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="Butterflyhinges.JPG" alt="Butterfly Hinges" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Butterfly Hinges" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="toolbox.jpg" alt="Dewalt Toolbox" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Dewalt Toolbox" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="mma250.jpg" alt="MMA 250Amps Maxmech Inverter Welding Machine" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="MMA 250Amps Maxmech Inverter Welding Machine" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="totalspray.jpg" alt="Total Spray Gun (450w)" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Total Spray Gun (450w)" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="mma300.jpg" alt="MMA 300Amps Maxmech Inverter Welding Machine" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="MMA 300Amps Maxmech Inverter Welding Machine" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="mini200.jpg" alt="Mini-200Amps Maxmech Welding Machine" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Mini-200Amps Maxmech Welding Machine" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="mma200.jpg" alt="MMA 200Amps Maxmech Welding Machine" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="MMA 200Amps Maxmech Welding Machine" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="circlerossete.jpg" alt="Biggest Circle Rosette" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Biggest Circle Rosette" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="basketcumbi.jpg" alt="Basket Cumbi" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Basket Cumbi" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="green800.jpg" alt="800Amps Green Electrode Holder" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="800Amps Green Electrode Holder" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="yellow1000.jpg" alt="1000Amps Yellow Electrode Holder" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="1000Amps Yellow Electrode Holder" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="elephant800.jpg" alt="800Amps Elephant Electrode Holder" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="800Amps Elephant Electrode Holder" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="powerflex9.jpg" alt="9inch Powerflex Grinding Disc (5pcs Pack)" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="9inch Powerflex Grinding Disc (5pcs Pack)" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="powerflex7.jpg" alt="7inch Powerflex Grinding Disc (5pcs Pack)" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="7inch Powerflex Grinding Disc (5pcs Pack)" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="homeflower9.jpg" alt="9inch Homeflower Cutting Disc (10pcs Pack)" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="9inch Homeflower Cutting Disc (10pcs Pack)" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="tigerforce9.jpg" alt="9inch Tigerforce Cutting Disc (10pcs Pack)" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="9inch Tigerforce Cutting Disc (10pcs Pack)" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Modal for image preview -->
+    <div id="galleryModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
+      <div class="relative max-w-full max-h-full flex flex-col items-center justify-center">
+        <img id="modalImg" src="" alt="" class="rounded-lg shadow-lg max-h-[80vh] w-auto max-w-[95vw] object-contain border-4 border-white" />
+        <div id="modalTitle" class="w-full text-center text-white text-xl font-bold bg-black/70 py-3 rounded-b-lg mt-2"></div>
+        <button onclick="closeModal()" class="absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg text-lg font-bold">&times;</button>
+      </div>
+    </div>
+  </main>
+
+  <button id="backToTop" title="Go to top">&uarr;</button>
+
+  <footer class="bg-indigo-700 text-white text-center py-4">
+    &copy; 2025 FinestSteel Limited. All rights reserved.
+  </footer>
+
+  <script>
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
+
+  // Desktop: hover shows overlay, click opens modal (if you have a modal)
+  document.querySelectorAll('.gallery-img').forEach(img => {
+    const titleDiv = img.parentElement.querySelector('.gallery-title');
+    img.addEventListener('mouseenter', function() {
+      if (!isMobile()) {
+        titleDiv.textContent = img.getAttribute('data-title');
+        titleDiv.style.opacity = '1';
+        titleDiv.style.pointerEvents = 'auto';
+      }
+    });
+    img.addEventListener('mouseleave', function() {
+      if (!isMobile()) {
+        titleDiv.textContent = '';
+        titleDiv.style.opacity = '0';
+        titleDiv.style.pointerEvents = 'none';
+      }
+    });
+    img.addEventListener('click', function(e) {
+      if (!isMobile()) {
+        openModal(img);
+      }
+    });
+  });
+
+  // Modal logic
+  const modal = document.getElementById('galleryModal');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  function openModal(img) {
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    modalTitle.textContent = img.getAttribute('data-title');
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  }
+  function closeModal() {
+    modal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") closeModal();
+  });
+
+  // Scroll to top button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  </script>
+</body>
+</html>
