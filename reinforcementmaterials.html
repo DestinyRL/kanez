@@ -110,7 +110,7 @@
       <a href="index.html#services" class="block text-lg font-semibold text-pink-600 py-3 rounded-lg hover:bg-pink-50 border-l-8 border-pink-200 transition text-center">Services</a>
       <a href="index.html#projects" class="block text-lg font-semibold text-yellow-700 py-3 rounded-lg hover:bg-yellow-50 border-l-8 border-yellow-200 transition text-center">Products</a>
       <a href="index.html#contact" class="block text-lg font-semibold text-green-700 py-3 rounded-lg hover:bg-green-50 border-l-8 border-green-200 transition text-center">Contact</a>
-      <a href="#gallery" class="block text-lg font-semibold text-purple-700 py-3 rounded-lg hover:bg-purple-50 border-l-8 border-purple-200 transition text-center">Gallery</a>
+      <a href="gallery.html" class="block text-lg font-semibold text-purple-700 py-3 rounded-lg hover:bg-purple-50 border-l-8 border-purple-200 transition text-center">Gallery</a>
     </nav>
   </div>
   <header class="bg-white/80 backdrop-blur shadow-md sticky top-0 z-20">
@@ -154,29 +154,25 @@
       </div>
       <div class="category-page mb-6">
         <p class="category-intro mb-4 text-gray-700">
-          Explore our wide range of Reinforcement Materials. Tap a product to chat with us on WhatsApp.
+          Explore our wide range of Reinforcement Materials. Tap a product to view it in full screen.
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Base%20Plates%20from%20https%3A%2F%2Ffineststeelng.com%2Freinforcementmaterials.html"
-             target="_blank" class="category-item flex flex-col items-center bg-indigo-50 rounded-lg p-4 hover:bg-indigo-100 transition shadow">
-            <img src="baseplate.webp" alt="Base Plates" class="w-full h-48 object-cover rounded mb-2">
+        <div id="reinforcementGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="reinforcement-img group flex flex-col items-center cursor-pointer" data-title="Base Plates">
+            <img src="baseplate.webp" alt="Base Plates" class="w-full h-48 object-cover rounded mb-2 bg-gray-200" />
             <h3 class="font-semibold text-indigo-700">Base Plates</h3>
-          </a>
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Foundation%20Rods%20from%20https%3A%2F%2Ffineststeelng.com%2Freinforcementmaterials.html"
-             target="_blank" class="category-item flex flex-col items-center bg-pink-50 rounded-lg p-4 hover:bg-pink-100 transition shadow">
-            <img src="foundationrods.jpeg" alt="Foundation Rods" class="w-full h-48 object-cover rounded mb-2">
+          </div>
+          <div class="reinforcement-img group flex flex-col items-center cursor-pointer" data-title="Foundation Rods">
+            <img src="foundationrods.jpeg" alt="Foundation Rods" class="w-full h-48 object-cover rounded mb-2 bg-gray-200" />
             <h3 class="font-semibold text-pink-600">Foundation Rods</h3>
-          </a>
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Bolts%20and%20Nuts%20from%20https%3A%2F%2Ffineststeelng.com%2Freinforcementmaterials.html"
-             target="_blank" class="category-item flex flex-col items-center bg-yellow-50 rounded-lg p-4 hover:bg-yellow-100 transition shadow">
-            <img src="bolts&nuts.webp" alt="Bolts&Nuts" class="w-full h-48 object-cover rounded mb-2">
-            <h3 class="font-semibold text-yellow-700">Bolts&Nuts</h3>
-          </a>
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Cleats%20from%20https%3A%2F%2Ffineststeelng.com%2Freinforcementmaterials.html"
-             target="_blank" class="category-item flex flex-col items-center bg-green-50 rounded-lg p-4 hover:bg-green-100 transition shadow">
-            <img src="cleats.jpg" alt="Cleats" class="w-full h-48 object-cover rounded mb-2">
+          </div>
+          <div class="reinforcement-img group flex flex-col items-center cursor-pointer" data-title="Bolts & Nuts">
+            <img src="bolts&nuts.webp" alt="Bolts & Nuts" class="w-full h-48 object-cover rounded mb-2 bg-gray-200" />
+            <h3 class="font-semibold text-yellow-700">Bolts & Nuts</h3>
+          </div>
+          <div class="reinforcement-img group flex flex-col items-center cursor-pointer" data-title="Cleats">
+            <img src="cleats.jpg" alt="Cleats" class="w-full h-48 object-cover rounded mb-2 bg-gray-200" />
             <h3 class="font-semibold text-green-700">Cleats</h3>
-          </a>
+          </div>
         </div>
       </div>
       <section class="product-contact mt-8">
@@ -201,6 +197,91 @@
 
   <button id="backToTop" title="Go to top" class="fixed bottom-6 right-6 bg-indigo-600 hover:bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg text-2xl transition z-30 hidden">&uarr;</button>
 
+  <!-- Modal for image preview with arrows -->
+<div id="reinforcementModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden">
+  <button id="reinforcementPrev" aria-label="Previous image"
+    class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-r-lg p-3 text-3xl font-bold z-10 hidden sm:flex">
+    &#8592;
+  </button>
+  <div class="relative max-w-full max-h-full flex flex-col items-center justify-center w-full h-full">
+    <img id="reinforcementModalImg" src="" alt="" class="rounded-lg shadow-lg object-contain border-4 border-white
+      max-h-[80vh] w-auto max-w-[95vw]
+      sm:max-h-[80vh] sm:w-auto sm:max-w-[95vw]" />
+    <div id="reinforcementModalTitle" class="w-full text-center text-white text-xl font-bold bg-black/70 py-3 rounded-b-lg mt-2"></div>
+    <button id="reinforcementCloseBtn" class="absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg text-lg font-bold z-20">&times;</button>
+  </div>
+  <button id="reinforcementNext" aria-label="Next image"
+    class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-l-lg p-3 text-3xl font-bold z-10 hidden sm:flex">
+    &#8594;
+  </button>
+  <!-- Mobile arrows -->
+  <button id="reinforcementPrevMobile" aria-label="Previous image"
+    class="fixed left-0 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-r-lg p-3 text-3xl font-bold z-30 sm:hidden">
+    &#8592;
+  </button>
+  <button id="reinforcementNextMobile" aria-label="Next image"
+    class="fixed right-0 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-l-lg p-3 text-3xl font-bold z-30 sm:hidden">
+    &#8594;
+  </button>
+</div>
+<style>
+  @media (max-width: 767px) {
+    #reinforcementModal {
+      align-items: stretch !important;
+      justify-content: stretch !important;
+    }
+    #reinforcementModal .relative {
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+    }
+    #reinforcementModalImg {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      object-fit: contain !important;
+      border-radius: 0 !important;
+      border: none !important;
+      background: #000 !important;
+      z-index: 100;
+    }
+    #reinforcementModalTitle {
+      position: fixed !important;
+      bottom: 0;
+      left: 0;
+      width: 100vw !important;
+      background: rgba(0,0,0,0.7) !important;
+      border-radius: 0 !important;
+      margin-top: 0 !important;
+      z-index: 101;
+    }
+    #reinforcementCloseBtn {
+      position: fixed !important;
+      top: 10px !important;
+      right: 10px !important;
+      z-index: 102;
+    }
+    #reinforcementPrevMobile, #reinforcementNextMobile {
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      height: 60px !important;
+      width: 60px !important;
+      font-size: 2.5rem !important;
+      background: rgba(0,0,0,0.7) !important;
+      border-radius: 0 20px 20px 0 !important;
+      z-index: 102;
+    }
+    #reinforcementNextMobile {
+      border-radius: 20px 0 0 20px !important;
+    }
+  }
+</style>
   <script>
   // Hamburger and mobile nav logic
   const hamburger = document.getElementById('hamburger');
@@ -244,6 +325,118 @@
   });
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Modal logic for reinforcement images
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const reinforcementImgs = Array.from(document.querySelectorAll('.reinforcement-img'));
+    const reinforcementModal = document.getElementById('reinforcementModal');
+    const reinforcementModalImg = document.getElementById('reinforcementModalImg');
+    const reinforcementModalTitle = document.getElementById('reinforcementModalTitle');
+    const reinforcementPrev = document.getElementById('reinforcementPrev');
+    const reinforcementNext = document.getElementById('reinforcementNext');
+    const reinforcementPrevMobile = document.getElementById('reinforcementPrevMobile');
+    const reinforcementNextMobile = document.getElementById('reinforcementNextMobile');
+    const reinforcementCloseBtn = document.getElementById('reinforcementCloseBtn');
+    let currentReinforcementIndex = -1;
+
+    function showReinforcementModalImage(idx) {
+      currentReinforcementIndex = idx;
+      const imgDiv = reinforcementImgs[currentReinforcementIndex];
+      const imgTag = imgDiv.querySelector('img');
+      reinforcementModalImg.src = imgTag.src;
+      reinforcementModalImg.alt = imgTag.alt;
+      reinforcementModalTitle.textContent = imgDiv.getAttribute('data-title') || imgTag.alt || '';
+      updateReinforcementModalImageSize();
+      updateReinforcementArrowVisibility();
+    }
+
+    function openReinforcementModal(idx) {
+      showReinforcementModalImage(idx);
+      reinforcementModal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      updateReinforcementModalImageSize();
+    }
+
+    function closeReinforcementModal() {
+      reinforcementModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function showReinforcementPrevImage() {
+      if (currentReinforcementIndex > 0) {
+        showReinforcementModalImage(currentReinforcementIndex - 1);
+      }
+    }
+    function showReinforcementNextImage() {
+      if (currentReinforcementIndex < reinforcementImgs.length - 1) {
+        showReinforcementModalImage(currentReinforcementIndex + 1);
+      }
+    }
+
+    reinforcementPrev && reinforcementPrev.addEventListener('click', e => { e.stopPropagation(); showReinforcementPrevImage(); });
+    reinforcementNext && reinforcementNext.addEventListener('click', e => { e.stopPropagation(); showReinforcementNextImage(); });
+    reinforcementPrevMobile && reinforcementPrevMobile.addEventListener('click', e => { e.stopPropagation(); showReinforcementPrevImage(); });
+    reinforcementNextMobile && reinforcementNextMobile.addEventListener('click', e => { e.stopPropagation(); showReinforcementNextImage(); });
+
+    reinforcementCloseBtn && reinforcementCloseBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeReinforcementModal();
+    });
+
+    reinforcementModal.addEventListener('click', function(e) {
+      if (e.target === reinforcementModal) closeReinforcementModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!reinforcementModal.classList.contains('hidden')) {
+        if (e.key === "Escape") closeReinforcementModal();
+        if (e.key === "ArrowLeft") showReinforcementPrevImage();
+        if (e.key === "ArrowRight") showReinforcementNextImage();
+      }
+    });
+
+    function updateReinforcementModalImageSize() {
+      if (isMobile()) {
+        reinforcementModalImg.classList.add('fixed', 'inset-0', 'w-full', 'h-full', 'max-w-none', 'max-h-none', 'rounded-none', 'border-0');
+      } else {
+        reinforcementModalImg.classList.remove('fixed', 'inset-0', 'w-full', 'h-full', 'max-w-none', 'max-h-none', 'rounded-none', 'border-0');
+      }
+    }
+    window.addEventListener('resize', updateReinforcementModalImageSize);
+    reinforcementModalImg.addEventListener('load', updateReinforcementModalImageSize);
+
+    function updateReinforcementArrowVisibility() {
+      if (isMobile()) {
+        reinforcementPrev && (reinforcementPrev.style.display = 'none');
+        reinforcementNext && (reinforcementNext.style.display = 'none');
+        reinforcementPrevMobile && (reinforcementPrevMobile.style.display = 'block');
+        reinforcementNextMobile && (reinforcementNextMobile.style.display = 'block');
+      } else {
+        reinforcementPrev && (reinforcementPrev.style.display = 'flex');
+        reinforcementNext && (reinforcementNext.style.display = 'flex');
+        reinforcementPrevMobile && (reinforcementPrevMobile.style.display = 'none');
+        reinforcementNextMobile && (reinforcementNextMobile.style.display = 'none');
+      }
+    }
+    window.addEventListener('resize', updateReinforcementArrowVisibility);
+    document.addEventListener('DOMContentLoaded', updateReinforcementArrowVisibility);
+
+    reinforcementImgs.forEach((imgDiv, idx) => {
+      imgDiv.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openReinforcementModal(idx);
+      });
+      const imgTag = imgDiv.querySelector('img');
+      imgTag.style.cursor = 'pointer';
+      imgTag.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openReinforcementModal(idx);
+      });
+    });
   });
 </script>
 </body>
