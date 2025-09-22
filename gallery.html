@@ -49,6 +49,128 @@
       opacity: 1;
       pointer-events: auto;
     }
+    #hamburger {
+      display: flex;
+      flex-direction: column;
+     
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 40;
+    }
+    #hamburger .bar1,
+    #hamburger .bar2,
+    #hamburger .bar3 {
+      border-radius: 9999px;
+      height: 4px;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #hamburger.open .bar1 {
+      transform: translateY(8px) rotate(45deg);
+      background: #f472b6;
+    }
+    #hamburger.open .bar2 {
+      opacity: 0;
+      transform: scaleX(0.5);
+    }
+    #hamburger.open .bar3 {
+      transform: translateY(-8px) rotate(-45deg);
+      background: #818cf8;
+    }
+    #mobileNavWrapper {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #mobileNavWrapper.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #mobileNav {
+      transform: translateX(60px) scale(0.95);
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #mobileNav.open {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+    #mobileNav > a {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #mobileNav.open > a {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    #mobileNav.open > a:nth
+    #mobileNav.open > a:nth-child(2) { transition-delay: 0.25s; }
+    #mobileNav.open > a:nth-child(3) { transition-delay: 0.35s; }
+    #mobileNav.open > a:nth-child(4) { transition-delay: 0.45s; }
+    #mobileOverlay.open {
+      pointer-events: auto;
+      opacity: 1;
+    }
+    @media (max-width: 767px) {
+  #galleryModal {
+    align-items: stretch !important;
+    justify-content: stretch !important;
+  }
+  #galleryModal .relative {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+  #modalImg {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    object-fit: contain !important;
+    border-radius: 0 !important;
+    border: none !important;
+    background: #000 !important;
+    z-index: 100;
+  }
+  #modalTitle {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    width: 100vw !important;
+    background: rgba(0,0,0,0.7) !important;
+    border-radius: 0 !important;
+    margin-top: 0 !important;
+    z-index: 101;
+  }
+  #galleryModal button[onclick="closeModal()"] {
+    position: fixed !important;
+    top: 10px !important;
+    right: 10px !important;
+    z-index: 102;
+  }
+  #galleryPrevMobile, #galleryNextMobile {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: 60px !important;
+    width: 60px !important;
+    font-size: 2.5rem !important;
+    background: rgba(0,0,0,0.7) !important;
+    border-radius: 0 20px 20px 0 !important;
+    z-index: 102;
+  }
+  #galleryNextMobile {
+    border-radius: 20px 0 0 20px !important;
+  }
+}
   </style>
 </head>
 <body class="font-sans text-gray-800">
@@ -61,12 +183,32 @@
         </div>
         <span class="text-xl font-bold text-indigo-700">Finest Steel & accessories limited.</span>
       </div>
+      <div class="md:hidden">
+        <button id="hamburger" class="flex flex-col space-y-1 relative z-30 group" aria-label="Toggle navigation">
+          <span class="bar1 block w-6 h-0.5 bg-indigo-700 transition-all duration-300"></span>
+          <span class="bar2 block w-6 h-0.5 bg-indigo-700 transition-all duration-300"></span>
+          <span class="bar3 block w-6 h-0.5 bg-indigo-700 transition-all duration-300"></span>
+        </button>
+      </div>
+            <!-- ...existing code... -->
       <nav class="hidden md:flex space-x-6 nav-links bg-white/90 rounded-xl shadow px-4 py-2">
         <a href="index.html#about" class="block text-base font-semibold text-indigo-700 px-4 py-2 rounded-lg border-l-8 border-indigo-200 hover:bg-indigo-50 transition text-center">About</a>
         <a href="index.html#services" class="block text-base font-semibold text-pink-600 px-4 py-2 rounded-lg border-l-8 border-pink-200 hover:bg-pink-50 transition text-center">Services</a>
         <a href="index.html#projects" class="block text-base font-semibold text-yellow-700 px-4 py-2 rounded-lg border-l-8 border-yellow-200 hover:bg-yellow-50 transition text-center">Products</a>
         <a href="index.html#contact" class="block text-base font-semibold text-green-700 px-4 py-2 rounded-lg border-l-8 border-green-200 hover:bg-green-50 transition text-center">Contact</a>
-        <a href="gallery.html" class="block text-base font-semibold text-purple-700 px-4 py-2 rounded-lg border-l-8 border-purple-200 bg-purple-50 hover:bg-purple-100 transition text-center">Gallery</a>
+        <a href="gallery.html" class="block text-base font-semibold text-purple-700 px-4 py-2 rounded-lg border-l-8 border-purple-200 hover:bg-purple-50 transition text-center">Gallery</a>
+      </nav>
+      <!-- ...existing code... -->
+    </div>
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-20 opacity-0 pointer-events-none transition-opacity duration-500 md:hidden"></div>
+    <div id="mobileNavWrapper" class="fixed inset-0 flex items-start justify-end z-30 md:hidden hidden">
+      <nav id="mobileNav" class="w-72 max-h-[90vh] overflow-y-auto bg-white/95 rounded-2xl shadow-2xl flex flex-col items-stretch px-6 py-8 space-y-4 mt-4 transition-all duration-500">
+        <a href="index.html#about" class="block text-lg font-semibold text-indigo-700 py-3 rounded-lg hover:bg-indigo-50 border-l-8 border-indigo-200 transition text-center">About</a>
+        <a href="index.html#services" class="block text-lg font-semibold text-pink-600 py-3 rounded-lg hover:bg-pink-50 border-l-8 border-pink-200 transition text-center">Services</a>
+        <a href="index.html#projects" class="block text-lg font-semibold text-yellow-700 py-3 rounded-lg hover:bg-yellow-50 border-l-8 border-yellow-200 transition text-center">Products</a>
+        <a href="index.html#contact" class="block text-lg font-semibold text-green-700 py-3 rounded-lg hover:bg-green-50 border-l-8 border-green-200 transition text-center">Contact</a>
+        <!-- Mobile Nav -->
+        <a href="#gallery" class="block text-lg font-semibold text-purple-700 py-3 rounded-lg hover:bg-purple-50 border-l-8 border-purple-200 transition text-center">Gallery</a>
       </nav>
     </div>
   </header>
@@ -304,10 +446,6 @@
           <img src="design10.jpg" alt="Railing Design 10" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 10" />
           <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
         </div>
-        <div class="relative group">
-          <img src="des.jpg" alt="Railing Design 11" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Railing Design 11" />
-          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
-        </div>
       </div>
     </details>
 
@@ -528,16 +666,163 @@
           <img src="tigerforce9.jpg" alt="9inch Tigerforce Cutting Disc (10pcs Pack)" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="9inch Tigerforce Cutting Disc (10pcs Pack)" />
           <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
         </div>
+    </details>
+
+    <!-- Add this new dropdown after the last <details> or wherever you want in the gallery list -->
+    <details class="category-dropdown mb-6 bg-white/80 rounded-lg shadow">
+      <summary class="cursor-pointer flex items-center justify-between px-4 py-3 font-semibold text-lg text-blue-900 select-none">
+        Wrought Iron Materials
+        <svg class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 gallery-grid">
+        <div class="relative group">
+          <img src="material1.jpg" alt="Material 1" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 1" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material2.jpg" alt="Material 2" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 2" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material3.jpg" alt="Material 3" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 3" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material4.jpg" alt="Material 4" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 4" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material5.jpg" alt="Material 5" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 5" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material6.jpg" alt="Material 6" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 6" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material7.jpg" alt="Material 7" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 7" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material8.jpg" alt="Material 8" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 8" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material9.jpg" alt="Material 9" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 9" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material10.jpg" alt="Material 10" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 10" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material11.jpg" alt="Material 11" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 11" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material12.jpg" alt="Material 12" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 12" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material13.jpg" alt="Material 13" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 13" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material14.jpg" alt="Material 14" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 14" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material15.jpg" alt="Material 15" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 15" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material16.jpg" alt="Material 16" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 16" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material17.jpg" alt="Material 17" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 17" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material18.jpg" alt="Material 18" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 18" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material19.jpg" alt="Material 19" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 19" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material20.jpg" alt="Material 20" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 20" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material21.jpg" alt="Material 21" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 21" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material22.jpg" alt="Material 22" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 22" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material23.jpg" alt="Material 23" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 23" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material24.jpg" alt="Material 24" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 24" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material25.jpg" alt="Material 25" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 25" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material26.jpg" alt="Material 26" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 26" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material27.jpg" alt="Material 27" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 27" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material28.jpg" alt="Material 28" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 28" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
+        <div class="relative group">
+          <img src="material29.jpg" alt="Material 29" class="w-full h-64 object-cover rounded-lg shadow cursor-pointer gallery-img" data-title="Material 29" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/60 text-white text-lg font-semibold opacity-0 pointer-events-none transition-opacity rounded-lg gallery-title"></div>
+        </div>
       </div>
     </details>
 
-    <!-- Modal for image preview -->
+    <!-- Modal for image preview with arrows -->
     <div id="galleryModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
-      <div class="relative max-w-full max-h-full flex flex-col items-center justify-center">
-        <img id="modalImg" src="" alt="" class="rounded-lg shadow-lg max-h-[80vh] w-auto max-w-[95vw] object-contain border-4 border-white" />
+      <button id="galleryPrev" aria-label="Previous image"
+        class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-r-lg p-3 text-3xl font-bold z-10 hidden sm:flex">
+        &#8592;
+      </button>
+      <div class="relative max-w-full max-h-full flex flex-col items-center justify-center w-full h-full">
+        <img id="modalImg" src="" alt="" class="rounded-lg shadow-lg object-contain border-4 border-white
+          max-h-[80vh] w-auto max-w-[95vw]
+          sm:max-h-[80vh] sm:w-auto sm:max-w-[95vw]
+          mobile:fixed mobile:inset-0 mobile:w-full mobile:h-full mobile:max-w-none mobile:max-h-none mobile:rounded-none mobile:border-0" />
         <div id="modalTitle" class="w-full text-center text-white text-xl font-bold bg-black/70 py-3 rounded-b-lg mt-2"></div>
-        <button onclick="closeModal()" class="absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg text-lg font-bold">&times;</button>
+        <button onclick="closeModal()" class="absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg text-lg font-bold z-20">&times;</button>
       </div>
+      <button id="galleryNext" aria-label="Next image"
+        class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-l-lg p-3 text-3xl font-bold z-10 hidden sm:flex">
+        &#8594;
+      </button>
+      <!-- Mobile arrows -->
+      <button id="galleryPrevMobile" aria-label="Previous image"
+        class="fixed left-0 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-r-lg p-3 text-3xl font-bold z-30 sm:hidden">
+        &#8592;
+      </button>
+      <button id="galleryNextMobile" aria-label="Next image"
+        class="fixed right-0 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-l-lg p-3 text-3xl font-bold z-30 sm:hidden">
+        &#8594;
+      </button>
     </div>
   </main>
 
@@ -552,30 +837,67 @@ function isMobile() {
   return window.innerWidth < 768;
 }
 
+// Hamburger menu toggle (add this block at the top of your <script>)
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+const mobileNavWrapper = document.getElementById('mobileNavWrapper');
+const mobileOverlay = document.getElementById('mobileOverlay');
+
+function closeMobileNav() {
+  hamburger.classList.remove('open');
+  mobileNav.classList.remove('open');
+  mobileNavWrapper.classList.remove('open');
+
+  mobileOverlay.classList.remove('open');
+  setTimeout(() => mobileNavWrapper.classList.add('hidden'), 500);
+}
+
+hamburger?.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+  mobileNavWrapper.classList.toggle('open');
+  mobileOverlay.classList.toggle('open');
+  if (mobileNavWrapper.classList.contains('open')) {
+    mobileNavWrapper.classList.remove('hidden');
+  } else {
+    setTimeout(() => mobileNavWrapper.classList.add('hidden'), 500);
+  }
+});
+
+mobileOverlay?.addEventListener('click', closeMobileNav);
+mobileNav?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeMobileNav);
+});
+
+// ...rest of your existing script...
+// (keep all your gallery modal and arrow logic below this)
+</script>
+  <script>
+function isMobile() {
+  return window.innerWidth < 768;
+}
+
 let lastOverlayImg = null;
 let overlayActive = false;
 
-document.querySelectorAll('.gallery-img').forEach(img => {
+// Gather all gallery images in order
+const galleryImgs = Array.from(document.querySelectorAll('.gallery-img'));
+let currentIndex = -1;
+
+document.querySelectorAll('.gallery-img').forEach((img, idx) => {
   const titleDiv = img.parentElement.querySelector('.gallery-title');
 
-  // Remove hover events for mobile-like click behavior everywhere
-  img.removeEventListener('mouseenter', () => {});
-  img.removeEventListener('mouseleave', () => {});
-
   img.addEventListener('click', function(e) {
-    // If overlay is not active or this is a different image
     if (!overlayActive || lastOverlayImg !== img) {
-      // Hide previous overlay if any
       if (lastOverlayImg) {
         const prevTitleDiv = lastOverlayImg.parentElement.querySelector('.gallery-title');
         prevTitleDiv.textContent = '';
         prevTitleDiv.style.opacity = '0';
         prevTitleDiv.style.pointerEvents = 'none';
       }
-      // Show overlay for this image
       titleDiv.textContent = img.getAttribute('data-title');
       titleDiv.style.opacity = '1';
-      titleDiv.style.pointerEvents = 'auto'; // Allow overlay to be clicked
+      titleDiv.style.pointerEvents = 'auto';
       lastOverlayImg = img;
       overlayActive = true;
     }
@@ -585,7 +907,7 @@ document.querySelectorAll('.gallery-img').forEach(img => {
   // Overlay click: open modal
   titleDiv.addEventListener('click', function(ev) {
     if (overlayActive && lastOverlayImg === img) {
-      openModal(img);
+      openModal(idx);
       titleDiv.textContent = '';
       titleDiv.style.opacity = '0';
       titleDiv.style.pointerEvents = 'none';
@@ -614,27 +936,88 @@ document.body.addEventListener('click', function(ev) {
   }
 }, true);
 
-// Modal logic
+// Modal logic with navigation
 const modal = document.getElementById('galleryModal');
 const modalImg = document.getElementById('modalImg');
 const modalTitle = document.getElementById('modalTitle');
-function openModal(img) {
+const prevBtn = document.getElementById('galleryPrev');
+const nextBtn = document.getElementById('galleryNext');
+const prevBtnMobile = document.getElementById('galleryPrevMobile');
+const nextBtnMobile = document.getElementById('galleryNextMobile');
+
+function showModalImage(idx) {
+  currentIndex = idx;
+  const img = galleryImgs[currentIndex];
   modalImg.src = img.src;
   modalImg.alt = img.alt;
   modalTitle.textContent = img.getAttribute('data-title');
+}
+
+function openModal(idx) {
+  showModalImage(idx);
   modal.classList.remove('hidden');
   document.body.classList.add('overflow-hidden');
 }
+
 function closeModal() {
   modal.classList.add('hidden');
   document.body.classList.remove('overflow-hidden');
 }
+
+function showPrevImage() {
+  if (currentIndex > 0) {
+    showModalImage(currentIndex - 1);
+  }
+}
+function showNextImage() {
+  if (currentIndex < galleryImgs.length - 1) {
+    showModalImage(currentIndex + 1);
+  }
+}
+
+prevBtn && prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrevImage(); });
+nextBtn && nextBtn.addEventListener('click', e => { e.stopPropagation(); showNextImage(); });
+prevBtnMobile && prevBtnMobile.addEventListener('click', e => { e.stopPropagation(); showPrevImage(); });
+nextBtnMobile && nextBtnMobile.addEventListener('click', e => { e.stopPropagation(); showNextImage(); });
+
 modal.addEventListener('click', function(e) {
   if (e.target === modal) closeModal();
 });
 document.addEventListener('keydown', function(e) {
-  if (e.key === "Escape") closeModal();
+  if (!modal.classList.contains('hidden')) {
+    if (e.key === "Escape") closeModal();
+    if (e.key === "ArrowLeft") showPrevImage();
+    if (e.key === "ArrowRight") showNextImage();
+  }
 });
+
+// Responsive: full screen image on mobile
+function updateModalImageSize() {
+  if (isMobile()) {
+    modalImg.classList.add('fixed', 'inset-0', 'w-full', 'h-full', 'max-w-none', 'max-h-none', 'rounded-none', 'border-0');
+  } else {
+    modalImg.classList.remove('fixed', 'inset-0', 'w-full', 'h-full', 'max-w-none', 'max-h-none', 'rounded-none', 'border-0');
+  }
+}
+window.addEventListener('resize', updateModalImageSize);
+modalImg.addEventListener('load', updateModalImageSize);
+
+// Show/hide arrows based on device
+function updateArrowVisibility() {
+  if (isMobile()) {
+    prevBtn && (prevBtn.style.display = 'none');
+    nextBtn && (nextBtn.style.display = 'none');
+    prevBtnMobile && (prevBtnMobile.style.display = 'block');
+    nextBtnMobile && (nextBtnMobile.style.display = 'block');
+  } else {
+    prevBtn && (prevBtn.style.display = 'flex');
+    nextBtn && (nextBtn.style.display = 'flex');
+    prevBtnMobile && (prevBtnMobile.style.display = 'none');
+    nextBtnMobile && (nextBtnMobile.style.display = 'none');
+  }
+}
+window.addEventListener('resize', updateArrowVisibility);
+document.addEventListener('DOMContentLoaded', updateArrowVisibility);
 
 // Scroll to top button
 const backToTop = document.getElementById('backToTop');
@@ -651,3 +1034,4 @@ backToTop.addEventListener('click', () => {
   </script>
 </body>
 </html>
+
