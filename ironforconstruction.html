@@ -154,44 +154,39 @@
       </div>
       <div class="category-page mb-6">
         <p class="category-intro mb-4 text-gray-700">
-          Explore our wide range of products. Tap a product to chat with us on WhatsApp.
+          Explore our wide range of products. Tap a product to view it in full screen.
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Zed%20Purlins%20from%20https%3A%2F%2Ffineststeelng.com%2Fironforconstruction.html"
-             target="_blank" class="category-item flex flex-col items-center bg-indigo-50 rounded-lg p-4 hover:bg-indigo-100 transition shadow">
-            <img src="zedpurlins.webp" alt="Zed Purlins" class="w-full h-48 object-cover rounded mb-2">
-            <h3 class="font-semibold text-indigo-700">Zed Purlins</h3>
-          </a>
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20H-Beams%2FIPEs%2FRSJs%20from%20https%3A%2F%2Ffineststeelng.com%2Fironforconstruction.html"
-             target="_blank" class="category-item flex flex-col items-center bg-pink-50 rounded-lg p-4 hover:bg-pink-100 transition shadow">
-            <img src="Hbeams.webp" alt="H-Beams/IPEs/RSJs" class="w-full h-48 object-cover rounded mb-2">
-            <h3 class="font-semibold text-pink-600">H-Beams/IPEs/RSJs</h3>
-          </a>
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20U-Channels%20from%20https%3A%2F%2Ffineststeelng.com%2Fironforconstruction.html"
-             target="_blank" class="category-item flex flex-col items-center bg-yellow-50 rounded-lg p-4 hover:bg-yellow-100 transition shadow">
-            <img src="uchannels.jpeg" alt="U-Channels" class="w-full h-48 object-cover rounded mb-2">
-            <h3 class="font-semibold text-yellow-700">U-Channels</h3>
-          </a>
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Column%20Beams%20from%20https%3A%2F%2Ffineststeelng.com%2Fironforconstruction.html"
-             target="_blank" class="category-item flex flex-col items-center bg-green-50 rounded-lg p-4 hover:bg-green-100 transition shadow">
-            <img src="columnbeams.webp" alt="Column Beams" class="w-full h-48 object-cover rounded mb-2">
-            <h3 class="font-semibold text-green-700">Column Beams</h3>
-          </a>
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Angle%20Irons%20from%20https%3A%2F%2Ffineststeelng.com%2Fironforconstruction.html"
-             target="_blank" class="category-item flex flex-col items-center bg-blue-50 rounded-lg p-4 hover:bg-blue-100 transition shadow">
-            <img src="angleirons.webp" alt="Angle Irons" class="w-full h-48 object-cover rounded mb-2">
-            <h3 class="font-semibold text-blue-700">Angle Irons</h3>
-          </a>
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Hot%20Rolled%20Sheets%20from%20https%3A%2F%2Ffineststeelng.com%2Fironforconstruction.html"
-             target="_blank" class="category-item flex flex-col items-center bg-purple-50 rounded-lg p-4 hover:bg-purple-100 transition shadow">
-            <img src="hotrolledsheets.webp" alt="Hot Rolled Sheets" class="w-full h-48 object-cover rounded mb-2">
-            <h3 class="font-semibold text-purple-700">Hot Rolled Sheets</h3>
-          </a>
-          <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Cold%20Rolled%20Sheets%20from%20https%3A%2F%2Ffineststeelng.com%2Fironforconstruction.html"
-             target="_blank" class="category-item flex flex-col items-center bg-red-50 rounded-lg p-4 hover:bg-red-100 transition shadow">
-            <img src="cold-rolled-sheet.jpg" alt="Cold Rolled Sheets" class="w-full h-48 object-cover rounded mb-2">
-            <h3 class="font-semibold text-red-700">Cold Rolled Sheets</h3>
-          </a>
+        <div id="ironGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <!-- Example images, update src/alt as needed -->
+          <div class="iron-img group flex flex-col items-center cursor-pointer" data-title="Zed Purlins">
+            <img src="zedpurlins.webp" alt="Zed Purlins" class="w-full h-48 object-cover rounded-lg shadow mb-2 bg-gray-200" />
+            <span class="font-semibold text-indigo-700">Zed Purlins</span>
+          </div>
+          <div class="iron-img group flex flex-col items-center cursor-pointer" data-title="H-Beams/IPEs/RSJs">
+            <img src="Hbeams.webp" alt="H-Beams/IPEs/RSJs" class="w-full h-48 object-cover rounded-lg shadow mb-2 bg-gray-200" />
+            <span class="font-semibold text-pink-600">H-Beams/IPEs/RSJs</span>
+          </div>
+          <div class="iron-img group flex flex-col items-center cursor-pointer" data-title="U-Channels">
+            <img src="uchannels.jpeg" alt="U-Channels" class="w-full h-48 object-cover rounded-lg shadow mb-2 bg-gray-200" />
+            <span class="font-semibold text-yellow-700">U-Channels</span>
+          </div>
+          <div class="iron-img group flex flex-col items-center cursor-pointer" data-title="Column Beams">
+            <img src="columnbeams.webp" alt="Column Beams" class="w-full h-48 object-cover rounded-lg shadow mb-2 bg-gray-200" />
+            <span class="font-semibold text-green-700">Column Beams</span>
+          </div>
+          <div class="iron-img group flex flex-col items-center cursor-pointer" data-title="Angle Irons">
+            <img src="angleirons.webp" alt="Angle Irons" class="w-full h-48 object-cover rounded-lg shadow mb-2 bg-gray-200" />
+            <span class="font-semibold text-blue-700">Angle Irons</span>
+          </div>
+          <div class="iron-img group flex flex-col items-center cursor-pointer" data-title="Hot Rolled Sheets">
+            <img src="hotrolledsheets.webp" alt="Hot Rolled Sheets" class="w-full h-48 object-cover rounded-lg shadow mb-2 bg-gray-200" />
+            <span class="font-semibold text-purple-700">Hot Rolled Sheets</span>
+          </div>
+          <div class="iron-img group flex flex-col items-center cursor-pointer" data-title="Cold Rolled Sheets">
+            <img src="cold-rolled-sheet.jpg" alt="Cold Rolled Sheets" class="w-full h-48 object-cover rounded-lg shadow mb-2 bg-gray-200" />
+            <span class="font-semibold text-red-700">Cold Rolled Sheets</span>
+          </div>
+          <!-- Add more products as needed in the same structure -->
         </div>
       </div>
       <section class="product-contact mt-8">
@@ -216,6 +211,91 @@
 
   <button id="backToTop" title="Go to top" class="fixed bottom-6 right-6 bg-indigo-600 hover:bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg text-2xl transition z-30 hidden">&uarr;</button>
 
+  <!-- Modal for image preview with arrows -->
+  <div id="ironModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden">
+    <button id="ironPrev" aria-label="Previous image"
+      class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-r-lg p-3 text-3xl font-bold z-10 hidden sm:flex">
+      &#8592;
+    </button>
+    <div class="relative max-w-full max-h-full flex flex-col items-center justify-center w-full h-full">
+      <img id="ironModalImg" src="" alt="" class="rounded-lg shadow-lg object-contain border-4 border-white
+        max-h-[80vh] w-auto max-w-[95vw]
+        sm:max-h-[80vh] sm:w-auto sm:max-w-[95vw]" />
+      <div id="ironModalTitle" class="w-full text-center text-white text-xl font-bold bg-black/70 py-3 rounded-b-lg mt-2"></div>
+      <button onclick="closeIronModal()" class="absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg text-lg font-bold z-20">&times;</button>
+    </div>
+    <button id="ironNext" aria-label="Next image"
+      class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-l-lg p-3 text-3xl font-bold z-10 hidden sm:flex">
+      &#8594;
+    </button>
+    <!-- Mobile arrows -->
+    <button id="ironPrevMobile" aria-label="Previous image"
+      class="fixed left-0 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-r-lg p-3 text-3xl font-bold z-30 sm:hidden">
+      &#8592;
+    </button>
+    <button id="ironNextMobile" aria-label="Next image"
+      class="fixed right-0 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-l-lg p-3 text-3xl font-bold z-30 sm:hidden">
+      &#8594;
+    </button>
+  </div>
+  <style>
+    @media (max-width: 767px) {
+      #ironModal {
+        align-items: stretch !important;
+        justify-content: stretch !important;
+      }
+      #ironModal .relative {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+      }
+      #ironModalImg {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        object-fit: contain !important;
+        border-radius: 0 !important;
+        border: none !important;
+        background: #000 !important;
+        z-index: 100;
+      }
+      #ironModalTitle {
+        position: fixed !important;
+        bottom: 0;
+        left: 0;
+        width: 100vw !important;
+        background: rgba(0,0,0,0.7) !important;
+        border-radius: 0 !important;
+        margin-top: 0 !important;
+        z-index: 101;
+      }
+      #ironModal button[onclick="closeIronModal()"] {
+        position: fixed !important;
+        top: 10px !important;
+        right: 10px !important;
+        z-index: 102;
+      }
+      #ironPrevMobile, #ironNextMobile {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        height: 60px !important;
+        width: 60px !important;
+        font-size: 2.5rem !important;
+        background: rgba(0,0,0,0.7) !important;
+        border-radius: 0 20px 20px 0 !important;
+        z-index: 102;
+      }
+      #ironNextMobile {
+        border-radius: 20px 0 0 20px !important;
+      }
+    }
+  </style>
   <script>
     // Hamburger and mobile nav logic
     const hamburger = document.getElementById('hamburger');
@@ -259,6 +339,106 @@
     });
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Modal logic for iron images
+    function isMobile() {
+      return window.innerWidth < 768;
+    }
+
+    const ironImgs = Array.from(document.querySelectorAll('.iron-img'));
+    const ironModal = document.getElementById('ironModal');
+    const ironModalImg = document.getElementById('ironModalImg');
+    const ironModalTitle = document.getElementById('ironModalTitle');
+    const ironPrev = document.getElementById('ironPrev');
+    const ironNext = document.getElementById('ironNext');
+    const ironPrevMobile = document.getElementById('ironPrevMobile');
+    const ironNextMobile = document.getElementById('ironNextMobile');
+    let currentIronIndex = -1;
+
+    function showIronModalImage(idx) {
+      currentIronIndex = idx;
+      const imgDiv = ironImgs[currentIronIndex];
+      const imgTag = imgDiv.querySelector('img');
+      ironModalImg.src = imgTag.src;
+      ironModalImg.alt = imgTag.alt;
+      ironModalTitle.textContent = imgDiv.getAttribute('data-title') || imgTag.alt || '';
+      updateIronModalImageSize();
+      updateIronArrowVisibility();
+    }
+
+    function openIronModal(idx) {
+      showIronModalImage(idx);
+      ironModal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      updateIronModalImageSize();
+    }
+
+    function closeIronModal() {
+      ironModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function showIronPrevImage() {
+      if (currentIronIndex > 0) {
+        showIronModalImage(currentIronIndex - 1);
+      }
+    }
+    function showIronNextImage() {
+      if (currentIronIndex < ironImgs.length - 1) {
+        showIronModalImage(currentIronIndex + 1);
+      }
+    }
+
+    ironPrev && ironPrev.addEventListener('click', e => { e.stopPropagation(); showIronPrevImage(); });
+    ironNext && ironNext.addEventListener('click', e => { e.stopPropagation(); showIronNextImage(); });
+    ironPrevMobile && ironPrevMobile.addEventListener('click', e => { e.stopPropagation(); showIronPrevImage(); });
+    ironNextMobile && ironNextMobile.addEventListener('click', e => { e.stopPropagation(); showIronNextImage(); });
+
+    ironModal.addEventListener('click', function(e) {
+      if (e.target === ironModal) closeIronModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ironModal.classList.contains('hidden')) {
+        if (e.key === "Escape") closeIronModal();
+        if (e.key === "ArrowLeft") showIronPrevImage();
+        if (e.key === "ArrowRight") showIronNextImage();
+      }
+    });
+
+    // Responsive: full screen image on mobile
+    function updateIronModalImageSize() {
+      if (isMobile()) {
+        ironModalImg.classList.add('fixed', 'inset-0', 'w-full', 'h-full', 'max-w-none', 'max-h-none', 'rounded-none', 'border-0');
+      } else {
+        ironModalImg.classList.remove('fixed', 'inset-0', 'w-full', 'h-full', 'max-w-none', 'max-h-none', 'rounded-none', 'border-0');
+      }
+    }
+    window.addEventListener('resize', updateIronModalImageSize);
+    ironModalImg.addEventListener('load', updateIronModalImageSize);
+
+    // Show/hide arrows based on device
+    function updateIronArrowVisibility() {
+      if (isMobile()) {
+        ironPrev && (ironPrev.style.display = 'none');
+        ironNext && (ironNext.style.display = 'none');
+        ironPrevMobile && (ironPrevMobile.style.display = 'block');
+        ironNextMobile && (ironNextMobile.style.display = 'block');
+      } else {
+        ironPrev && (ironPrev.style.display = 'flex');
+        ironNext && (ironNext.style.display = 'flex');
+        ironPrevMobile && (ironPrevMobile.style.display = 'none');
+        ironNextMobile && (ironNextMobile.style.display = 'none');
+      }
+    }
+    window.addEventListener('resize', updateIronArrowVisibility);
+    document.addEventListener('DOMContentLoaded', updateIronArrowVisibility);
+
+    // Add click event to all iron images
+    ironImgs.forEach((imgDiv, idx) => {
+      imgDiv.addEventListener('click', function() {
+        openIronModal(idx);
+      });
     });
   </script>
 </body>
