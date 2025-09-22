@@ -93,6 +93,63 @@
       pointer-events: auto;
       opacity: 1;
     }
+    /* Modal fullscreen for mobile */
+    @media (max-width: 767px) {
+      #wroughtModal {
+        align-items: stretch !important;
+        justify-content: stretch !important;
+      }
+      #wroughtModal .relative {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+      }
+      #wroughtModalImg {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        object-fit: contain !important;
+        border-radius: 0 !important;
+        border: none !important;
+        background: #000 !important;
+        z-index: 100;
+      }
+      #wroughtModalTitle {
+        position: fixed !important;
+        bottom: 0;
+        left: 0;
+        width: 100vw !important;
+        background: rgba(0,0,0,0.7) !important;
+        border-radius: 0 !important;
+        margin-top: 0 !important;
+        z-index: 101;
+      }
+      #wroughtModal button[onclick="closeWroughtModal()"] {
+        position: fixed !important;
+        top: 10px !important;
+        right: 10px !important;
+        z-index: 102;
+      }
+      #wroughtPrevMobile, #wroughtNextMobile {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        height: 60px !important;
+        width: 60px !important;
+        font-size: 2.5rem !important;
+        background: rgba(0,0,0,0.7) !important;
+        border-radius: 0 20px 20px 0 !important;
+        z-index: 102;
+      }
+      #wroughtNextMobile {
+        border-radius: 20px 0 0 20px !important;
+      }
+    }
   </style>
 </head>
 <body class="font-sans text-gray-800">
@@ -137,12 +194,211 @@
     <section class="bg-white/80 rounded-xl shadow-lg p-8 mb-10 backdrop-blur">
       <h1 class="text-3xl font-bold text-indigo-700 mb-4">Wrought Iron</h1>
       <img src="wroughtiron.jpeg" alt="Wrought Iron" class="w-full max-w-md mx-auto rounded-lg shadow mb-6" />
+
+      <!-- Two clickable sections -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        <!-- Section 1: Wrought Iron Design & Gate Accessories -->
+        <a href="wroughtiron-designs.html" class="group block bg-indigo-50 hover:bg-indigo-100 rounded-xl shadow-lg p-6 transition cursor-pointer text-center flex flex-col items-center justify-center">
+          <img src="wroughtirondesign.webp" alt="Wrought Iron Designs" class="w-20 h-20 object-cover rounded-full mb-4 shadow group-hover:scale-105 transition" />
+          <span class="text-xl font-bold text-indigo-700 mb-2">Wrought Iron Design & Gate Accessories</span>
+          <span class="text-gray-700">Explore our collection of custom wrought iron designs/materials and gate accessories for your next project.</span>
+        </a>
+        <!-- Section 2: Dropdowns (Staircases, Balconies/Fences, Other Designs) -->
+        <div class="bg-pink-50 rounded-xl shadow-lg p-6 flex flex-col justify-center">
+          <span class="text-xl font-bold text-pink-600 mb-4 text-center">Finished Designs: Staircases, Balconies & More</span>
+          <div class="space-y-4">
+            <!-- Staircases Dropdown -->
+            <div class="bg-indigo-50 rounded-lg shadow">
+              <button type="button" class="w-full flex items-center justify-between px-4 py-4 font-semibold text-indigo-700 text-lg focus:outline-none" onclick="toggleDropdown('staircasesDropdown')">
+                <span class="flex items-center">
+                  <img src="staircases.jpeg" alt="staircases" class="w-8 h-8 object-cover rounded mr-3">
+                  Staircases
+                </span>
+                <svg id="staircasesDropdownIcon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="staircasesDropdown" class="hidden px-6 pb-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <!-- Replace <a> with <div class="wrought-img" ...> for modal logic -->
+                  <div class="wrought-img flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition cursor-pointer" data-title="Staircase Design 1">
+                    <img src="stairdesign1.jpg" alt="Staircase Design 1" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Staircase Design 1</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition cursor-pointer" data-title="Staircase Design 2">
+                    <img src="stairdesign2.jpg" alt="Staircase Design 2" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Staircase Design 2</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition cursor-pointer" data-title="Staircase Design 3">
+                    <img src="stairdesign3.jpg" alt="Staircase Design 3" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Staircase Design 3</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition cursor-pointer" data-title="Staircase Design 4">
+                    <img src="stairdesign4.jpg" alt="Staircase Design 4" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Staircase Design 4</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition cursor-pointer" data-title="Staircase Design 5">
+                    <img src="stairdesign5.jpg" alt="Staircase Design 5" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Staircase Design 5</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition cursor-pointer" data-title="Staircase Design 6">
+                    <img src="stairdesign6.jpg" alt="Staircase Design 6" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Staircase Design 6</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition cursor-pointer" data-title="Staircase Design 7">
+                    <img src="stairdesign7.jpg" alt="Staircase Design 7" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Staircase Design 7</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition cursor-pointer" data-title="Staircase Design 8">
+                    <img src="stairdesign8.jpg" alt="Staircase Design 8" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Staircase Design 8</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition cursor-pointer" data-title="Staircase Design 9">
+                    <img src="stairdesign9.jpg" alt="Staircase Design 9" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Staircase Design 9</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition cursor-pointer" data-title="Staircase Design 10">
+                    <img src="stairdesign10.jpg" alt="Staircase Design 10" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Staircase Design 10</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Balconies/Fences Dropdown -->
+            <div class="bg-pink-100 rounded-lg shadow">
+              <button type="button" class="w-full flex items-center justify-between px-4 py-4 font-semibold text-pink-600 text-lg focus:outline-none" onclick="toggleDropdown('balconiesDropdown')">
+                <span class="flex items-center">
+                  <img src="balconies.png" alt="balconies" class="w-8 h-8 object-cover rounded mr-3">
+                  Balconies/Fences
+                </span>
+                <svg id="balconiesDropdownIcon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="balconiesDropdown" class="hidden px-6 pb-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="wrought-img flex flex-col items-center hover:bg-pink-100 rounded p-2 transition cursor-pointer" data-title="Balcony Design 1">
+                    <img src="design1.jpg" alt="Balcony Design 1" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Design 1</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-pink-100 rounded p-2 transition cursor-pointer" data-title="Balcony Design 2">
+                    <img src="design2.jpg" alt="Balcony Design 2" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Design 2</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-pink-100 rounded p-2 transition cursor-pointer" data-title="Balcony Design 3">
+                    <img src="design3.jpg" alt="Balcony Design 3" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Design 3</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-pink-100 rounded p-2 transition cursor-pointer" data-title="Balcony Design 4">
+                    <img src="design4.jpg" alt="Balcony Design 4" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Design 4</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-pink-100 rounded p-2 transition cursor-pointer" data-title="Balcony Design 5">
+                    <img src="design5.jpg" alt="Balcony Design 5" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Design 5</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-pink-100 rounded p-2 transition cursor-pointer" data-title="Balcony Design 6">
+                    <img src="design6.jpg" alt="Balcony Design 6" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Design 6</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-pink-100 rounded p-2 transition cursor-pointer" data-title="Balcony Design 7">
+                    <img src="design7.jpg" alt="Balcony Design 7" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Design 7</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-pink-100 rounded p-2 transition cursor-pointer" data-title="Balcony Design 8">
+                    <img src="design8.jpg" alt="Balcony Design 8" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Design 8</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-pink-100 rounded p-2 transition cursor-pointer" data-title="Balcony Design 9">
+                    <img src="design9.jpg" alt="Balcony Design 9" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Design 9</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-pink-100 rounded p-2 transition cursor-pointer" data-title="Balcony Design 10">
+                    <img src="design10.jpg" alt="Balcony Design 10" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Design 10</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Other Wrought Iron Designs Dropdown -->
+            <div class="bg-green-50 rounded-lg shadow">
+              <button type="button" class="w-full flex items-center justify-between px-4 py-4 font-semibold text-green-700 text-lg focus:outline-none" onclick="toggleDropdown('otherDropdown')">
+                <span class="flex items-center">
+                  <img src="wroughironnnn.jpeg" alt="other wrought iron" class="w-8 h-8 object-cover rounded mr-3">
+                  Other Wrought Iron Designs
+                </span>
+                <svg id="otherDropdownIcon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="otherDropdown" class="hidden px-6 pb-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Design 1">
+                    <img src="wroughtieondesign1.jpg" alt="Wrought Iron Design 1" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Design 1</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Design 2">
+                    <img src="wroughtirondesign2.jpg" alt="Wrought Iron Design 2" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Design 2</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Design 3">
+                    <img src="wroughtirondesign3.jpg" alt="Wrought Iron Design 3" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Design 3</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Design 4">
+                    <img src="wroughtirondesign4.jpg" alt="Wrought Iron Design 4" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Design 4</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Design 5">
+                    <img src="wroughtirondesign5.jpg" alt="Wrought Iron Design 5" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Design 5</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Design 6">
+                    <img src="wroughtirondesign6.jpg" alt="Wrought Iron Design 6" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Design 6</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Design 7">
+                    <img src="wroughtirondesign7.jpg" alt="Wrought Iron Design 7" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Design 7</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Design 8">
+                    <img src="wroughtirondesign8.jpg" alt="Wrought Iron Design 8" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Design 8</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Rosettes">
+                    <img src="wroughtironrosettes.jpg" alt="Wrought Iron Rosettes" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Rosettes</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Pickets & Panels 1">
+                    <img src="wroughtironpickets&panels1.jpg" alt="Wrought Iron Pickets & Panels 1" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Pickets & Panels 1</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Pickets & Panels 2">
+                    <img src="wroughtironpickets&panels2.jpg" alt="Wrought Iron Pickets & Panels 2" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Pickets & Panels 2</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Pickets & Panels 3">
+                    <img src="wroughtironpickets&panels3.jpg" alt="Wrought Iron Pickets & Panels 3" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Pickets & Panels 3</span>
+                  </div>
+                  <div class="wrought-img flex flex-col items-center hover:bg-green-100 rounded p-2 transition cursor-pointer" data-title="Wrought Iron Pickets & Panels 4">
+                    <img src="wroughtironpickets&panels4.jpg" alt="Wrought Iron Pickets & Panels 4" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
+                    <span>Wrought Iron Pickets & Panels 4</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product description and contact (below the two sections) -->
       <div class="product-description mb-6">
         <p class="mb-4">
           <strong>Product Description:</strong> For all your wrought iron needs, FinestSteel is your trusted partner. We specialize in crafting high-quality wrought iron products that combine durability, elegance, and functionality. Whether you're looking for custom gates, railings, furniture, or decorative pieces, our skilled artisans are dedicated to bringing your vision to life with precision and craftsmanship.
           FinestSteel offers a wide range of wrought iron services, including design consultation, and fabrication. We work closely with our clients to ensure that every piece we create meets their specific requirements and exceeds their expectations.
           For personal use, you need a welder to measure your space and give you a quote. We can then give you prices of the materials based on the quote then design and cut the pieces for you to take to your welder for installation.
-       
+        </p>
         <h3 class="text-xl font-semibold text-indigo-700 mb-2">Features:</h3>
         <ul class="list-disc pl-6 text-gray-700 space-y-1">
           <li>Durable and long-lasting</li>
@@ -150,226 +406,6 @@
           <li>Expert craftsmanship</li>
           <li>Timely delivery</li>
         </ul>
-      </div>
-      <div class="category-page mb-6">
-        <p class="category-intro mb-4 text-gray-700">
-          Explore our wide range of Wrought Irons. For personal use, ensure to get your quotations from a welder so we can provide you with adequate prices for your materials.
-        </p>
-        <div class="space-y-4">
-          <!-- Staircases Dropdown -->
-          <div class="bg-indigo-50 rounded-lg shadow">
-            <button type="button" class="w-full flex items-center justify-between px-4 py-4 font-semibold text-indigo-700 text-lg focus:outline-none" onclick="toggleDropdown('staircasesDropdown')">
-              <span class="flex items-center">
-                <img src="staircases.jpeg" alt="staircases" class="w-8 h-8 object-cover rounded mr-3">
-                Staircases
-              </span>
-              <svg id="staircasesDropdownIcon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-            <div id="staircasesDropdown" class="hidden px-6 pb-4">
-              <div class="grid grid-cols-2 gap-4">
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Staircase%20Design%201%20from%20https%3A%2F%2Ffineststeelng.com%2Fstairdesign1.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition">
-                  <img src="stairdesign1.jpg" alt="Staircase Design 1" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Staircase Design 1</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Staircase%20Design%202%20from%20https%3A%2F%2Ffineststeelng.com%2Fstairdesign2.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition">
-                  <img src="stairdesign2.jpg" alt="Staircase Design 2" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Staircase Design 2</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Staircase%20Design%203%20from%20https%3A%2F%2Ffineststeelng.com%2Fstairdesign3.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition">
-                  <img src="stairdesign3.jpg" alt="Staircase Design 3" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Staircase Design 3</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Staircase%20Design%204%20from%20https%3A%2F%2Ffineststeelng.com%2Fstairdesign4.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition">
-                  <img src="stairdesign4.jpg" alt="Staircase Design 4" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Staircase Design 4</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Staircase%20Design%205%20from%20https%3A%2F%2Ffineststeelng.com%2Fstairdesign5.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition">
-                  <img src="stairdesign5.jpg" alt="Staircase Design 5" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Staircase Design 5</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Staircase%20Design%206%20from%20https%3A%2F%2Ffineststeelng.com%2Fstairdesign6.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition">
-                  <img src="stairdesign6.jpg" alt="Staircase Design 6" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Staircase Design 6</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Staircase%20Design%207%20from%20https%3A%2F%2Ffineststeelng.com%2Fstairdesign7.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition">
-                  <img src="stairdesign7.jpg" alt="Staircase Design 7" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Staircase Design 7</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Staircase%20Design%208%20from%20https%3A%2F%2Ffineststeelng.com%2Fstairdesign8.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition">
-                  <img src="stairdesign8.jpg" alt="Staircase Design 8" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Staircase Design 8</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Staircase%20Design%209%20from%20https%3A%2F%2Ffineststeelng.com%2Fstairdesign9.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition">
-                  <img src="stairdesign9.jpg" alt="Staircase Design 9" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Staircase Design 9</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Staircase%20Design%2010%20from%20https%3A%2F%2Ffineststeelng.com%2Fstairdesign10.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-indigo-100 rounded p-2 transition">
-                  <img src="stairdesign10.jpg" alt="Staircase Design 10" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Staircase Design 10</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- Balconies/Fences Dropdown -->
-          <div class="bg-pink-50 rounded-lg shadow">
-            <button type="button" class="w-full flex items-center justify-between px-4 py-4 font-semibold text-pink-600 text-lg focus:outline-none" onclick="toggleDropdown('balconiesDropdown')">
-              <span class="flex items-center">
-                <img src="balconies.png" alt="balconies" class="w-8 h-8 object-cover rounded mr-3">
-                Balconies/Fences
-              </span>
-              <svg id="balconiesDropdownIcon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-            <div id="balconiesDropdown" class="hidden px-6 pb-4">
-              <div class="grid grid-cols-2 gap-4">
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Balcony%20Design%201%20from%20https%3A%2F%2Ffineststeelng.com%2Fdesign1.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-pink-100 rounded p-2 transition">
-                  <img src="design1.jpg" alt="Balcony Design 1" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Design 1</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Balcony%20Design%202%20from%20https%3A%2F%2Ffineststeelng.com%2Fdesign2.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-pink-100 rounded p-2 transition">
-                  <img src="design2.jpg" alt="Balcony Design 2" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Design 2</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Balcony%20Design%203%20from%20https%3A%2F%2Ffineststeelng.com%2Fdesign3.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-pink-100 rounded p-2 transition">
-                  <img src="design3.jpg" alt="Balcony Design 3" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Design 3</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Balcony%20Design%204%20from%20https%3A%2F%2Ffineststeelng.com%2Fdesign4.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-pink-100 rounded p-2 transition">
-                  <img src="design4.jpg" alt="Balcony Design 4" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Design 4</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Balcony%20Design%205%20from%20https%3A%2F%2Ffineststeelng.com%2Fdesign5.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-pink-100 rounded p-2 transition">
-                  <img src="design5.jpg" alt="Balcony Design 5" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Design 5</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Balcony%20Design%206%20from%20https%3A%2F%2Ffineststeelng.com%2Fdesign6.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-pink-100 rounded p-2 transition">
-                  <img src="design6.jpg" alt="Balcony Design 6" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Design 6</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Balcony%20Design%207%20from%20https%3A%2F%2Ffineststeelng.com%2Fdesign7.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-pink-100 rounded p-2 transition">
-                  <img src="design7.jpg" alt="Balcony Design 7" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Design 7</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Balcony%20Design%208%20from%20https%3A%2F%2Ffineststeelng.com%2Fdesign8.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-pink-100 rounded p-2 transition">
-                  <img src="design8.jpg" alt="Balcony Design 8" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Design 8</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Balcony%20Design%209%20from%20https%3A%2F%2Ffineststeelng.com%2Fdesign9.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-pink-100 rounded p-2 transition">
-                  <img src="design9.jpg" alt="Balcony Design 9" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Design 9</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Balcony%20Design%2010%20from%20https%3A%2F%2Ffineststeelng.com%2Fdesign10.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-pink-100 rounded p-2 transition">
-                  <img src="design10.jpg" alt="Balcony Design 10" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Design 10</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- Other Wrought Iron Designs Dropdown -->
-          <div class="bg-green-50 rounded-lg shadow">
-            <button type="button" class="w-full flex items-center justify-between px-4 py-4 font-semibold text-green-700 text-lg focus:outline-none" onclick="toggleDropdown('otherDropdown')">
-              <span class="flex items-center">
-                <img src="wroughironnnn.jpeg" alt="other wrought iron" class="w-8 h-8 object-cover rounded mr-3">
-                Other Wrought Iron Designs
-              </span>
-              <svg id="otherDropdownIcon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-            <div id="otherDropdown" class="hidden px-6 pb-4">
-              <div class="grid grid-cols-2 gap-4">
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Design%201%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtieondesign1.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtieondesign1.jpg" alt="Wrought Iron Design 1" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Design 1</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Design%202%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtirondesign2.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtirondesign2.jpg" alt="Wrought Iron Design 2" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Design 2</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Design%203%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtirondesign3.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtirondesign3.jpg" alt="Wrought Iron Design 3" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Design 3</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Design%204%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtirondesign4.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtirondesign4.jpg" alt="Wrought Iron Design 4" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Design 4</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Design%205%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtirondesign5.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtirondesign5.jpg" alt="Wrought Iron Design 5" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Design 5</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Design%206%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtirondesign6.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtirondesign6.jpg" alt="Wrought Iron Design 6" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Design 6</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Design%207%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtirondesign7.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtirondesign7.jpg" alt="Wrought Iron Design 7" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Design 7</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Design%208%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtirondesign8.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtirondesign8.jpg" alt="Wrought Iron Design 8" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Design 8</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Rosettes%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtironrosettes.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtironrosettes.jpg" alt="Wrought Iron Rosettes" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Rosettes</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Pickets%20and%20Panels%201%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtironpickets%26panels1.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtironpickets&panels1.jpg" alt="Wrought Iron Pickets & Panels 1" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Pickets & Panels 1</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Pickets%20and%20Panels%202%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtironpickets%26panels2.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtironpickets&panels2.jpg" alt="Wrought Iron Pickets & Panels 2" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Pickets & Panels 2</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Pickets%20and%20Panels%203%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtironpickets%26panels3.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtironpickets&panels3.jpg" alt="Wrought Iron Pickets & Panels 3" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Pickets & Panels 3</span>
-                </a>
-                <a href="https://wa.me/23408141298704?text=Hello%20FinestSteel%2C%20I%20want%20to%20buy%20Wrought%20Iron%20Pickets%20and%20Panels%204%20from%20https%3A%2F%2Ffineststeelng.com%2Fwroughtironpickets%26panels4.jpg"
-                   target="_blank" class="flex flex-col items-center hover:bg-green-100 rounded p-2 transition">
-                  <img src="wroughtironpickets&panels4.jpg" alt="Wrought Iron Pickets & Panels 4" class="w-full h-48 bg-gray-200 rounded mb-2 object-cover">
-                  <span>Wrought Iron Pickets & Panels 4</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <section class="product-contact mt-8">
         <h3 class="text-xl font-semibold text-indigo-700 mb-2">Interested in this product?</h3>
@@ -386,6 +422,34 @@
       </section>
     </section>
   </main>
+
+  <!-- Modal for image preview with arrows -->
+  <div id="wroughtModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden">
+    <button id="wroughtPrev" aria-label="Previous image"
+      class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-r-lg p-3 text-3xl font-bold z-10 hidden sm:flex">
+      &#8592;
+    </button>
+    <div class="relative max-w-full max-h-full flex flex-col items-center justify-center w-full h-full">
+      <img id="wroughtModalImg" src="" alt="" class="rounded-lg shadow-lg object-contain border-4 border-white
+        max-h-[80vh] w-auto max-w-[95vw]
+        sm:max-h-[80vh] sm:w-auto sm:max-w-[95vw]" />
+      <div id="wroughtModalTitle" class="w-full text-center text-white text-xl font-bold bg-black/70 py-3 rounded-b-lg mt-2"></div>
+      <button onclick="closeWroughtModal()" class="absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg text-lg font-bold z-20">&times;</button>
+    </div>
+    <button id="wroughtNext" aria-label="Next image"
+      class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-l-lg p-3 text-3xl font-bold z-10 hidden sm:flex">
+      &#8594;
+    </button>
+    <!-- Mobile arrows -->
+    <button id="wroughtPrevMobile" aria-label="Previous image"
+      class="fixed left-0 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-r-lg p-3 text-3xl font-bold z-30 sm:hidden">
+      &#8592;
+    </button>
+    <button id="wroughtNextMobile" aria-label="Next image"
+      class="fixed right-0 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-l-lg p-3 text-3xl font-bold z-30 sm:hidden">
+      &#8594;
+    </button>
+  </div>
 
   <footer class="bg-indigo-700 text-white text-center py-4">
     &copy; 2025 FinestSteel Limited. All rights reserved.
@@ -450,6 +514,107 @@
         icon.style.transform = '';
       }
     }
+
+    // Wrought iron image modal logic
+    function isMobile() {
+      return window.innerWidth < 768;
+    }
+
+    // Gather all wrought iron images in order
+    const wroughtImgs = Array.from(document.querySelectorAll('.wrought-img'));
+    let currentWroughtIndex = -1;
+
+    const wroughtModal = document.getElementById('wroughtModal');
+    const wroughtModalImg = document.getElementById('wroughtModalImg');
+    const wroughtModalTitle = document.getElementById('wroughtModalTitle');
+    const wroughtPrev = document.getElementById('wroughtPrev');
+    const wroughtNext = document.getElementById('wroughtNext');
+    const wroughtPrevMobile = document.getElementById('wroughtPrevMobile');
+    const wroughtNextMobile = document.getElementById('wroughtNextMobile');
+
+    function showWroughtModalImage(idx) {
+      currentWroughtIndex = idx;
+      const imgDiv = wroughtImgs[currentWroughtIndex];
+      const imgTag = imgDiv.querySelector('img');
+      wroughtModalImg.src = imgTag.src;
+      wroughtModalImg.alt = imgTag.alt;
+      wroughtModalTitle.textContent = imgDiv.getAttribute('data-title') || imgTag.alt || '';
+      updateWroughtModalImageSize();
+      updateWroughtArrowVisibility();
+    }
+
+    function openWroughtModal(idx) {
+      showWroughtModalImage(idx);
+      wroughtModal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeWroughtModal() {
+      wroughtModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function showWroughtPrevImage() {
+      if (currentWroughtIndex > 0) {
+        showWroughtModalImage(currentWroughtIndex - 1);
+      }
+    }
+    function showWroughtNextImage() {
+      if (currentWroughtIndex < wroughtImgs.length - 1) {
+        showWroughtModalImage(currentWroughtIndex + 1);
+      }
+    }
+
+    wroughtPrev && wroughtPrev.addEventListener('click', e => { e.stopPropagation(); showWroughtPrevImage(); });
+    wroughtNext && wroughtNext.addEventListener('click', e => { e.stopPropagation(); showWroughtNextImage(); });
+    wroughtPrevMobile && wroughtPrevMobile.addEventListener('click', e => { e.stopPropagation(); showWroughtPrevImage(); });
+    wroughtNextMobile && wroughtNextMobile.addEventListener('click', e => { e.stopPropagation(); showWroughtNextImage(); });
+
+    wroughtModal.addEventListener('click', function(e) {
+      if (e.target === wroughtModal) closeWroughtModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!wroughtModal.classList.contains('hidden')) {
+        if (e.key === "Escape") closeWroughtModal();
+        if (e.key === "ArrowLeft") showWroughtPrevImage();
+        if (e.key === "ArrowRight") showWroughtNextImage();
+      }
+    });
+
+    // Responsive: full screen image on mobile
+    function updateWroughtModalImageSize() {
+      if (isMobile()) {
+        wroughtModalImg.classList.add('fixed', 'inset-0', 'w-full', 'h-full', 'max-w-none', 'max-h-none', 'rounded-none', 'border-0');
+      } else {
+        wroughtModalImg.classList.remove('fixed', 'inset-0', 'w-full', 'h-full', 'max-w-none', 'max-h-none', 'rounded-none', 'border-0');
+      }
+    }
+    window.addEventListener('resize', updateWroughtModalImageSize);
+    wroughtModalImg.addEventListener('load', updateWroughtModalImageSize);
+
+    // Show/hide arrows based on device
+    function updateWroughtArrowVisibility() {
+      if (isMobile()) {
+        wroughtPrev && (wroughtPrev.style.display = 'none');
+        wroughtNext && (wroughtNext.style.display = 'none');
+        wroughtPrevMobile && (wroughtPrevMobile.style.display = 'block');
+        wroughtNextMobile && (wroughtNextMobile.style.display = 'block');
+      } else {
+        wroughtPrev && (wroughtPrev.style.display = 'flex');
+        wroughtNext && (wroughtNext.style.display = 'flex');
+        wroughtPrevMobile && (wroughtPrevMobile.style.display = 'none');
+        wroughtNextMobile && (wroughtNextMobile.style.display = 'none');
+      }
+    }
+    window.addEventListener('resize', updateWroughtArrowVisibility);
+    document.addEventListener('DOMContentLoaded', updateWroughtArrowVisibility);
+
+    // Add click event to all wrought iron images
+    wroughtImgs.forEach((imgDiv, idx) => {
+      imgDiv.addEventListener('click', function() {
+        openWroughtModal(idx);
+      });
+    });
   </script>
 </body>
 </html>
