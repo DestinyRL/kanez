@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Finest Steel Nigeria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation (copy from index.html) -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="indigo.jpg" alt="logo" height="50" width="50" style="border-radius: 50%;">
+                Finest Steel
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center;">
+                <div class="mobile-menu-toggle" id="hamburgerBtn">
+                    <div class="hamburger"></div>
+                    <div class="hamburger"></div>
+                    <div class="hamburger"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="index.html#services" onclick="closeMobileMenu()">Services</a></li>
+                <li><a href="index.html#products" onclick="closeMobileMenu()">Products</a></li>
+                <li><a href="gallery.html" onclick="closeMobileMenu()">Gallery</a></li>
+                <li><a href="store.html" onclick="closeMobileMenu()">Store</a></li>
+                <li><a href="index.html#testimonials" onclick="closeMobileMenu()">Reviews</a></li>
+                <li><a href="index.html#contact" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Project Gallery</h2>
+            <p class="section-subtitle animate-on-scroll">Showcasing our finest work and premium materials</p>
+            <div class="gallery-filter animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">All Gallery</button>
+                <button class="filter-btn" data-filter="designs">Wrought Iron Designs</button>
+                <button class="filter-btn" data-filter="gates">Wrought Iron Gates</button>
+                <button class="filter-btn" data-filter="staircases">Wrought Iron Staircases</button>
+                <button class="filter-btn" data-filter="railings">Wrought Iron Railings</button>
+                <button class="filter-btn" data-filter="laserplates">Laserplates Design</button>
+                <button class="filter-btn" data-filter="construction">Iron for Construction/Reinforcement Materials</button>
+                <button class="filter-btn" data-filter="materials">Wrought Iron Materials</button>
+                <button class="filter-btn" data-filter="welding">Welding & Accessories</button>
+                <button class="filter-btn" data-filter="steel">Stainless Steel</button>
+            </div>
+            <div class="gallery-grid">
+                <!-- Wrought Iron Designs (13 images) -->
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtieondesign1.jpg" alt="Wrought Iron Design 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Design 1</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtirondesign2.jpg" alt="Wrought Iron Design 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Design 2</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtirondesign3.jpg" alt="Wrought Iron Design 3" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Design 3</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtirondesign4.jpg" alt="Wrought Iron Design 4" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Design 4</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtirondesign5.jpg" alt="Wrought Iron Design 5" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Design 5</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtirondesign6.jpg" alt="Wrought Iron Design 6" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Design 6</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtirondesign7.jpg" alt="Wrought Iron Design 7" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Design 7</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtirondesign8.jpg" alt="Wrought Iron Design 8" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Design 8</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtirondesign8.jpg" alt="Wrought Iron Design 8" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Design 8</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtironpickets&panels1.jpg" alt="Wrought Iron Pickets & Panels 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Pickets & Panels 1</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtironpickets&panels2.jpg" alt="Wrought Iron Pickets & Panels 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Pickets & Panels 2</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtironpickets&panels3.jpg" alt="Wrought Iron Pickets & Panels 3" class="gallery-img">
+                    <div class="
+                        <h3 class="gallery-title">Wrought Iron Pickets & Panels 3</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtironpickets&panels4.jpg" alt="Wrought Iron Pickets & Panels 4" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Pickets & Panels 4</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="designs">
+                    <img src="wroughtironrosettes.jpg" alt="Wrought Iron Rosettes" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Rosettes</h3>
+                    </div>
+                </div>
+                <!-- Repeat for 13 images, incrementing filenames and titles -->
+                <!-- Wrought Iron Gates (10 images) -->
+                <div class="gallery-item animate-on-scroll" data-category="gates">
+                    <img src="gatedesign1.jpg" alt="Wrought Iron Gate 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Gate 1</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="gates">
+                    <img src="gatedesign2.jpg" alt="Wrought Iron Gate 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Gate 2</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="gates">
+                    <img src="gatedesign3.jpg" alt="Wrought Iron Gate 3" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Gate 3</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="gates">
+                    <img src="gatedesign4.jpg" alt="Wrought Iron Gate 4" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Gate 4</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="gates">
+                    <img src="gatedesign5.jpg" alt="Wrought Iron Gate 5" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Gate 5</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="gates">
+                    <img src="gatedesign6.jpg" alt="Wrought Iron Gate 6" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Gate 6</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="gates">
+                    <img src="gatedesign7.jpg" alt="Wrought Iron Gate 7" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Gate 7</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="gates">
+                    <img src="gatedesign8.jpg" alt="Wrought Iron Gate 8" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Gate 8</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="gates">
+                    <img src="gatedesign9.jpg" alt="Wrought Iron Gate 9" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Gate 9</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="gates">
+                    <img src="gatehandles.jpg" alt="Wrought Iron Gate Handles" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Gate Handles</h3>
+                    </div>
+                </div>
+                <!-- Repeat for 10 images -->
+                <!-- Wrought Iron Staircases (12 images) -->
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign1.jpg" alt="Wrought Iron Staircase 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 1</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign2.jpg" alt="Wrought Iron Staircase 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 2</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign3.jpg" alt="Wrought Iron Staircase 3" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 3</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign4.jpg" alt="Wrought Iron Staircase 4" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 4</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign5.jpg" alt="Wrought Iron Staircase 5" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 5</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign6.jpg" alt="Wrought Iron Staircase 6" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 6</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign7.jpg" alt="Wrought Iron Staircase 7" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 7</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign8.jpg" alt="Wrought Iron Staircase 8" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 8</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign9.jpg" alt="Wrought Iron Staircase 9" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 9</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign1.jpg" alt="Wrought Iron Staircase 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 1</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairdesign10.jpg" alt="Wrought Iron Staircase 10" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 10</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="stairs.jpg" alt="Wrought Iron Staircase 11" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 11</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="staircases">
+                    <img src="staircases.jpeg" alt="Wrought Iron Staircase 12" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Staircase 12</h3>
+                    </div>
+                </div>
+                <!-- Repeat for 12 images -->
+                <!-- Wrought Iron Railings (10 images) -->
+                <div class="gallery-item animate-on-scroll" data-category="railings">
+                    <img src="design1.jpg" alt="Railing Design 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Railing Design 1</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="railings">
+                    <img src="design2.jpg" alt="Railing Design 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Railing Design 2</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="railings">
+                    <img src="design3.jpg" alt="Railing Design 3" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Railing Design 3</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="railings">
+                    <img src="design4.jpg" alt="Railing Design 4" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Railing Design 4</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="railings">
+                    <img src="design5.jpg" alt="Railing Design 5" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Railing Design 5</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="railings">
+                    <img src="design6.jpg" alt="Railing Design 6" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Railing Design 6</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="railings">
+                    <img src="design7.jpg" alt="Railing Design 7" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Railing Design 7</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="railings">
+                    <img src="design8.jpg" alt="Railing Design 8" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Railing Design 8</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="railings">
+                    <img src="design9.jpg" alt="Railing Design 9" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Railing Design 9</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="railings">
+                    <img src="design10.jpg" alt="Railing Design 10" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Railing Design 10</h3>
+                    </div>
+                </div>
+                <!-- Repeat for 10 images -->
+                <!-- Laserplates Design (8 images) -->
+                <div class="gallery-item animate-on-scroll" data-category="laserplates">
+                    <img src="laser1.jpg" alt="Laserplate Design 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Laserplate Design 1</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="laserplates">
+                    <img src="laser2.jpg" alt="Laserplate Design 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Laserplate Design 2</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="laserplates">
+                    <img src="laser3.jpg" alt="Laserplate Design 3" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Laserplate Design 3</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="laserplates">
+                    <img src="laser4.jpg" alt="Laserplate Design 4" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Laserplate Design 4</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="laserplates">
+                    <img src="laser5.jpg" alt="Laserplate Design 5" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Laserplate Design 5</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="laserplates">
+                    <img src="laser6.jpg" alt="Laserplate Design 6" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Laserplate Design 6</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="laserplates">
+                    <img src="laser7.jpg" alt="Laserplate Design 7" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Laserplate Design 7</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="laserplates">
+                    <img src="laserdrawings.jpg" alt="Laserplate Design 8" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Laserplate Drawings</h3>
+                    </div>
+                </div>
+                <!-- Repeat for 8 images -->
+                <!-- Iron for Construction/ Reinforcement Materials (11 images) -->
+                <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="Hbeams.webp" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">H-Beams/IPEs/RSJs</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="cleats.jpg" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Cleats</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="zedpurlins.webp" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Zed Purlins</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="baseplate.webp" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Base Plates</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="uchannels.jpeg" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">U-Channels</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="foundationrods.jpeg" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Foundation Rods</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="columnbeams.webp" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Column Beams</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="angleirons.webp" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Angle Irons</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="bolts&nuts.webp" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Bolts & Nuts</h3>
+                    </div>
+                </div>  
+                <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="hotrolledsheets.webp" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Hot Rolled Sheets</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="construction">
+                    <img src="cold-rolled-sheet.jpg" alt="Iron for Construction 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Cold Rolled Sheets</h3>
+                    </div>
+                </div>
+                <!-- Repeat for 11 images -->
+                <!-- Wrought Iron Materials (29 images) -->
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material1.jpg" alt="Wrought Iron Material 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 1</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material2.jpg" alt="Wrought Iron Material 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 2</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material3.jpg" alt="Wrought Iron Material 3" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 3</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material4.jpg" alt="Wrought Iron Material 4" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 4</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material5.jpg" alt="Wrought Iron Material 5" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 5</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material6.jpg" alt="Wrought Iron Material 6" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 6</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material7.jpg" alt="Wrought Iron Material 7" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 7</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material8.jpg" alt="Wrought Iron Material 8" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 8</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material9.jpg" alt="Wrought Iron Material 9" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 9</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material10.jpg" alt="Wrought Iron Material 10" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 10</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material11.jpg" alt="Wrought Iron Material 11" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 11</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material12.jpg" alt="Wrought Iron Material 12" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 12</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material13.jpg" alt="Wrought Iron Material 13" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 13</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material14.jpg" alt="Wrought Iron Material 14" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 14</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material15.jpg" alt="Wrought Iron Material 15" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 15</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material16.jpg" alt="Wrought Iron Material 16" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 16</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material17.jpg" alt="Wrought Iron Material 17" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 17</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material18.jpg" alt="Wrought Iron Material 18" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 18</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material19.jpg" alt="Wrought Iron Material 19" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 19</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material20.jpg" alt="Wrought Iron Material 20" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 20</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material21.jpg" alt="Wrought Iron Material 21" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 21</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material22.jpg" alt="Wrought Iron Material 22" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 22</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material23.jpg" alt="Wrought Iron Material 23" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 23</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material24.jpg" alt="Wrought Iron Material 24" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 24</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material25.jpg" alt="Wrought Iron Material 25" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 25</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material26.jpg" alt="Wrought Iron Material 26" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 26</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material27.jpg" alt="Wrought Iron Material 27" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 27</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material28.jpg" alt="Wrought Iron Material 28" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 28</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="materials">
+                    <img src="material29.jpg" alt="Wrought Iron Material 29" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Wrought Iron Material 29</h3>
+                    </div>
+                </div>
+                <!-- Repeat for 29 images -->
+                <!-- Welding and Accessories (28 images) -->
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="maxmechweldinggenerator.JPG" alt="Welding Accessory 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Maxmech Welding Generator(WG-200i)</h3>
+                    </div>
+                </div>
+                  <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="anglegrinder.jpg" alt="Welding Accessory 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">BoschAngle Grinder</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="doorhandlesqiek.JPG" alt="Welding Accessory 3" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Door Handle(Sqiek)</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="doorhandlesothis.JPG" alt="Welding Accessory 4" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Door Handle(Sothis)</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="powerextra9.jpg" alt="Welding Accessory 5" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">9inch Powerextra Cutting Disc</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="g12stonebridge electrode.JPG" alt="Welding Accessory 6" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">G12 Stonebridge Electrode</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="Saffirecutter.JPG" alt="Welding Accessory 7" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Saffire Cutter</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="saffireregulator.JPG" alt="Welding Accessory 8" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Saffire Regulator</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="beanddecker.JPG" alt="Welding Accessory 9" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Bean Decker Mini-250amps Welding Machine</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="irontyres.JPG" alt="Welding Accessory 10" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Iron Tyres</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="oxygenregulator.JPG" alt="Welding Accessory 11" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Oxygen Regulator</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="Butterflyhinges.JPG" alt="Welding Accessory 12" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Butterfly Hinges</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="toolbox.jpg" alt="Welding Accessory 13" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Dewalt Toolbox</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="mma250.jpg" alt="Welding Accessory 14" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">MMA 250Amps Maxmech Inverter Welding Machine</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="totalspray.jpg" alt="Welding Accessory 15" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Total Spray Gun</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="mma300.jpg" alt="Welding Accessory 16" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">MMA 300Amps Maxmech Inverter Welding Machine</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="mini200.jpg" alt="Welding Accessory 17" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Mini 200Amps Maxmech Inverter Welding Machine</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="mma200.jpg" alt="Welding Accessory 18" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">MMA 200Amps Maxmech Inverter Welding Machine</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="circlerossete.jpg" alt="Welding Accessory 19" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Biggest Circle Rossette</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="basketcumbi.jpg" alt="Welding Accessory 20" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Basket Cumbi</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="green800.jpg" alt="Welding Accessory 21" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">800amps Green Electrode Holder</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="yellow1000.jpg" alt="Welding Accessory 22" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">1000amps Yellow Electrode Holder</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="elephant800.jpg" alt="Welding Accessory 23" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">800amps Elephant Electrode Holder</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="powerflex9.jpg" alt="Welding Accessory 24" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">9inch Powerflex Cutting Disc</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="powerflex7.jpg" alt="Welding Accessory 25" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">7inch Powerflex Cutting Disc</h3>
+                    </div>
+                </div>
+                  <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="homeflower9.jpg" alt="Welding Accessory 26" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">9inch Home Flower Cutting Disc</h3>
+                    </div>
+                </div>
+                  <div class="gallery-item animate-on-scroll" data-category="welding">
+                    <img src="tigerforce9.jpg" alt="Welding Accessory 27" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">9inch Tigerforce Cutting Disc</h3>
+                    </div>
+                </div>
+                <!-- Repeat for 28 images -->
+                 <!-- Stainless Steel (1 images) -->
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainlesssheets.jpg" alt="Stainless Sheets" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Sheets</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainlesspipes.jpg" alt="Stainless Steel Pipes" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Steel Pipes</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainlessrailings.jpg" alt="Stainless Steel Railings" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Steel Railings</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainlesscustom.jpg" alt="Stainless Steel Custom" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Steel Custom</h3>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- Footer (copy from index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Finest Steel Nigeria</h3>
+                    <p>Your trusted partner for premium construction materials and steel fabrication services. Building Nigeria's future with quality, precision, and excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html#home">Home</a></p>
+                    <p><a href="index.html#services">Services</a></p>
+                    <p><a href="index.html#products">Products</a></p>
+                    <p><a href="index.html#testimonials">Testimonials</a></p>
+                    <p><a href="index.html#contact">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <p><a href="index.html#services">Residential Construction</a></p>
+                    <p><a href="index.html#services">Commercial Projects</a></p>
+                    <p><a href="index.html#services">Steel Fabrication</a></p>
+                    <p><a href="index.html#services">Custom Gates</a></p>
+                    <p><a href="index.html#services">Welding Accessories</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📞 08141298704</p>
+                    <p>📧 FinestSteelng@gmail.com</p>
+                    <p>📍 153 Lagos-Abeokuta Expressway<br>Iyana-Ipaja, Lagos</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Finest Steel Nigeria. All rights reserved. | Premium Construction Materials & Steel Fabrication</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/2348141298704"
+      class="fab"
+      title="Chat with us on WhatsApp"
+      target="_blank"
+      rel="noopener"
+    >
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 28px; height: 28px; vertical-align: middle;">
+    </a>
+    <!-- Image Modal for Magnified View -->
+<div id="imgModal" class="img-modal">
+    <span class="img-modal-close" id="imgModalClose">&times;</span>
+    <img class="img-modal-content" id="imgModalImg" src="" alt="">
+    <div class="img-modal-desc" id="imgModalDesc"></div>
+    <span class="img-modal-prev" id="imgModalPrev">&#10094;</span>
+    <span class="img-modal-next" id="imgModalNext">&#10095;</span>
+</div>
+    <script>
+        // Hamburger menu functionality
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            hamburgerBtn.classList.remove('active');
+        }
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const windowHeight = window.innerHeight;
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Gallery filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+       
+
+    window.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('imgModalImg');
+    const modalDesc = document.getElementById('imgModalDesc');
+    const closeBtn = document.getElementById('imgModalClose');
+    const prevBtn = document.getElementById('imgModalPrev');
+    const nextBtn = document.getElementById('imgModalNext');
+    let visibleItems = [];
+    let currentIndex = 0;
+
+    function updateVisibleItems() {
+        visibleItems = Array.from(document.querySelectorAll('.gallery-item'))
+            .filter(item => item.style.display !== 'none');
+    }
+
+    function openModal(idx) {
+        updateVisibleItems();
+        const item = visibleItems[idx];
+        const img = item.querySelector('.gallery-img');
+        const desc = item.querySelector('.gallery-title')?.textContent || '';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modalDesc.textContent = desc;
+        modal.classList.add('active');
+        currentIndex = idx;
+
+        // Hide/show arrows
+        prevBtn.style.display = (idx === 0) ? 'none' : '';
+        nextBtn.style.display = (idx === visibleItems.length - 1) ? 'none' : '';
+    }
+
+    function attachOverlayClicks() {
+        document.querySelectorAll('.gallery-overlay').forEach((overlay, i) => {
+            overlay.style.cursor = "zoom-in";
+            overlay.onclick = function(e) {
+                e.stopPropagation();
+                updateVisibleItems();
+                // Find index of this item's parent in visibleItems
+                const parent = overlay.closest('.gallery-item');
+                const idx = visibleItems.indexOf(parent);
+                if (idx !== -1) openModal(idx);
+            };
+        });
+    }
+
+    attachOverlayClicks();
+
+    closeBtn.onclick = function() {
+        modal.classList.remove('active');
+    };
+    prevBtn.onclick = function(e) {
+        e.stopPropagation();
+        if (currentIndex > 0) {
+            openModal(currentIndex - 1);
+        }
+    };
+    nextBtn.onclick = function(e) {
+        e.stopPropagation();
+        if (currentIndex < visibleItems.length - 1) {
+            openModal(currentIndex + 1);
+        }
+    };
+    modal.onclick = function(e) {
+        if (e.target === modal) modal.classList.remove('active');
+    };
+    document.addEventListener('keydown', function(e) {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'ArrowLeft' && currentIndex > 0) prevBtn.onclick(e);
+        if (e.key === 'ArrowRight' && currentIndex < visibleItems.length - 1) nextBtn.onclick(e);
+        if (e.key === 'Escape') closeBtn.onclick();
+    });
+
+    // Re-attach overlay clicks after filtering
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            setTimeout(attachOverlayClicks, 100); // Wait for filter to apply
+        });
+    });
+});
+    </script>
+</body>
+</html>

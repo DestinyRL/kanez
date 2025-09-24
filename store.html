@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store | Finest Steel Nigeria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation (copy from index.html) -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="indigo.jpg" alt="logo" height="50" width="50" style="border-radius: 50%;">
+                Finest Steel
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center;">
+                <div class="mobile-menu-toggle" id="hamburgerBtn">
+                    <div class="hamburger"></div>
+                    <div class="hamburger"></div>
+                    <div class="hamburger"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="index.html#services" onclick="closeMobileMenu()">Services</a></li>
+                <li><a href="index.html#products" onclick="closeMobileMenu()">Products</a></li>
+                <li><a href="gallery.html" onclick="closeMobileMenu()">Gallery</a></li>
+                <li><a href="store.html" onclick="closeMobileMenu()">Store</a></li>
+                <li><a href="index.html#testimonials" onclick="closeMobileMenu()">Reviews</a></li>
+                <li><a href="index.html#contact" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Store Section -->
+    <section id="store" class="store" style="margin-top:100px;">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Online Store</h2>
+            <p class="section-subtitle animate-on-scroll">Shop premium construction materials with fast delivery</p>
+            <div class="store-filters animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="iron">Iron & Steel</button>
+                <button class="filter-btn" data-filter="welding">Welding</button>
+                <button class="filter-btn" data-filter="tools">Tools & Accessories</button>
+            </div>
+            <div class="store-grid">
+                <!-- Iron & Steel -->
+                <div class="product-card animate-on-scroll" data-category="iron">
+                    <img src="basketcumbi.jpg" alt="Basket Cumbi" class="product-img">
+                    <h3 class="product-title">Basket Cumbi</h3>
+                    <p class="product-description">High-quality basket cumbi for various applications.</p>
+                    <div class="product-price">₦19,000</div>
+                    <button class="add-to-cart-btn" data-title="Basket Cumbi" data-price="19000" data-img="basketcumbi.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="iron">
+                    <img src="circlerossete.jpg" alt="Biggest Circle Rosette" class="product-img">
+                    <h3 class="product-title">Biggest Circle Rosette</h3>
+                    <p class="product-description">High-quality biggest circle rosette for various applications.</p>
+                    <div class="product-price">₦30,000</div>
+                    <button class="add-to-cart-btn" data-title="Biggest Circle Rosette" data-price="30000" data-img="circlerossete.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="irontyres.JPG" alt="Iron Tyres 3inches" class="product-img">
+                    <h3 class="product-title">Iron Tyres 3inches</h3>
+                    <p class="product-description">High-quality iron tyres for various applications.</p>
+                    <div class="product-price">₦23,000</div>
+                    <button class="add-to-cart-btn" data-title="Iron Tyres 3inches" data-price="23000" data-img="irontyres.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="irontyres.JPG" alt="Iron Tyres 4inches" class="product-img">
+                    <h3 class="product-title">Iron Tyres 4inches</h3>
+                    <p class="product-description">High-quality iron tyres for various applications.</p>
+                    <div class="product-price">₦27,000</div>
+                    <button class="add-to-cart-btn" data-title="Iron Tyres 4inches" data-price="27000" data-img="irontyres.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="irontyres.JPG" alt="Iron Tyres 5inches" class="product-img">
+                    <h3 class="product-title">Iron Tyres 5inches</h3>
+                    <p class="product-description">High-quality iron tyres for various applications.</p>
+                    <div class="product-price">₦32,000</div>
+                    <button class="add-to-cart-btn" data-title="Iron Tyres 5inches" data-price="32000" data-img="irontyres.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="doorhandlesothis.JPG" alt="Door Handle(sothis)" class="product-img">
+                    <h3 class="product-title">Door Handle(sothis)</h3>
+                    <p class="product-description">High-quality door handle(sothis) for various applications.</p>
+                    <div class="product-price">₦7,000</div>
+                    <button class="add-to-cart-btn" data-title="Door Handle(sothis)" data-price="7000" data-img="doorhandlesothis.JPG">Add to Cart</button>
+                </div>
+                <!-- Welding -->
+                <div class="product-card animate-on-scroll" data-category="welding">
+                    <img src="maxmechweldinggenerator.JPG" alt="Maxmech Welding Generator(WG-200i)" class="product-img">
+                    <h3 class="product-title">Maxmech Welding Generator(WG-200i)</h3>
+                    <p class="product-description">WG-200i is a compact and portable inverter welding generator, ideal for both professional and DIY use.</p>
+                    <div class="product-price">₦400,000</div>
+                    <button class="add-to-cart-btn" data-title="Maxmech Welding Generator(WG-200i)" data-price="400000" data-img="maxmechweldinggenerator.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="welding">
+                    <img src="g12stonebridge electrode.JPG" alt="G12 Stonebridge Electrode" class="product-img">
+                    <h3 class="product-title">G12 Stonebridge Electrode(per carton of 4packs)</h3>
+                    <p class="product-description">High-quality electrode for welding applications.</p>
+                    <div class="product-price">₦40,000</div>
+                    <button class="add-to-cart-btn" data-title="G12 Stonebridge Electrode(per carton of 4packs)" data-price="40000" data-img="g12stonebridge electrode.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="welding">
+                    <img src="beanddecker.JPG" alt="BeandDecker Mini-250amps Welding Maxmech" class="product-img">
+                    <h3 class="product-title">BeandDecker Mini-250amps Welding Maxmech</h3>
+                    <p class="product-description">High-quality welding machine for various applications.</p>
+                    <div class="product-price">₦70,000</div>
+                    <button class="add-to-cart-btn" data-title="BeandDecker Mini-250amps Welding Maxmech" data-price="70000" data-img="beanddecker.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="welding">
+                    <img src="mma250.jpg" alt="MMA 250amps Maxmech Inverter Welding Machine" class="product-img">
+                    <h3 class="product-title">MMA 250amps Maxmech Inverter Welding Machine</h3>
+                    <p class="product-description">High-quality MMA 250amps Maxmech inverter welding machine for various applications.</p>
+                    <div class="product-price">₦105,000</div>
+                    <button class="add-to-cart-btn" data-title="MMA 250amps Maxmech Inverter Welding Machine" data-price="105000" data-img="mma250.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="welding">
+                    <img src="mma300.jpg" alt="MMA 300amps Maxmech Inverter Welding Machine" class="product-img">
+                    <h3 class="product-title">MMA 300amps Maxmech Inverter Welding Machine</h3>
+                    <p class="product-description">High-quality MMA 300amps Maxmech inverter welding machine for various applications.</p>
+                    <div class="product-price">₦140,000</div>
+                    <button class="add-to-cart-btn" data-title="MMA 300amps Maxmech Inverter Welding Machine" data-price="140000" data-img="mma300.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="welding">
+                    <img src="mini200.jpg" alt="Mini 200amps Maxmech Inverter Welding Machine" class="product-img">
+                    <h3 class="product-title">Mini 200amps Maxmech Inverter Welding Machine</h3>
+                    <p class="product-description">High-quality mini 200amps Maxmech inverter welding machine for various applications.</p>
+                    <div class="product-price">₦70,000</div>
+                    <button class="add-to-cart-btn" data-title="Mini 200amps Maxmech Inverter Welding Machine" data-price="70000" data-img="mini200.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="welding">
+                    <img src="mma200.jpg" alt="MMA 200amps Maxmech Inverter Welding Machine" class="product-img">
+                    <h3 class="product-title">MMA 200amps Maxmech Inverter Welding Machine</h3>
+                    <p class="product-description">High-quality MMA 200amps Maxmech inverter welding machine for various applications.</p>
+                    <div class="product-price">₦80,000</div>
+                    <button class="add-to-cart-btn" data-title="MMA 200amps Maxmech Inverter Welding Machine" data-price="80000" data-img="mma200.jpg">Add to Cart</button>
+                </div>
+                <!-- Tools & Accessories -->
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="anglegrinder.jpg" alt="Bosch Angle Grinder" class="product-img">
+                    <h3 class="product-title">Bosch Angle Grinder</h3>
+                    <p class="product-description">High-performance angle grinder for cutting and grinding tasks.</p>
+                    <div class="product-price">₦150,000</div>
+                    <button class="add-to-cart-btn" data-title="Bosch Angle Grinder" data-price="150000" data-img="anglegrinder.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="doorhandlesqiek.JPG" alt="Door Handle(Sqiek)" class="product-img">
+                    <h3 class="product-title">Door Handle(Sqiek)</h3>
+                    <p class="product-description">High-quality square door handle for modern interiors.</p>
+                    <div class="product-price">₦7,000</div>
+                    <button class="add-to-cart-btn" data-title="Door Handle(Sqiek)" data-price="7000" data-img="doorhandlesqiek.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="homeflower9.jpg" alt="9inch Homeflower Cutting Disc(5pcs pack)" class="product-img">
+                    <h3 class="product-title">9inch Homeflower Cutting Disc(5pcs pack)</h3>
+                    <p class="product-description">High-quality cutting disc for various applications.</p>
+                    <div class="product-price">₦14,000</div>
+                    <button class="add-to-cart-btn" data-title="9inch Homeflower Cutting Disc(5pcs pack)" data-price="14000" data-img="homeflower9.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="Saffirecutter.JPG" alt="Saffire Cutter" class="product-img">
+                    <h3 class="product-title">Saffire Cutter</h3>
+                    <p class="product-description">High-quality cutter for various applications.</p>
+                    <div class="product-price">₦32,000</div>
+                    <button class="add-to-cart-btn" data-title="Saffire Cutter" data-price="32000" data-img="Saffirecutter.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="saffireregulator.JPG" alt="Saffire Regulator" class="product-img">
+                    <h3 class="product-title">Saffire Regulator</h3>
+                    <p class="product-description">High-quality regulator for various applications.</p>
+                    <div class="product-price">₦32,000</div>
+                    <button class="add-to-cart-btn" data-title="Saffire Regulator" data-price="32000" data-img="saffireregulator.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="oxygenregulator.JPG" alt="Oxygen Regulator" class="product-img">
+                    <h3 class="product-title">Oxygen Regulator</h3>
+                    <p class="product-description">High-quality oxygen regulator for various applications.</p>
+                    <div class="product-price">₦14,000</div>
+                    <button class="add-to-cart-btn" data-title="Oxygen Regulator" data-price="14000" data-img="oxygenregulator.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="Butterflyhinges.JPG" alt="Butterfly Hinges(10pairs per pack)" class="product-img">
+                    <h3 class="product-title">Butterfly Hinges(10pairs per pack)</h3>
+                    <p class="product-description">High-quality butterfly hinges for various applications.</p>
+                    <div class="product-price">₦14,500</div>
+                    <button class="add-to-cart-btn" data-title="Butterfly Hinges(10pairs per pack)" data-price="14500" data-img="Butterflyhinges.JPG">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="toolbox.jpg" alt="Dewalt Toolbox" class="product-img">
+                    <h3 class="product-title">Dewalt Toolbox</h3>
+                    <p class="product-description">High-quality toolbox for various applications.</p>
+                    <div class="product-price">₦70,000</div>
+                    <button class="add-to-cart-btn" data-title="Dewalt Toolbox" data-price="70000" data-img="toolbox.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="totalspray.jpg" alt="Total Spray Gun(450w)" class="product-img">
+                    <h3 class="product-title">Total Spray Gun(450w)</h3>
+                    <p class="product-description">High-quality spray gun for various applications.</p>
+                    <div class="product-price">₦45,000</div>
+                    <button class="add-to-cart-btn" data-title="Total Spray Gun(450w)" data-price="45000" data-img="totalspray.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="tigerforce9.jpg" alt="9inch Tiger Force Grinding Disc(5pcs pack)" class="product-img">
+                    <h3 class="product-title">9inch Tiger Force Grinding Disc(5pcs pack)</h3>
+                    <p class="product-description">High-quality 9inch Tiger Force Grinding Disc for various applications.</p>
+                    <div class="product-price">₦14,000</div>
+                    <button class="add-to-cart-btn" data-title="9inch Tiger Force Grinding Disc(5pcs pack)" data-price="14000" data-img="tigerforce9.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="green800.jpg" alt="Green 800amps Electrode Holder" class="product-img">
+                    <h3 class="product-title">Green 800amps Electrode Holder</h3>
+                    <p class="product-description">High-quality green 800amps electrode holder for various applications.</p>
+                    <div class="product-price">₦3,500</div>
+                    <button class="add-to-cart-btn" data-title="Green 800amps Electrode Holder" data-price="3500" data-img="green800.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="yellow1000.jpg" alt="Yellow 1000amps Electrode Holder" class="product-img">
+                    <h3 class="product-title">Yellow 1000amps Electrode Holder</h3>
+                    <p class="product-description">High-quality yellow 1000amps electrode holder for various applications.</p>
+                    <div class="product-price">₦4,000</div>
+                    <button class="add-to-cart-btn" data-title="Yellow 1000amps Electrode Holder" data-price="4000" data-img="yellow1000.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="elephant800.jpg" alt="Elephant 800amps Electrode Holder" class="product-img">
+                    <h3 class="product-title">Elephant 800amps Electrode Holder</h3>
+                    <p class="product-description">High-quality elephant 800amps electrode holder for various applications.</p>
+                    <div class="product-price">₦4,000</div>
+                    <button class="add-to-cart-btn" data-title="Elephant 800amps Electrode Holder" data-price="4000" data-img="elephant800.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="powerflex9.jpg" alt="9inch PowerFlex Grinding Disc(5pcs pack)" class="product-img">
+                    <h3 class="product-title">9inch PowerFlex Grinding Disc(5pcs pack)</h3>
+                    <p class="product-description">High-performance 9inch PowerFlex Grinding Disc for various applications.</p>
+                    <div class="product-price">₦11,500</div>
+                    <button class="add-to-cart-btn" data-title="9inch PowerFlex Grinding Disc(5pcs pack)" data-price="11500" data-img="powerflex9.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="powerflex7.jpg" alt="7inch PowerFlex Grinding Disc(5pcs pack)" class="product-img">
+                    <h3 class="product-title">7inch PowerFlex Grinding Disc(5pcs pack)</h3>
+                    <p class="product-description">High-performance 7inch PowerFlex Grinding Disc for various applications.</p>
+                    <div class="product-price">₦7,500</div>
+                    <button class="add-to-cart-btn" data-title="7inch PowerFlex Grinding Disc(5pcs pack)" data-price="7500" data-img="powerflex7.jpg">Add to Cart</button>
+                </div>
+                <div class="product-card animate-on-scroll" data-category="tools">
+                    <img src="powerextra9.jpg" alt="9inch Powerextra Disc(5pcs pack)" class="product-img">
+                    <h3 class="product-title">9inch Powerextra Disc(5pcs pack)</h3>
+                    <p class="product-description">High-quality 9inch Powerextra Disc for various applications.</p>
+                    <div class="product-price">₦14,000</div>
+                    <button class="add-to-cart-btn" data-title="9inch Powerextra Disc(5pcs pack)" data-price="14000" data-img="powerextra9.jpg">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">₦0</span>
+        </div>
+        <div class="cart-account-info" style="margin-bottom: 1em; text-align: center;">
+            <strong>Please Pay into: 0767734442 - Ezeobiora Ifeoma Blessing - Access Bank</strong>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+    <!-- Floating Cart Button -->
+    <button class="cart-fab" id="cartFab" onclick="toggleCart()">
+        🛒 <span id="cartCount">0</span>
+    </button>
+
+    <!-- Added to cart message -->
+    <div id="cart-message" style="display:none;position:fixed;top:30px;left:50%;transform:translateX(-50%); background: linear-gradient(45deg, var(--accent), var(--gold));color:#fff;padding:1em 2em;border-radius:8px;z-index:3000;font-weight:bold;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+        Added to cart!
+    </div>
+
+    <!-- Footer (copy from index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Finest Steel Nigeria</h3>
+                    <p>Your trusted partner for premium construction materials and steel fabrication services. Building Nigeria's future with quality, precision, and excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html#home">Home</a></p>
+                    <p><a href="index.html#services">Services</a></p>
+                    <p><a href="index.html#products">Products</a></p>
+                    <p><a href="index.html#testimonials">Testimonials</a></p>
+                    <p><a href="index.html#contact">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <p><a href="index.html#services">Residential Construction</a></p>
+                    <p><a href="index.html#services">Commercial Projects</a></p>
+                    <p><a href="index.html#services">Steel Fabrication</a></p>
+                    <p><a href="index.html#services">Custom Gates</a></p>
+                    <p><a href="index.html#services">Welding Accessories</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📞 08141298704</p>
+                    <p>📧 FinestSteelng@gmail.com</p>
+                    <p>📍 153 Lagos-Abeokuta Expressway<br>Iyana-Ipaja, Lagos</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Finest Steel Nigeria. All rights reserved. | Premium Construction Materials & Steel Fabrication</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            hamburgerBtn.classList.remove('active');
+        }
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const windowHeight = window.innerHeight;
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Product filtering
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.product-card').forEach(card => {
+                    if (
+                        filter === 'all' ||
+                        card.getAttribute('data-category') === filter
+                    ) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Cart logic
+        let cart = [];
+
+        function updateCartDisplay() {
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartItemsDiv = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            let total = 0;
+            cartItemsDiv.innerHTML = '';
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p style="text-align:center;color:#888;">Your cart is empty.</p>';
+            } else {
+                cart.forEach((item, idx) => {
+                    total += item.price * item.qty;
+                    cartItemsDiv.innerHTML += `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.title}">
+                            <span class="cart-item-title">${item.title}</span>
+                            <button onclick="changeQty(${idx}, -1)">-</button>
+                            <span class="cart-item-qty">${item.qty}</span>
+                            <button onclick="changeQty(${idx}, 1)">+</button>
+                            <button class="cart-item-remove" onclick="removeFromCart(${idx})">&times;</button>
+                        </div>
+                    `;
+                });
+            }
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartTotal.textContent = '₦' + total.toLocaleString();
+        }
+
+        function addToCart(title, price, img) {
+            const idx = cart.findIndex(item => item.title === title);
+            if (idx > -1) {
+                cart[idx].qty += 1;
+            } else {
+                cart.push({ title, price, img, qty: 1 });
+            }
+            updateCartDisplay();
+            showCartMessage();
+        }
+
+        function changeQty(idx, delta) {
+            cart[idx].qty += delta;
+            if (cart[idx].qty <= 0) cart.splice(idx, 1);
+            updateCartDisplay();
+        }
+
+        function removeFromCart(idx) {
+            cart.splice(idx, 1);
+            updateCartDisplay();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartSidebar').classList.toggle('active');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            let message = 'I have paid for the following products from Finest Steel Nigeria:%0A';
+            cart.forEach(item => {
+                message += `${item.title} x${item.qty} - ₦${(item.price * item.qty).toLocaleString()}%0A`;
+            });
+            let total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+            message += `Total: ₦${total.toLocaleString()}%0A`;
+            message += 'Paid into: 1234567890 - Finest Steel Nigeria - Zenith Bank';
+            window.open(`https://wa.me/2348141298704?text=${message}`, '_blank');
+        }
+
+        // Attach event listeners to Add to Cart buttons
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                addToCart(
+                    this.getAttribute('data-title'),
+                    parseInt(this.getAttribute('data-price')),
+                    this.getAttribute('data-img')
+                );
+            });
+        });
+
+        // Make the whole product card clickable
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.style.cursor = "pointer";
+            card.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart-btn')) return;
+                const btn = card.querySelector('.add-to-cart-btn');
+                addToCart(
+                    btn.getAttribute('data-title'),
+                    parseInt(btn.getAttribute('data-price')),
+                    btn.getAttribute('data-img')
+                );
+            });
+        });
+
+        // Initialize cart display
+        updateCartDisplay();
+
+        function showCartMessage() {
+            const msg = document.getElementById('cart-message');
+            msg.style.display = 'block';
+            setTimeout(() => {
+                msg.style.display = 'none';
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
