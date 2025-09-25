@@ -515,9 +515,7 @@ button:active {
 }
 
 /* Reduce cumulative layout shift */
-img, iframe {
-    aspect-ratio: 16/9; /* Set proper ratios */
-}
+
         .product-card {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 15px;
@@ -1386,3 +1384,4 @@ img, iframe {
         height: auto;
     }
 }
+
