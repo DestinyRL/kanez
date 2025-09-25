@@ -20,7 +20,18 @@
             color: var(--primary);
             overflow-x: hidden;
         }
+.logo {
+    font-size: 0.9rem; /* Make text smaller */
+    line-height: 1.2;
+    max-width: 200px; /* Control width */
+}
 
+@media (max-width: 768px) {
+    .logo {
+        font-size: 0.8rem;
+        max-width: 150px;
+    }
+}
         /* Loading Animation */
         .loader {
             position: fixed;
@@ -1436,5 +1447,6 @@ button:active {
         margin: 8px 0;
     }
 }
+
 
 
