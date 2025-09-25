@@ -491,14 +491,33 @@
             padding: 5rem 0;
             background: var(--white);
         }
+/* Improve font loading */
+@font-face {
+    font-display: swap; /* Prevents invisible text */
+}
 
+/* System fonts fallback */
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
+/* Prevent layout shifts */
+.container {
+    min-height: 100px; /* Reserve space */
+}
 
+/* Improve interaction times */
+button:active {
+    transform: scale(0.98);
+}
+
+/* Reduce cumulative layout shift */
+img, iframe {
+    aspect-ratio: 16/9; /* Set proper ratios */
+}
         .product-card {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 15px;
@@ -1332,4 +1351,38 @@
                 right: -100%;
             }
 
+
         }
+/* Add to your main CSS */
+@media (max-width: 768px) {
+    /* Ensure no horizontal scrolling */
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Stack layout vertically */
+    .container, .row {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+    /* Make text readable */
+    h1 { font-size: 1.8rem; line-height: 1.3; }
+    h2 { font-size: 1.5rem; }
+    p { font-size: 16px; line-height: 1.6; }
+    
+    /* Touch-friendly buttons */
+    button, a.btn {
+        min-height: 44px;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+    
+    /* Images responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
