@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | Finest Steel Nigeria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation (copy from index.html) -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="indigo.jpg" alt="logo" height="50" width="50" style="border-radius: 50%;">
+                Finest Steel
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center;">
+                <div class="mobile-menu-toggle" id="hamburgerBtn">
+                    <div class="hamburger"></div>
+                    <div class="hamburger"></div>
+                    <div class="hamburger"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="index.html#services" onclick="closeMobileMenu()">Services</a></li>
+                <li><a href="index.html#products" onclick="closeMobileMenu()">Products</a></li>
+                <li><a href="gallery.html" onclick="closeMobileMenu()">Gallery</a></li>
+                <li><a href="store.html" onclick="closeMobileMenu()">Store</a></li>
+                <li><a href="index.html#testimonials" onclick="closeMobileMenu()">Reviews</a></li>
+                <li><a href="index.html#contact" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard Section -->
+    <section id="admin-store" class="store" style="margin-top:100px;">
+        <div class="container">
+            <h2 class="section-title">Admin Dashboard</h2>
+            <p class="section-subtitle">Add, edit, or remove products for sale</p>
+            <button id="addProductBtn" style="margin-bottom:1em;">Add Product</button>
+            <div class="store-grid" id="adminStoreGrid"></div>
+        </div>
+    </section>
+
+    <!-- Add Product Modal -->
+    <div id="addProductModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+      <div style="background:#fff;padding:2em;border-radius:8px;max-width:350px;margin:auto;">
+        <h3 id="addProductModalTitle">Add Product</h3>
+        <input type="text" id="productTitle" placeholder="Title" style="width:100%;padding:0.5em;margin-bottom:0.5em;">
+        <input type="text" id="productDescription" placeholder="Description" style="width:100%;padding:0.5em;margin-bottom:0.5em;">
+        <input type="number" id="productPrice" placeholder="Price" style="width:100%;padding:0.5em;margin-bottom:0.5em;">
+        <input type="text" id="productImg" placeholder="Image filename (e.g. item.jpg)" style="width:100%;padding:0.5em;margin-bottom:0.5em;">
+        <select id="productCategory" style="width:100%;padding:0.5em;margin-bottom:0.5em;">
+            <option value="iron">Iron & Steel</option>
+            <option value="welding">Welding</option>
+            <option value="tools">Tools & Accessories</option>
+        </select>
+        <button id="saveProductBtn" style="width:100%;">Save</button>
+        <button onclick="closeAddProductModal()" style="width:100%;margin-top:0.5em;">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Footer (copy from index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Finest Steel Nigeria</h3>
+                    <p>Your trusted partner for premium construction materials and steel fabrication services. Building Nigeria's future with quality, precision, and excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html#home">Home</a></p>
+                    <p><a href="index.html#services">Services</a></p>
+                    <p><a href="index.html#products">Products</a></p>
+                    <p><a href="index.html#testimonials">Testimonials</a></p>
+                    <p><a href="index.html#contact">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <p><a href="index.html#services">Residential Construction</a></p>
+                    <p><a href="index.html#services">Commercial Projects</a></p>
+                    <p><a href="index.html#services">Steel Fabrication</a></p>
+                    <p><a href="index.html#services">Custom Gates</a></p>
+                    <p><a href="index.html#services">Welding Accessories</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📞 08141298704</p>
+                    <p>📧 FinestSteelng@gmail.com</p>
+                    <p>📍 153 Lagos-Abeokuta Expressway<br>Iyana-Ipaja, Lagos</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Finest Steel Nigeria. All rights reserved. | Premium Construction Materials & Steel Fabrication</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        console.log("Admin script loaded");
+        // Obfuscated password (base64 encoded)
+const ADMIN_PASSWORD = atob("bWFkYW1rYW5leg=="); // "madamkanez"
+const API_URL = "http://localhost:3001/api/products";
+
+// Prompt for admin password before allowing access
+if (!sessionStorage.getItem("adminLoggedIn")) {
+    const input = prompt("Enter admin password:");
+    if (input !== ADMIN_PASSWORD) {
+        alert("Access denied.");
+        window.location.href = "index.html";
+    } else {
+        sessionStorage.setItem("adminLoggedIn", "true");
+    }
+}
+
+// --- Render Products ---
+async function renderAdminProducts() {
+    const grid = document.getElementById("adminStoreGrid");
+    grid.innerHTML = "<p>Loading...</p>";
+    try {
+        const res = await fetch(API_URL);
+        if (!res.ok) throw new Error("API error");
+        const products = await res.json();
+        grid.innerHTML = "";
+        products.forEach(product => {
+            const card = document.createElement("div");
+            card.className = "product-card";
+            card.setAttribute("data-category", product.category);
+            card.innerHTML = `
+                <img src="${product.img}" alt="${product.title}" class="product-img">
+                <h3 class="product-title">${product.title}</h3>
+                <p class="product-description">${product.description}</p>
+                <div class="product-price">₦${product.price.toLocaleString()}</div>
+                <button class="admin-edit" style="background:#1a6;color:#fff;border:none;padding:0.5em 1em;margin-top:0.5em;margin-right:0.5em;border-radius:4px;cursor:pointer;">Edit</button>
+                <button class="admin-remove" style="background:#c00;color:#fff;border:none;padding:0.5em 1em;margin-top:0.5em;border-radius:4px;cursor:pointer;">Remove</button>
+            `;
+            card.querySelector(".admin-remove").onclick = function(e) {
+                e.stopPropagation();
+                removeProduct(product._id);
+            };
+            card.querySelector(".admin-edit").onclick = function(e) {
+                e.stopPropagation();
+                openEditProductModal(product);
+            };
+            grid.appendChild(card);
+        });
+    } catch (err) {
+        grid.innerHTML = "<p style='color:red;'>Error loading products.</p>";
+        console.error(err);
+    }
+}
+
+// --- Remove Product ---
+async function removeProduct(id) {
+    if (!confirm("Are you sure you want to remove this product?")) return;
+    await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ adminPassword: ADMIN_PASSWORD })
+    });
+    renderAdminProducts();
+}
+
+// --- Add Product Modal ---
+document.getElementById("addProductBtn").onclick = function() {
+    openAddProductModal();
+};
+
+function openAddProductModal() {
+    document.getElementById("addProductModal").style.display = "flex";
+    document.getElementById("productTitle").value = "";
+    document.getElementById("productDescription").value = "";
+    document.getElementById("productPrice").value = "";
+    document.getElementById("productImg").value = "";
+    document.getElementById("productCategory").value = "iron";
+    document.getElementById("saveProductBtn").onclick = saveProduct;
+    document.getElementById("addProductModalTitle").textContent = "Add Product";
+}
+
+function closeAddProductModal() {
+    document.getElementById("addProductModal").style.display = "none";
+}
+
+// --- Save New Product ---
+async function saveProduct() {
+    const title = document.getElementById("productTitle").value.trim();
+    const description = document.getElementById("productDescription").value.trim();
+    const price = parseInt(document.getElementById("productPrice").value);
+    const img = document.getElementById("productImg").value.trim();
+    const category = document.getElementById("productCategory").value;
+    if (!title || !description || !price || !img) {
+        alert("Please fill all fields.");
+        return;
+    }
+    await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, description, price, img, category, adminPassword: ADMIN_PASSWORD })
+    });
+    closeAddProductModal();
+    renderAdminProducts();
+}
+
+// --- Edit Product Modal ---
+function openEditProductModal(product) {
+    document.getElementById("addProductModal").style.display = "flex";
+    document.getElementById("productTitle").value = product.title;
+    document.getElementById("productDescription").value = product.description;
+    document.getElementById("productPrice").value = product.price;
+    document.getElementById("productImg").value = product.img;
+    document.getElementById("productCategory").value = product.category;
+    document.getElementById("saveProductBtn").onclick = function() {
+        saveEditedProduct(product._id);
+    };
+    document.getElementById("addProductModalTitle").textContent = "Edit Product";
+}
+
+async function saveEditedProduct(id) {
+    const title = document.getElementById("productTitle").value.trim();
+    const description = document.getElementById("productDescription").value.trim();
+    const price = parseInt(document.getElementById("productPrice").value);
+    const img = document.getElementById("productImg").value.trim();
+    const category = document.getElementById("productCategory").value;
+    if (!title || !description || !price || !img) {
+        alert("Please fill all fields.");
+        return;
+    }
+    await fetch(`${API_URL}/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, description, price, img, category, adminPassword: ADMIN_PASSWORD })
+    });
+    closeAddProductModal();
+    renderAdminProducts();
+}
+
+// --- Modal Close on Background Click ---
+document.getElementById("addProductModal").addEventListener("click", function(e) {
+    if (e.target === this) closeAddProductModal();
+});
+
+// --- Initial Render ---
+renderAdminProducts();
+
+/// Hamburger menu functionality
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburgerBtn.addEventListener('click', function() {
+    hamburgerBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+});
+function closeMobileMenu() {
+    mobileMenu.classList.remove('active');
+    hamburgerBtn.classList.remove('active');
+}
+    </script>
+</body>
+</html>
