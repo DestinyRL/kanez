@@ -21,13 +21,6 @@
             overflow-x: hidden;
         }
 
-
-@media (max-width: 768px) {
-    .logo {
-        font-size: 0.8rem;
-        max-width: 150px;
-    }
-}
         /* Loading Animation */
         .loader {
             position: fixed;
@@ -498,30 +491,13 @@
             padding: 5rem 0;
             background: var(--white);
         }
-/* Improve font loading */
-@font-face {
-    font-display: swap; /* Prevents invisible text */
-}
 
-/* System fonts fallback */
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-/* Prevent layout shifts */
-.container {
-    min-height: 100px; /* Reserve space */
-}
-
-/* Improve interaction times */
-button:active {
-    transform: scale(0.98);
-}
-
-/* Reduce cumulative layout shift */
 
         .product-card {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -1337,12 +1313,6 @@ button:active {
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
-                 input[type="submit"],
-             input[type="button"] {
-        min-width: 48px;
-        min-height: 48px;
-        padding: 12px 16px;
-        margin: 8px 4px;        
             }
              .store-grid {
         grid-template-columns: 1fr 1fr;
@@ -1362,87 +1332,12 @@ button:active {
                 right: -100%;
             }
 
-
         }
-/* Add to your main CSS */
-@media (max-width: 768px) {
-    /* Ensure no horizontal scrolling */
-    body, html {
-        overflow-x: hidden;
-        width: 100%;
-    }
-    
-    /* Stack layout vertically */
-    .container, .row {
-        flex-direction: column;
-        width: 100%;
-        padding: 0 15px;
-    }
-    
-    /* Make text readable */
-    h1 { font-size: 1.8rem; line-height: 1.3; }
-    h2 { font-size: 1.5rem; }
-    p { font-size: 16px; line-height: 1.6; }
-    
-    /* Touch-friendly buttons */
-    button, a.btn {
-        min-height: 44px;
-        padding: 12px 20px;
-        font-size: 16px;
-    }
-    
-    /* Images responsive */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-}
-/* Mobile tap target fixes */
-@media (max-width: 768px) {
-    
-    /* Make all buttons properly sized */
-    button, 
-    .btn, 
-    input[type="submit"],
-    input[type="button"] {
-        min-width: 48px;
-        min-height: 48px;
-        padding: 12px 16px;
-        margin: 8px 4px;
-    }
-    
-    /* Make all links properly sized */
-    a {
-        min-height: 48px;
-        padding: 12px 8px;
-        margin: 4px 0;
-        display: inline-block;
-    }
-    
-    /* Navigation links spacing */
-    nav a,
-    .menu a,
-    .navigation a {
-        margin: 8px 8px;
-        padding: 12px 16px;
-    }
-    
-    /* Form inputs proper spacing */
-    input,
-    textarea,
-    select {
-        min-height: 48px;
-        margin-bottom: 16px;
-    }
-    
-    /* Phone/email links */
-    a[href^="tel:"],
-    a[href^="mailto:"] {
-        min-height: 48px;
-        padding: 12px;
-        margin: 8px 0;
-    }
-     .product-card {
+
+        /* Add this to styles.css or inside <head> in a <style> tag */
+
+/* Make product cards display nicely */
+.product-card {
     position: relative;
     z-index: 1;
     background: #fff;
@@ -1469,6 +1364,5 @@ button:active {
 
 .admin-remove:hover {
     background: #a00;
-}       
-                    
+
 
