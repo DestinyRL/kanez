@@ -1442,4 +1442,33 @@ button:active {
         padding: 12px;
         margin: 8px 0;
     }
+     .product-card {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+/* Make buttons show pointer on hover */
+.admin-edit, .admin-remove {
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s;
+}
+
+.admin-edit:hover {
+    background: #148c2b;
+}
+
+.admin-remove:hover {
+    background: #a00;
+}       
+                    
+
