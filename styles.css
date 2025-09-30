@@ -500,13 +500,14 @@
         }
 
         .product-card {
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 15px;
             padding: 2rem;
             color: var(--white);
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
 
         .product-card::before {
@@ -527,6 +528,8 @@
 
         .product-card:hover {
             transform: scale(1.02);
+            box-shadow: 0 8px 32px rgba(233,69,96,0.18), 0 2px 8px rgba(0,0,0,0.04);
+            border: 2px solid var(--accent);
         }
 
         .product-title {
@@ -1322,14 +1325,23 @@
         right: -100%;
     }
     .store-grid {
+        display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
+        width: 100%;
     }
     .product-card {
-        padding: 1rem;
-        min-width: 0;
         width: 100%;
+        min-width: 0;
         box-sizing: border-box;
+        padding: 1rem;
+        margin-bottom: 1em;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     body, html {
         overflow-x: hidden;
@@ -1340,24 +1352,6 @@
         height: auto;
     }
 }
-        /* Add this to styles.css or inside <head> in a <style> tag */
-
-/* Make product cards display nicely */
-.product-card {
-    position: relative;
-    z-index: 1;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 1em;
-    margin-bottom: 1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Make buttons show pointer on hover */
 .admin-edit, .admin-remove {
     cursor: pointer;
     z-index: 2;
@@ -1371,4 +1365,19 @@
 .admin-remove:hover {
     background: #a00;
 }
+.product-card {
+    position: relative;
+    cursor: pointer;
+}
 
+.admin-edit,
+.admin-remove {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.product-card button {
+    pointer-events: auto;
+}
+/* ...existing desktop styles below... */
