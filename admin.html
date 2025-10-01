@@ -112,7 +112,7 @@
         console.log("Admin script loaded");
         // Obfuscated password (base64 encoded)
 const ADMIN_PASSWORD = atob("bWFkYW1rYW5leg=="); // "madamkanez"
-const API_URL = "http://localhost:3001/api/products";
+const API_URL = "https://kanez-backend-5.onrender.com/api/products";
 
 // Prompt for admin password before allowing access
 if (!sessionStorage.getItem("adminLoggedIn")) {
@@ -267,4 +267,5 @@ function closeMobileMenu() {
 }
     </script>
 </body>
+
 </html>
