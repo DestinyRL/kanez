@@ -793,8 +793,9 @@
     }
        
     .store-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
+        width: 100%;
     }
     .product-card {
         padding: 1rem;
@@ -1326,7 +1327,7 @@
     }
     .store-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
         width: 100%;
     }
@@ -1380,6 +1381,7 @@
     pointer-events: auto;
 }
 /* ...existing desktop styles below... */
+
 
 
 
