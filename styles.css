@@ -347,7 +347,7 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -1327,7 +1327,7 @@
     }
     .store-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 1rem;
         width: 100%;
     }
@@ -1380,9 +1380,4 @@
 .product-card button {
     pointer-events: auto;
 }
-/* ...existing desktop styles below... */
-
-
-
-
 
