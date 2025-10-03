@@ -51,15 +51,15 @@
             <p class="section-subtitle animate-on-scroll">Showcasing our finest work and premium materials</p>
             <div class="gallery-filter animate-on-scroll">
                 <button class="filter-btn active" data-filter="all">All Gallery</button>
-                <button class="filter-btn" data-filter="designs">Wrought Iron Designs</button>
+                <button id="filter-wroughtiron" class="filter-btn" data-filter="designs">Wrought Iron Designs</button>
                 <button class="filter-btn" data-filter="gates">Wrought Iron Gates</button>
                 <button class="filter-btn" data-filter="staircases">Wrought Iron Staircases</button>
                 <button class="filter-btn" data-filter="railings">Wrought Iron Railings</button>
-                <button class="filter-btn" data-filter="laserplates">Laserplates Design</button>
-                <button class="filter-btn" data-filter="construction">Iron for Construction/Reinforcement Materials</button>
+                <button id="filter-laserplates" class="filter-btn" data-filter="laserplates">Laserplates Design</button>
+                <button id="filter-iron" class="filter-btn" data-filter="construction">Iron for Construction/Reinforcement Materials</button>
                 <button class="filter-btn" data-filter="materials">Wrought Iron Materials</button>
                 <button class="filter-btn" data-filter="welding">Welding & Accessories</button>
-                <button class="filter-btn" data-filter="steel">Stainless Steel</button>
+                <button id="filter-stainless" class="filter-btn" data-filter="steel">Stainless Steel</button>
             </div>
             <div class="gallery-grid">
                 <!-- Wrought Iron Designs (13 images) -->
@@ -812,27 +812,249 @@
                 <!-- Repeat for 28 images -->
                  <!-- Stainless Steel (1 images) -->
                  <div class="gallery-item animate-on-scroll" data-category="steel">
-                    <img src="stainlesssheets.jpg" alt="Stainless Sheets" class="gallery-img">
+                    <img src="stainless design1.jpg" alt="Stainless design" class="gallery-img">
                     <div class="gallery-overlay">
-                        <h3 class="gallery-title">Stainless Sheets</h3>
-                    </div>
-                </div>
-                 <div class="gallery-item animate-on-scroll" data-category="steel">
-                    <img src="stainlesspipes.jpg" alt="Stainless Steel Pipes" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Stainless Steel Pipes</h3>
-                    </div>
-                </div>
-                 <div class="gallery-item animate-on-scroll" data-category="steel">
-                    <img src="stainlessrailings.jpg" alt="Stainless Steel Railings" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Stainless Steel Railings</h3>
+                        <h3 class="gallery-title">Stainless Design 1</h3>
                     </div>
                 </div>
                 <div class="gallery-item animate-on-scroll" data-category="steel">
-                    <img src="stainlesscustom.jpg" alt="Stainless Steel Custom" class="gallery-img">
+                    <img src="stainless design2.jpg" alt="Stainless design" class="gallery-img">
                     <div class="gallery-overlay">
-                        <h3 class="gallery-title">Stainless Steel Custom</h3>
+                        <h3 class="gallery-title">Stainless Design 2</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design3.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 3</h3>
+                    </div>
+                </div>
+               <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design4.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 4</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design5.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 5</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design6.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 6</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design7.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 7</h3>
+                    </div>
+                </div>
+               <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design8.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 8</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design9.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 9</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design10.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 10</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design11.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 11</h3>
+                    </div>
+                </div>
+               <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless material.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Material</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design12.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 12</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design13.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 13</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design14.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 14</h3>
+                    </div>
+                </div>
+               <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design15.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 15</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design16.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 16</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless material1.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Material</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design17jpg.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 17</h3>
+                    </div>
+                </div>
+               <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design18.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 18</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design19.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 19</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design20.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 20</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design21.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 21</h3>
+                    </div>
+                </div>
+               <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design22.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless design 22</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design23.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 23</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design24.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 24</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design25.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 25</h3>
+                    </div>
+                </div>
+               <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design26.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 26</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design27.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 27</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design28.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 28</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design29.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 29</h3>
+                    </div>
+                </div>
+               <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design30.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 30</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design31.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 31</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design32.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Material</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design33.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 33</h3>
+                    </div>
+                </div>
+               <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design34.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 34</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design35.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 35</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design36.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 36</h3>
+                    </div>
+                </div>
+                 <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design37.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless Design 37</h3>
+                    </div>
+                </div>
+               <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design38.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless design 38</h3>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-category="steel">
+                    <img src="stainless design39.jpg" alt="Stainless design" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Stainless design 39</h3>
                     </div>
                 </div>
                 
@@ -1019,5 +1241,22 @@
     });
 });
     </script>
+    <!-- Add this at the end of your gallery.html, before </body> -->
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  // Wait a moment for all elements to be ready
+  setTimeout(function() {
+    const hash = window.location.hash;
+    if (hash) {
+      const btn = document.querySelector(hash);
+      if (btn && btn.classList.contains('filter-btn')) {
+        btn.click(); // Activate the filter
+        btn.scrollIntoView({behavior: 'smooth', block: 'center'});
+      }
+    }
+  }, 200); // 200ms delay to ensure DOM is ready
+});
+</script>
 </body>
+
 </html>
