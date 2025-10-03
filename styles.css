@@ -782,7 +782,7 @@
 
         .store-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -1380,4 +1380,5 @@
     pointer-events: auto;
 }
 /* ...existing desktop styles below... */
+
 
