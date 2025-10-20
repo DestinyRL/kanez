@@ -1095,12 +1095,14 @@
 
         /* Testimonials */
         .testimonials {
+                    justify-content: center;
             padding: 5rem 0;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
         }
 
         .testimonials-grid {
+                  justify-content: center;  
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
@@ -1108,6 +1110,7 @@
         }
 
         .testimonial-card {
+                    justify-content: center;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
@@ -1146,6 +1149,7 @@
         }
 
         .contact-grid {
+                    justify-content: center;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -1396,6 +1400,7 @@ body {
    justify-content: center;
    flex-direction: column;         
 }
+
 
 
 
