@@ -383,7 +383,7 @@
         /* Services Section */
         .services {
             padding: 5rem 0;
-            background: var(--light-gray);
+           
         }
 
         .container {
@@ -1390,6 +1390,7 @@
 .product-card button {
     pointer-events: auto;
 }
+
 
 
 
