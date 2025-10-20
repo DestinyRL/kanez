@@ -19,6 +19,8 @@
             line-height: 1.6;
             color: var(--primary);
             overflow-x: hidden;
+            padding-top: 80px; /* adjust if your navbar height changes */
+            box-sizing: border-box;
         }
 
         /* Loading Animation */
@@ -209,6 +211,7 @@
             align-items: flex-start;
             position: relative;
             overflow: hidden;
+            z-index: 1; /* ensure hero layers correctly */
         }
 
         .hero::before {
@@ -220,6 +223,9 @@
             bottom: 0;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,215,0,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
             opacity: 0.3;
+            pointer-events: none;
+            will-change: transform;
+            transform: translateY(var(--hero-parallax, 0));
         }
 
         .hero-content {
@@ -490,6 +496,10 @@
         .products {
             padding: 5rem 0;
             background: var(--white);
+            position: relative;
+            z-index: 0;
+            padding-top: 2.5rem; /* add space so products start below hero */
+            margin-top: 0;
         }
 
         .products-grid {
@@ -1380,4 +1390,7 @@
 .product-card button {
     pointer-events: auto;
 }
+
+
+
 
