@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welding & Accessories | Finest Steel Nigeria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Reuse same nav -->
+  <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="indigo.jpg" alt="logo" height="50" width="50" style="border-radius: 50%;">
+                Finest Steel
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center;">
+                <div class="mobile-menu-toggle" id="hamburgerBtn">
+                    <div class="hamburger"></div>
+                    <div class="hamburger"></div>
+                    <div class="hamburger"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="index.html#services" onclick="closeMobileMenu()">Services</a></li>
+                <li><a href="index.html#products" onclick="closeMobileMenu()">Products</a></li>
+                <li><a href="gallery.html" onclick="closeMobileMenu()">Gallery</a></li>
+                <li><a href="store.html" onclick="closeMobileMenu()">Store</a></li>
+                <li><a href="index.html#testimonials" onclick="closeMobileMenu()">Reviews</a></li>
+                <li><a href="index.html#contact" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+  <main class="container">
+    <h1 class="section-title">Welding & Accessories</h1>
+    <p class="section-subtitle">All welding machines, consumables and accessories</p>
+
+        <div class="gallery-grid">
+            <!-- 1) Welding materials (consumables) -->
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="g12stonebridge electrode.JPG" alt="G12 Stonebridge Electrode" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">G12 Stonebridge Electrode</h3></div>
+            </div>
+
+            <!-- 2) Cutting discs -->
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="powerextra9.jpg" alt="9inch Powerextra Cutting Disc" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">9inch Powerextra Cutting Disc</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="powerflex9.jpg" alt="9inch Powerflex Cutting Disc" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">9inch Powerflex Cutting Disc</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="powerflex7.jpg" alt="7inch Powerflex Cutting Disc" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">7inch Powerflex Cutting Disc</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="homeflower9.jpg" alt="9inch Home Flower Cutting Disc" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">9inch Home Flower Cutting Disc</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="tigerforce9.jpg" alt="9inch Tigerforce Cutting Disc" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">9inch Tigerforce Cutting Disc</h3></div>
+            </div>
+
+            <!-- 3) Holders -->
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="green800.jpg" alt="800amps Green Electrode Holder" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">800amps Green Electrode Holder</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="yellow1000.jpg" alt="1000amps Yellow Electrode Holder" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">1000amps Yellow Electrode Holder</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="elephant800.jpg" alt="800amps Elephant Electrode Holder" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">800amps Elephant Electrode Holder</h3></div>
+            </div>
+
+            <!-- 4) Remaining welding machines, tools and accessories (original order preserved) -->
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="maxmechweldinggenerator.JPG" alt="Welding Accessory 1" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Maxmech Welding Generator(WG-200i)</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="anglegrinder.jpg" alt="BoschAngle Grinder" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Bosch Angle Grinder</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="doorhandlesqiek.JPG" alt="Door Handle (Sqiek)" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Door Handle (Sqiek)</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="doorhandlesothis.JPG" alt="Door Handle (Sothis)" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Door Handle (Sothis)</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="Saffirecutter.JPG" alt="Saffire Cutter" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Saffire Cutter</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="saffireregulator.JPG" alt="Saffire Regulator" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Saffire Regulator</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="beanddecker.JPG" alt="Bean Decker Mini-250amps Welding Machine" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Bean Decker Mini-250amps Welding Machine</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="irontyres.JPG" alt="Iron Tyres" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Iron Tyres</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="oxygenregulator.JPG" alt="Oxygen Regulator" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Oxygen Regulator</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="Butterflyhinges.JPG" alt="Butterfly Hinges" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Butterfly Hinges</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="toolbox.jpg" alt="Dewalt Toolbox" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Dewalt Toolbox</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="mma250.jpg" alt="MMA 250Amps Maxmech Inverter Welding Machine" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">MMA 250Amps Maxmech Inverter Welding Machine</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="totalspray.jpg" alt="Total Spray Gun" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Total Spray Gun</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="mma300.jpg" alt="MMA 300Amps Maxmech Inverter Welding Machine" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">MMA 300Amps Maxmech Inverter Welding Machine</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="mini200.jpg" alt="Mini 200Amps Maxmech Inverter Welding Machine" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">Mini 200Amps Maxmech Inverter Welding Machine</h3></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-category="welding">
+                <img src="mma200.jpg" alt="MMA 200Amps Maxmech Inverter Welding Machine" class="gallery-img">
+                <div class="gallery-overlay"><h3 class="gallery-title">MMA 200Amps Maxmech Inverter Welding Machine</h3></div>
+            </div>
+        </div>
+
+  <!-- Modal (same as main gallery) -->
+  <div id="imgModal" class="img-modal">
+    <span class="img-modal-close" id="imgModalClose">&times;</span>
+    <img class="img-modal-content" id="imgModalImg" src="" alt="">
+    <div class="img-modal-desc" id="imgModalDesc"></div>
+    <span class="img-modal-prev" id="imgModalPrev">&#10094;</span>
+    <span class="img-modal-next" id="imgModalNext">&#10095;</span>
+  </div>
+
+  <script>
+   // Hamburger menu functionality
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            hamburgerBtn.classList.remove('active');
+        }
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const windowHeight = window.innerHeight;
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+  window.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('imgModalImg');
+    const modalDesc = document.getElementById('imgModalDesc');
+    const closeBtn = document.getElementById('imgModalClose');
+    const prevBtn = document.getElementById('imgModalPrev');
+    const nextBtn = document.getElementById('imgModalNext');
+    let items = Array.from(document.querySelectorAll('.gallery-item'));
+    let currentIndex = 0;
+
+    function openModal(idx) {
+      const item = items[idx];
+      const img = item.querySelector('.gallery-img');
+      const desc = item.querySelector('.gallery-title')?.textContent || '';
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      modalDesc.textContent = desc;
+      modal.classList.add('active');
+      currentIndex = idx;
+      prevBtn.style.display = (idx === 0) ? 'none' : '';
+      nextBtn.style.display = (idx === items.length - 1) ? 'none' : '';
+    }
+
+    document.querySelectorAll('.gallery-overlay').forEach((overlay, i) => {
+      overlay.style.cursor = 'zoom-in';
+      overlay.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openModal(i);
+      });
+    });
+
+    closeBtn.onclick = function() { modal.classList.remove('active'); };
+    prevBtn.onclick = function(e) { e.stopPropagation(); if (currentIndex > 0) openModal(currentIndex - 1); };
+    nextBtn.onclick = function(e) { e.stopPropagation(); if (currentIndex < items.length - 1) openModal(currentIndex + 1); };
+    modal.onclick = function(e) { if (e.target === modal) modal.classList.remove('active'); };
+  });
+  </script>
+</body>
+</html>
