@@ -1469,14 +1469,16 @@ body {
   font-size: 1.05rem;
   font-weight: 700;
   margin: 0;
-  padding: 0 0.5rem;
+  padding: 0 0.5rem; 
 }
 
 /* Responsive tweaks */
 @media (max-width: 900px) {
+justify-content: center;  
   .gallery-img { height: 200px; }
 }
 @media (max-width: 600px) {
+            
   .gallery-grid { 
     justify-content: center;         
     grid-template-columns: repeat(2, 1fr);
@@ -1485,6 +1487,7 @@ body {
   .gallery-img { height: 140px; }
   .gallery-title { font-size: 0.98rem; }
 }
+
 
 
 
