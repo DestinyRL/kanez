@@ -1,4 +1,38 @@
+ /* Extra rules to ensure images and overlay text are centered on small screens */
+    @media (max-width: 600px) {
+        .gallery-img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: auto;
+            max-width: 520px;
+            object-fit: cover;
+        }
 
+        .gallery-overlay {
+            text-align: center;
+            padding: 0.75rem 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .gallery-title,
+        .gallery-description,
+        .section-subtitle {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Ensure any inline image sizes don't exceed container */
+        img[width], img[height] {
+            max-width: 100% !important;
+            height: auto !important;
+        }
+    }
 * {
             margin: 0;
             padding: 0;
@@ -1564,6 +1598,7 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
 
 
 
