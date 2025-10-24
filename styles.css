@@ -1478,12 +1478,14 @@ body {
 }
 @media (max-width: 600px) {
   .gallery-grid { 
+    justify-content: center;         
     grid-template-columns: repeat(2, 1fr);
     gap: 0.6rem; 
 }
   .gallery-img { height: 140px; }
   .gallery-title { font-size: 0.98rem; }
 }
+
 
 
 
