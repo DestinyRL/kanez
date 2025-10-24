@@ -10,6 +10,7 @@
             object-fit: cover;
         }
         .section-title {
+         
           text-align: center;
          align-items: center;
             justify-content: center;
@@ -433,7 +434,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: bold;
             display: grid;
             margin-bottom: 4rem;
@@ -1602,6 +1603,7 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
 
 
 
