@@ -1475,12 +1475,17 @@ body {
 
 /* Responsive tweaks */
 @media (max-width: 900px) {
-justify-content: center;  
-  .gallery-img { height: 200px; }
+  .gallery-img { height: 200px; 
+    justify-content: center;             
+               }
 }
-@media (max-width: 600px) {
-            
+@media (max-width: 600px) {   
+  .gallery-item {
+    width: 100%;
+    box-sizing: border-box;
+}         
   .gallery-grid { 
+               max-width: 100%;
     justify-content: center;         
     grid-template-columns: repeat(2, 1fr);
     gap: 0.6rem; 
@@ -1523,6 +1528,7 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
 
 
 
