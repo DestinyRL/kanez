@@ -64,14 +64,14 @@
             const img = document.createElement('img');
             img.className = 'gallery-img';
             img.src = filename;
-            img.alt = filename;
+            img.alt = img.alt = 'Laserplate Design ' + i;
             img.loading = 'lazy';
 
             const overlay = document.createElement('div');
             overlay.className = 'gallery-overlay';
             const title = document.createElement('h3');
             title.className = 'gallery-title';
-            title.textContent = filename;
+            title.textContent = 'Laserplate Design ' + i;
             overlay.appendChild(title);
 
             item.appendChild(img);
@@ -159,3 +159,4 @@
 </body>
 
 </html>
+
