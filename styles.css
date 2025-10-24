@@ -1,19 +1,4 @@
-/* Global box-sizing and reset to avoid unexpected overflow */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    box-sizing: border-box;
-}
+
 * {
             margin: 0;
             padding: 0;
@@ -1502,6 +1487,41 @@ justify-content: center;
 }
   .gallery-img { height: 140px; }
   .gallery-title { font-size: 0.98rem; }
+}
+/* Defensive mobile fixes: ensure no horizontal shift and center content */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* prevent accidental horizontal scroll */
+}
+
+.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Make images block-level and centered to avoid subpixel overflow */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center grid items and avoid stretched columns on small screens */
+.gallery-grid {
+    justify-items: center;
+}
+
+.gallery-item {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure section title doesn't overflow */
+.section-title {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
