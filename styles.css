@@ -1487,40 +1487,6 @@ justify-content: center;
   .gallery-img { height: 140px; }
   .gallery-title { font-size: 0.98rem; }
 }
-* Defensive mobile fixes: ensure no horizontal shift and center content */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden; /* prevent accidental horizontal scroll */
-}
-
-.container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-/* Make images block-level and centered to avoid subpixel overflow */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Center grid items and avoid stretched columns on small screens */
-.gallery-grid {
-    justify-items: center;
-}
-
-.gallery-item {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Ensure section title doesn't overflow */
-.section-title {
-    margin-left: auto;
-    margin-right: auto;
 /* Extra mobile centering safeguards for gallery pages */
 @media (max-width: 600px) {
     /* Force container to stay centered and keep small side padding */
@@ -1554,6 +1520,7 @@ img {
         max-width: 95%;
     }
 }
+
 
 
 
