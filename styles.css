@@ -1487,40 +1487,6 @@ justify-content: center;
   .gallery-img { height: 140px; }
   .gallery-title { font-size: 0.98rem; }
 }
-/* Extra mobile centering safeguards for gallery pages */
-@media (max-width: 600px) {
-    /* Force container to stay centered and keep small side padding */
-    .container {
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    /* Make the grid center itself and its items */
-    .gallery-grid {
-        grid-template-columns: repeat(1, 1fr) !important;
-        justify-content: center;
-        justify-items: center;
-        margin-left: auto;
-        margin-right: auto;
-        gap: 0.6rem;
-        width: 100%;
-    }
-
-    .gallery-item {
-        width: 100%;
-        max-width: 520px; /* prevents cards from stretching past center */
-        box-sizing: border-box;
-    }
-
-    /* Section titles centered and constrained */
-    .section-title {
-        text-align: center;
-        max-width: 95%;
-    }
-}
-
 
 
 
