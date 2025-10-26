@@ -48,83 +48,38 @@
     <p class="section-subtitle">Staircase & Balcony designs</p>
 
     <div class="gallery-grid">
-      <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign1.jpg" alt="Wrought Iron Staircase 1" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 1</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign2.jpg" alt="Wrought Iron Staircase 2" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 2</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign3.jpg" alt="Wrought Iron Staircase 3" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 3</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign4.jpg" alt="Wrought Iron Staircase 4" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 4</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign5.jpg" alt="Wrought Iron Staircase 5" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 5</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign6.jpg" alt="Wrought Iron Staircase 6" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 6</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign7.jpg" alt="Wrought Iron Staircase 7" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 7</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign8.jpg" alt="Wrought Iron Staircase 8" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 8</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign9.jpg" alt="Wrought Iron Staircase 9" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 9</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign1.jpg" alt="Wrought Iron Staircase 1" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 1</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairdesign10.jpg" alt="Wrought Iron Staircase 10" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 10</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="stairs.jpg" alt="Wrought Iron Staircase 11" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 11</h3>
-                    </div>
-                </div>
-                <div class="gallery-item animate-on-scroll" data-category="staircases">
-                    <img src="staircases.jpeg" alt="Wrought Iron Staircase 12" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">Wrought Iron Staircase 12</h3>
-                    </div>
+      <script>
+        (function(){
+          const grid = document.currentScript.parentNode;
+          const prefix = 'IMG-20251026-WA';
+          const total = 127; // generate up to 150 images
+          for (let i = 7; i <= total; i++) {
+            const num = String(i).padStart(4, '0');
+            const filename = prefix + num + '.jpg';
+
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'laserplates');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.src = filename;
+            img.alt = 'Railing Design ' + i;
+            img.loading = 'lazy';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'Railing Design ' + i;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script>
                 </div>
   </main>
  <div class="more-galleries container" style="margin-top:2rem; text-align:center;">
@@ -245,6 +200,7 @@
 </body>
 
 </html>
+
 
 
 
