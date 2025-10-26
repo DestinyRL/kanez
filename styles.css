@@ -434,7 +434,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             display: grid;
             margin-bottom: 4rem;
@@ -1602,6 +1602,22 @@ img {
 .section-title {
     margin-left: auto;
     margin-right: auto;
+}
+.more-galleries {
+    margin-top: 2rem;
+    text-align: center;
+}
+.more-galleries .filter-btn {
+    font-size: 0.9rem; /* slightly smaller than main filter buttons */
+    padding: 0.45rem 0.9rem;
+    border-radius: 10px;
+}
+
+@media (max-width: 420px) {
+    .more-galleries .filter-btn {
+        font-size: 0.82rem;
+        padding: 0.35rem 0.6rem;
+    }
 }
 
 
