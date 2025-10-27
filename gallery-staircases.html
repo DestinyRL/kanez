@@ -80,6 +80,38 @@
           }
         })();
       </script>
+      <script>
+        (function(){
+          const grid = document.currentScript.parentNode;
+          const prefix = 'IMG-20251027-WA';
+          const total = 124; // generate up to 150 images
+          for (let i = 5; i <= total; i++) {
+            const num = String(i).padStart(4, '0');
+            const filename = prefix + num + '.jpg';
+
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'laserplates');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.src = filename;
+            img.alt = 'Railing Design(B) ' + i;
+            img.loading = 'lazy';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'Railing Design(B) ' + i;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script>
                 </div>
   </main>
  <div class="more-galleries container" style="margin-top:2rem; text-align:center;">
@@ -200,6 +232,7 @@
 </body>
 
 </html>
+
 
 
 
