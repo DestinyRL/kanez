@@ -1619,6 +1619,39 @@ img {
         padding: 0.35rem 0.6rem;
     }
 }
+* Info block placed under galleries (uses smaller rem sizes for compactness) */
+.gallery-info {
+    margin-top: 1rem;
+    background: var(--white);
+    padding: 0.75rem 1rem; /* smaller than before */
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    color: var(--primary);
+}
+.gallery-info h2 {
+    margin-top: 0;
+    font-size: 1.125rem; /* 18px */
+}
+.gallery-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.gallery-info p,
+.gallery-info li {
+    font-size: 0.95rem; /* slightly reduced text size */
+    line-height: 1.45;
+}
+.gallery-info hr {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid #eee;
+}
+.gallery-info blockquote {
+    background: #f8f8f8;
+    padding: 0.5rem;
+    border-left: 4px solid var(--gold);
+    margin: 0.6rem 0;
+}
 
 
 
