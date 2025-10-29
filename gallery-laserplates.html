@@ -101,6 +101,39 @@
           }
         })();
       </script>
+      <script>
+        (function(){
+          // Generate 17 designs labeled A..Q and use letter-named files A.jpg..Q.jpg
+          const grid = document.currentScript.parentNode;
+          const start = 'A'.charCodeAt(0);
+          const end = 'Q'.charCodeAt(0);
+          for (let code = start; code <= end; code++) {
+            const letter = String.fromCharCode(code);
+
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'laserplates');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.src = 'laserplate' + letter + '.jpg';
+            img.alt = 'Laserplate Design ' + letter;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'Laserplate Design ' + letter;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script>
     </div>
   </main>
    <section class="gallery-info container">
@@ -239,6 +272,7 @@
 </body>
 
 </html>
+
 
 
 
