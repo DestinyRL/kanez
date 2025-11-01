@@ -9,20 +9,33 @@
 <body>
  <nav id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+            <a href="#" class="logo" style="display: flex; align-items: center; gap: 10px;">
                 <img src="indigo.jpg" alt="logo" height="50" width="50" style="border-radius: 50%;">
-                Finest Steel
+                Finest Steel & Accessories
             </a>
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#products">Products</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Products ▾</a>
+                    <ul class="dropdown-menu" aria-label="Products submenu">
+                        <li><a href="wroughtiron.html">Wrought Iron Materials</a></li>
+                        <li><a href="wroughtiron-designs.html">Wrought Iron Catalogue</a></li>
+                        <li><a href="gallery-gates.html">Wrought Iron Gates</a></li>
+                        <li><a href="gallery-railings.html">Wrought Iron Railing Designs (Staircase & Balcony)</a></li>
+                        <li><a href="wroughtiron.html">Wrought Iron Fence & Protector Designs</a></li>
+                        <li><a href="gallery-laserplates.html">Laserplates Design</a></li>
+                        <li><a href="ironforconstruction.html">Iron for Construction / Reinforcement Materials</a></li>
+                        <li><a href="weldingaccesories.html">Welding & Accessories</a></li>
+                        <li><a href="stainlesssteel.html">Stainless Steel</a></li>
+                    </ul>
+                </li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="store.html">Store</a></li>
-                <li><a href="index.html#testimonials">Reviews</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div style="display: flex; align-items: center;">
+                <!-- Removed cart-icon -->
                 <div class="mobile-menu-toggle" id="hamburgerBtn">
                     <div class="hamburger"></div>
                     <div class="hamburger"></div>
@@ -33,12 +46,24 @@
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="index.html#home" onclick="closeMobileMenu()">Home</a></li>
-                <li><a href="index.html#services" onclick="closeMobileMenu()">Services</a></li>
-                <li><a href="index.html#products" onclick="closeMobileMenu()">Products</a></li>
+                <li class="mobile-submenu">
+                    <button class="mobile-submenu-toggle" aria-expanded="false">Products ▾</button>
+                    <ul class="mobile-submenu-list">
+                        <li><a href="gallery-materials.html" onclick="closeMobileMenu()">Wrought Iron Materials</a></li>
+                        <li><a href="gallery-designs.html" onclick="closeMobileMenu()">Wrought Iron Catalogue</a></li>
+                        <li><a href="gallery-gates.html" onclick="closeMobileMenu()">Wrought Iron Gates</a></li>
+                        <li><a href="gallery-staircases.html" onclick="closeMobileMenu()">Wrought Iron Railing Designs</a></li>
+                            <li><a href="gallery-railings.html" onclick="closeMobileMenu()">Wrought Iron Fence & Protector Designs</a></li>
+                            <li><a href="gallery-laserplates.html" onclick="closeMobileMenu()">Laserplates Design</a></li>
+                        <li><a href="gallery-construction.html" onclick="closeMobileMenu()">Iron for Construction / Reinforcement</a></li>
+                        <li><a href="gallery-welding.html" onclick="closeMobileMenu()">Welding & Accessories</a></li>
+                        <li><a href="gallery-steel.html" onclick="closeMobileMenu()">Stainless Steel</a></li>
+                    </ul>
+                </li>
                 <li><a href="gallery.html" onclick="closeMobileMenu()">Gallery</a></li>
                 <li><a href="store.html" onclick="closeMobileMenu()">Store</a></li>
-                <li><a href="index.html#testimonials" onclick="closeMobileMenu()">Reviews</a></li>
-                <li><a href="index.html#contact" onclick="closeMobileMenu()">Contact</a></li>
+                <li><a href="#testimonials" onclick="closeMobileMenu()">Reviews</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -437,10 +462,21 @@ crafted for durability, elegance, and long-lasting strength.</p>
     nextBtn.onclick = function(e) { e.stopPropagation(); if (currentIndex < items.length - 1) openModal(currentIndex + 1); };
     modal.onclick = function(e) { if (e.target === modal) modal.classList.remove('active'); };
   });
+
+     document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                const parent = btn.closest('.mobile-submenu');
+                if (!parent) return;
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!expanded));
+                parent.classList.toggle('open', !expanded);
+            });
+        });
   </script>
 </body>
 
 </html>
+
 
 
 
