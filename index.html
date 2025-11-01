@@ -34,7 +34,20 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Prdoucts</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Products ▾</a>
+                    <ul class="dropdown-menu" aria-label="Products submenu">
+                        <li><a href="wroughtiron.html">Wrought Iron Materials</a></li>
+                        <li><a href="wroughtiron-designs.html">Wrought Iron Catalogue</a></li>
+                        <li><a href="gallery-gates.html">Wrought Iron Gates</a></li>
+                        <li><a href="gallery-railings.html">Wrought Iron Railing Designs (Staircase & Balcony)</a></li>
+                        <li><a href="wroughtiron.html">Wrought Iron Fence & Protector Designs</a></li>
+                        <li><a href="gallery-laserplates.html">Laserplates Design</a></li>
+                        <li><a href="ironforconstruction.html">Iron for Construction / Reinforcement Materials</a></li>
+                        <li><a href="weldingaccesories.html">Welding & Accessories</a></li>
+                        <li><a href="stainlesssteel.html">Stainless Steel</a></li>
+                    </ul>
+                </li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="store.html">Store</a></li>
                 <li><a href="#testimonials">Reviews</a></li>
@@ -52,7 +65,20 @@
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
-                <li><a href="#services" onclick="closeMobileMenu()">Products</a></li>
+                <li class="mobile-submenu">
+                    <button class="mobile-submenu-toggle" aria-expanded="false">Products ▾</button>
+                    <ul class="mobile-submenu-list">
+                        <li><a href="wroughtiron.html" onclick="closeMobileMenu()">Wrought Iron Materials</a></li>
+                        <li><a href="wroughtiron-designs.html" onclick="closeMobileMenu()">Wrought Iron Catalogue</a></li>
+                        <li><a href="gallery-gates.html" onclick="closeMobileMenu()">Wrought Iron Gates</a></li>
+                        <li><a href="gallery-railings.html" onclick="closeMobileMenu()">Wrought Iron Railing Designs</a></li>
+                        <li><a href="wroughtiron.html" onclick="closeMobileMenu()">Wrought Iron Fence & Protector Designs</a></li>
+                        <li><a href="gallery-laserplates.html" onclick="closeMobileMenu()">Laserplates Design</a></li>
+                        <li><a href="ironforconstruction.html" onclick="closeMobileMenu()">Iron for Construction / Reinforcement</a></li>
+                        <li><a href="weldingaccesories.html" onclick="closeMobileMenu()">Welding & Accessories</a></li>
+                        <li><a href="stainlesssteel.html" onclick="closeMobileMenu()">Stainless Steel</a></li>
+                    </ul>
+                </li>
                 <li><a href="gallery.html" onclick="closeMobileMenu()">Gallery</a></li>
                 <li><a href="store.html" onclick="closeMobileMenu()">Store</a></li>
                 <li><a href="#testimonials" onclick="closeMobileMenu()">Reviews</a></li>
@@ -539,18 +565,21 @@ Looking forward to hearing from you!`;
             mobileMenu.classList.remove('active');
             hamburgerBtn.classList.remove('active');
         }
+
+        // Mobile submenu toggle for Products
+        document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                const parent = btn.closest('.mobile-submenu');
+                if (!parent) return;
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!expanded));
+                parent.classList.toggle('open', !expanded);
+            });
+        });
     </script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
 
 
 
