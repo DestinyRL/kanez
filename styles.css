@@ -1,4 +1,4 @@
-/* Extra rules to ensure images and overlay text are centered on small screens */
+ /* Extra rules to ensure images and overlay text are centered on small screens */
     @media (max-width: 600px) {
         .gallery-img {
             display: block;
@@ -171,6 +171,119 @@
         .nav-links a:hover::after {
             width: 100%;
         }
+
+        /* Dropdown menu for Products */
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links .has-dropdown > .dropdown-toggle {
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 240px;
+            /* Pale gold card background to contrast the dark navbar */
+            background: linear-gradient(180deg, #fff7e0 0%, #fff3d1 100%);
+            color: var(--primary);
+            border-radius: 10px;
+            padding: 0.25rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+            border: 1px solid rgba(0,0,0,0.06);
+            list-style: none;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(-6px);
+            transition: all 220ms ease;
+            z-index: 1200;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.7rem 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+            border-radius: 6px;
+            transition: background 180ms ease, color 160ms ease;
+        }
+
+        .dropdown-menu li a:hover,
+        .dropdown-menu li a:focus {
+            background: linear-gradient(90deg, rgba(255,106,0,0.12), rgba(255,154,0,0.06));
+            color: var(--primary);
+        }
+
+        /* Add a small accent bar on the left of each item when hovered for clarity */
+        .dropdown-menu li a:hover::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent), var(--gold));
+            margin-right: 10px;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+
+        /* Show dropdown on hover or when focused (keyboard accessible) */
+        .nav-links li:hover > .dropdown-menu,
+        .nav-links li:focus-within > .dropdown-menu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile submenu styles */
+        .mobile-submenu { margin-bottom: 0.25rem; }
+        .mobile-submenu-toggle {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-weight: 600;
+            padding: 0.6rem 0.25rem;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .mobile-submenu-list {
+            list-style: none;
+            /* pale-gold card background to match desktop dropdown */
+            background: linear-gradient(180deg, #fff7e0 0%, #fff3d1 100%);
+            color: var(--primary);
+            border-radius: 8px;
+            padding: 0.35rem;
+            box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.06);
+            display: none;
+            margin-top: 0.5rem;
+        }
+
+        .mobile-submenu-list li a {
+            display: block;
+            padding: 0.7rem 0.75rem;
+            /* Force mobile dropdown text to solid black for readability */
+            color: #000 !important;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+
+        .mobile-submenu-list li a:hover,
+        .mobile-submenu-list li a:focus {
+            background: linear-gradient(90deg, rgba(255,106,0,0.08), rgba(255,154,0,0.04));
+            color: var(--primary);
+        }
+
+        .mobile-submenu.open .mobile-submenu-list { display: block; }
 
         /* Mobile Menu */
         .mobile-menu-toggle {
@@ -1414,6 +1527,39 @@
         height: auto;
     }
 }
+
+/* Center products on mobile: single column, centered cards and text */
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr !important;
+        justify-items: center; /* center the grid items horizontally */
+        gap: 1.25rem;
+    }
+
+    .product-card,
+    .product-item {
+        max-width: 520px; /* limit width so cards don't span edge-to-edge */
+        width: 100%;
+        margin: 0 auto; /* center card */
+        box-sizing: border-box;
+    }
+
+    .product-card .product-title,
+    .product-item .product-name,
+    .product-card .product-description {
+        text-align: center;
+    }
+
+    /* Ensure images inside product cards are centered */
+    .product-card img,
+    .product-item img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        height: auto;
+    }
+}
 .admin-edit, .admin-remove {
     cursor: pointer;
     z-index: 2;
@@ -1439,15 +1585,12 @@
     cursor: pointer;
 }
 
-.product-card button {
+product-card button {
     pointer-events: auto;
 }
-body {
-   text-align: center;
-   display:flex;         
-   justify-content: center;
-   flex-direction: column;         
-}
+/* Removed stray `body { display:flex }` rule that constrained layout on mobile
+   It caused product cards to shrink and not center correctly. Keeping body default.
+*/
 /* Gallery grid layout */
 .gallery-grid {
   display: grid;
@@ -1660,6 +1803,67 @@ img {
     border-left: 4px solid var(--gold);
     margin: 0.6rem 0;
 }
+
+/* Mobile menu: make scrollable but hide visible scrollbar; enlarge touch targets and animate caret */
+.mobile-menu {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none; /* Firefox */
+    padding-bottom: 1.25rem;
+}
+.mobile-menu::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none; /* Safari/WebKit */
+}
+
+.mobile-menu ul li a {
+    font-size: 1.1rem; /* larger tap target on mobile */
+    padding: 0.9rem 1rem;
+}
+
+.mobile-submenu-toggle {
+    font-size: 1.1rem;
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-submenu-list {
+    max-height: calc(45vh);
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-left: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+.mobile-submenu-list::-webkit-scrollbar { display: none; }
+
+/* Animated caret for mobile submenu */
+.mobile-submenu-toggle::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
+    transform: rotate(45deg);
+    margin-left: 8px;
+    transition: transform 220ms cubic-bezier(.2,.8,.2,1), border-color 180ms ease;
+}
+.mobile-submenu.open .mobile-submenu-toggle::after {
+    transform: rotate(-135deg) translateY(1px);
+    border-color: var(--gold);
+}
+
+/* Slightly increase spacing for mobile menu items to avoid cramped layout */
+.mobile-menu ul li { margin: 0.6rem 0; }
+
+
+
+
 
 
 
