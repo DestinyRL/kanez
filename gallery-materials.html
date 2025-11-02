@@ -73,6 +73,38 @@
     <p class="section-subtitle">Raw materials we supply</p>
 
     <div class="gallery-grid">
+      <script>
+        (function(){
+          const grid = document.currentScript.parentNode;
+          const prefix = 'IMG-20251101-WA';
+          const total = 31; // generate up to 31 images
+          for (let i = 1; i <= total; i++) {
+            const num = String(i).padStart(4, '0');
+            const filename = prefix + num + '.jpg';
+
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'laserplates');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.src = filename;
+            img.alt = img.alt = 'wrought iron materials ' + i;
+            img.loading = 'lazy';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'wrought iron materials ' + i;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script>
       <div class="gallery-item animate-on-scroll" data-category="materials">
                     <img src="material1.jpg" alt="Wrought Iron Material 1" class="gallery-img">
                     <div class="gallery-overlay">
@@ -418,6 +450,7 @@
 </body>
 
 </html>
+
 
 
 
