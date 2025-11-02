@@ -159,6 +159,38 @@
           }
         })();
       </script>
+       <script>
+        (function(){
+          const grid = document.currentScript.parentNode;
+          const prefix = 'IMG-20251101-WA0001';
+          const total = 8 // generate up to 31 images
+          for (let i = 1; i <= total; i++) {
+            const num = String(i).padStart(4, '0');
+            const filename = prefix + num + '.jpg';
+
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'laserplates');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.src = filename;
+            img.alt = img.alt = 'laserplates design B ' + i;
+            img.loading = 'lazy';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'laserplates design B ' + i;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script>
     </div>
   </main>
    <section class="gallery-info container">
@@ -353,6 +385,7 @@
 </body>
 
 </html>
+
 
 
 
