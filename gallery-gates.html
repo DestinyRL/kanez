@@ -108,6 +108,70 @@
           }
         })();
       </script>
+      <script>
+        (function(){
+          const grid = document.currentScript.parentNode;
+          const base = 'GGS';
+          const total = 16; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
+          for (let i = 1; i <= total; i++) {
+            const filename = `${base} (${i}).jpg`;
+
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'gates');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.src = encodeURI(filename); // encode spaces and special chars
+            img.alt = 'Gate Design(B) ' + i;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'Gate Design(B) ' + i;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script>
+       <script>
+        (function(){
+          const grid = document.currentScript.parentNode;
+          const base = 'gg';
+          const total = 6; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
+          for (let i = 1; i <= total; i++) {
+            const filename = `${base} (${i}).jpg`;
+
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'gates');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.src = encodeURI(filename); // encode spaces and special chars
+            img.alt = 'Gate Accessories ' + i;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'Gate Accessory ' + i;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script>
     </div>
   
 
@@ -286,6 +350,7 @@
 </body>
 
 </html>
+
 
 
 
