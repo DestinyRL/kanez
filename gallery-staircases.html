@@ -141,6 +141,38 @@ crafted for durability, elegance, and long-lasting strength.</p>
           }
         })();
       </script>
+       <script>
+        (function(){
+          const grid = document.currentScript.parentNode;
+          const base = 'stair';
+          const total = 24; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
+          for (let i = 1; i <= total; i++) {
+            const filename = `${base} (${i}).jpg`;
+
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'stair');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.src = encodeURI(filename); // encode spaces and special chars
+            img.alt = 'Railing Design(C) ' + i;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'Railing Design(C) ' + i;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script>
                 </div>
   </main>
   <section class="gallery-info container">
@@ -343,6 +375,7 @@ crafted for durability, elegance, and long-lasting strength.</p>
 </body>
 
 </html>
+
 
 
 
