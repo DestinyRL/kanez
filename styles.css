@@ -1968,6 +1968,28 @@ img {
 /* Slightly increase spacing for mobile menu items to avoid cramped layout */
 .mobile-menu ul li { margin: 0.6rem 0; }
 
+/* On very small screens, move to bottom-right and hide the label to avoid overlap/wrapping */
+@media (max-width: 480px) {
+    /* Keep the WA CTA centered at the bottom on small phones and keep its label visible.
+       Reduce padding and font-size slightly to avoid wrapping while preserving a comfortable tap area. */
+    .wa-cta {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 18px; /* keep it slightly above the edge */
+        padding: 0.35em 0.7em;
+        font-size: 0.9em;
+        max-width: calc(100% - 32px);
+        white-space: nowrap; /* prevent label from breaking into lines */
+    }
+    .wa-cta .wa-label {
+        display: inline-block; /* keep text visible on mobile */
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 60vw; /* ensure very long labels don't overflow the screen */
+        white-space: nowrap;
+    }
+}
 
 
 
