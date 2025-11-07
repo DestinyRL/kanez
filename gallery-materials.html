@@ -76,38 +76,6 @@
     <p class="section-subtitle">Raw materials we supply</p>
 
     <div class="gallery-grid">
-      <script>
-        (function(){
-          const grid = document.currentScript.parentNode;
-          const prefix = 'IMG-20251102-WA';
-          const total = 34 // generate up to 31 images
-          for (let i = 4; i <= total; i++) {
-            const num = String(i).padStart(4, '0');
-            const filename = prefix + num + '.jpg';
-
-            const item = document.createElement('div');
-            item.className = 'gallery-item animate-on-scroll';
-            item.setAttribute('data-category', 'laserplates');
-
-            const img = document.createElement('img');
-            img.className = 'gallery-img';
-            img.src = filename;
-            img.alt = img.alt = 'wrought iron materials ' + i;
-            img.loading = 'lazy';
-
-            const overlay = document.createElement('div');
-            overlay.className = 'gallery-overlay';
-            const title = document.createElement('h3');
-            title.className = 'gallery-title';
-            title.textContent = 'wrought iron materials ' + i;
-            overlay.appendChild(title);
-
-            item.appendChild(img);
-            item.appendChild(overlay);
-            grid.appendChild(item);
-          }
-        })();
-      </script>
       <div class="gallery-item animate-on-scroll" data-category="materials">
                     <img src="material1.jpg" alt="Wrought Iron Material 1" class="gallery-img">
                     <div class="gallery-overlay">
@@ -282,6 +250,70 @@
                         <h3 class="gallery-title">Wrought Iron Material 29</h3>
                     </div>
                 </div>
+     <script>
+        (function(){
+          const grid = document.currentScript.parentNode;
+          const prefix = 'IMG-20251102-WA';
+          const total = 34 // generate up to 31 images
+          for (let i = 4; i <= total; i++) {
+            const num = String(i).padStart(4, '0');
+            const filename = prefix + num + '.jpg';
+
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'laserplates');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.src = filename;
+            img.alt = img.alt = 'wrought iron materials ' + i;
+            img.loading = 'lazy';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'wrought iron materials(B) ' + i;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script> 
+      <script>
+        (function(){
+          const grid = document.currentScript.parentNode;
+          const base = 'WIM';
+          const total = 85; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
+          for (let i = 1; i <= total; i++) {
+            const filename = `${base} (${i}).jpg`;
+
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'materials');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.src = encodeURI(filename); // encode spaces and special chars
+            img.alt = 'wrought iron materials(C)' + i;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'wrought iron materials(C) ' + i;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script>
   </main>
  <div class="more-galleries container" style="margin-top:2rem; text-align:center;">
             <h3 class="section-title" style="font-size:1.25rem; margin-bottom:0.75rem;">More galleries</h3>
@@ -453,6 +485,7 @@
 </body>
 
 </html>
+
 
 
 
