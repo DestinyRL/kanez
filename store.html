@@ -8,14 +8,14 @@
 </head>
 <body>
     <!-- Navigation (copy from index.html) -->
-    <nav id="navbar">
+   <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo" style="display: flex; align-items: center; gap: 10px;">
                 <img src="indigo.jpg" alt="logo" height="50" width="50" style="border-radius: 50%;">
                 Finest Steel & Accessories
             </a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li class="nav-item has-dropdown">
                     <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Products ▾</a>
                     <ul class="dropdown-menu" aria-label="Products submenu">
@@ -47,19 +47,19 @@
         </div>
         <div class="mobile-menu" id="mobileMenu">
             <ul>
-                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
                 <li class="mobile-submenu">
                     <button class="mobile-submenu-toggle" aria-expanded="false">Products ▾</button>
                     <ul class="mobile-submenu-list">
-                        <li><a href="gallery-materials.html" onclick="closeMobileMenu()">Wrought Iron Materials</a></li>
-                        <li><a href="gallery-designs.html" onclick="closeMobileMenu()">Wrought Iron Catalogue</a></li>
+                        <li><a href="wroughtiron.html" onclick="closeMobileMenu()">Wrought Iron Materials</a></li>
+                        <li><a href="wroughtiron-designs.html" onclick="closeMobileMenu()">Wrought Iron Catalogue</a></li>
                         <li><a href="gallery-gates.html" onclick="closeMobileMenu()">Wrought Iron Gates</a></li>
-                        <li><a href="gallery-staircases.html" onclick="closeMobileMenu()">Wrought Iron Railing Designs</a></li>
-                        <li><a href="gallery-railings.html" onclick="closeMobileMenu()">Wrought Iron Fence & Protector Designs</a></li>
+                        <li><a href="gallery-railings.html" onclick="closeMobileMenu()">Wrought Iron Railing Designs</a></li>
+                        <li><a href="wroughtiron.html" onclick="closeMobileMenu()">Wrought Iron Fence & Protector Designs</a></li>
                         <li><a href="gallery-laserplates.html" onclick="closeMobileMenu()">Laserplates Design</a></li>
                         <li><a href="gallery-stainlessrailings.html" onclick="closeMobileMenu()">Stainless Railings Designs</a></li>
-                        <li><a href="gallery-construction.html" onclick="closeMobileMenu()">Iron for Construction / Reinforcement</a></li>
-                        <li><a href="gallery-welding.html" onclick="closeMobileMenu()">Welding & Accessories</a></li>
+                        <li><a href="ironforconstruction.html" onclick="closeMobileMenu()">Iron for Construction / Reinforcement</a></li>
+                        <li><a href="weldingaccesories.html" onclick="closeMobileMenu()">Welding & Accessories</a></li>
                          <li><a href="gallery-stainlessrailings.html" onclick="closeMobileMenu()">Stainless Railings Designs</a></li>
                         <li><a href="gallery-steel.html" onclick="closeMobileMenu()">Stainless Steel</a></li>
                     </ul>
@@ -151,6 +151,10 @@
             </div>
         </div>
     </footer>
+<a class="wa-cta" href="https://wa.me/2348141298704?text=Hello%20Finest%20Steel%20Nigeria!%20I%20would%20like%20to%20make%20an%20inquiry%20on%20wrought-iron-railings." target="_blank" rel="noopener" title="Chat with us on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <span class="wa-label">Chat on WhatsApp</span>
+  </a>
 
     <script>
 const API_URL = "https://kanezbackend-3.onrender.com/api/products";
@@ -343,6 +347,7 @@ renderStoreProducts();
 </body>
 
 </html>
+
 
 
 
