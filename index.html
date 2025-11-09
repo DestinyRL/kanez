@@ -411,32 +411,14 @@
   </a>
     <a href="https://wa.me/2348141298704?text=Hello%20Steel%20Doctor!,%20I%20would%20like%20to%20make%20an%20inquiry." target="_blank" rel="noopener" title="Chat with Steel Doctor on WhatsApp" style="position:fixed;bottom:18px;right:12px;background:#25D366;color:#fff;border-radius:50%;width:40px;height:40px;padding:0;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.18);text-decoration:none;z-index:1000;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:28px;height:28px;display:block;">
-</a
+    </a>
     <script>
-       (function() {
-            const loaderId = 'loader';
-            const hideLoader = (immediate = false) => {
-                const loader = document.getElementById(loaderId);
-                if (!loader) return;
-                if (loader.classList.contains('hidden')) {
-                    // already hiding — ensure it's removed after transition
-                    if (immediate) loader.style.display = 'none';
-                    return;
-                }
-                // add hidden class to trigger opacity transition
-                loader.classList.add('hidden');
-                if (immediate) {
-                    loader.style.display = 'none';
-                    return;
-                }
-                // after transition, remove from flow so it cannot block interactions
-                const onTransitionEnd = (e) => {
-                    if (e && e.propertyName && e.propertyName !== 'opacity') return;
-                    loader.style.display = 'none';
-                    loader.removeEventListener('transitionend', onTransitionEnd);
-                };
-                loader.addEventListener('transitionend', onTransitionEnd);
-            };
+     // Loader
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
 
 
         // Navbar scroll effect
@@ -590,6 +572,7 @@ Looking forward to hearing from you!`;
 </body>
 
 </html>
+
 
 
 
