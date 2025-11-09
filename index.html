@@ -413,12 +413,31 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:28px;height:28px;display:block;">
 </a
     <script>
-        // Loader
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1000);
-        });
+       (function() {
+            const loaderId = 'loader';
+            const hideLoader = (immediate = false) => {
+                const loader = document.getElementById(loaderId);
+                if (!loader) return;
+                if (loader.classList.contains('hidden')) {
+                    // already hiding — ensure it's removed after transition
+                    if (immediate) loader.style.display = 'none';
+                    return;
+                }
+                // add hidden class to trigger opacity transition
+                loader.classList.add('hidden');
+                if (immediate) {
+                    loader.style.display = 'none';
+                    return;
+                }
+                // after transition, remove from flow so it cannot block interactions
+                const onTransitionEnd = (e) => {
+                    if (e && e.propertyName && e.propertyName !== 'opacity') return;
+                    loader.style.display = 'none';
+                    loader.removeEventListener('transitionend', onTransitionEnd);
+                };
+                loader.addEventListener('transitionend', onTransitionEnd);
+            };
+
 
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
@@ -571,6 +590,7 @@ Looking forward to hearing from you!`;
 </body>
 
 </html>
+
 
 
 
