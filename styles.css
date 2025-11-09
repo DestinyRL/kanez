@@ -1990,9 +1990,21 @@ img {
         white-space: nowrap;
     }
 }
-
-
-
+video-block .video-embed {
+    max-width: 980px;
+    margin: 0.75rem auto 1.5rem auto;
+}
+.video-block .video-embed video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    background: #000;
+}
+@media (max-width: 600px) {
+    .video-block .video-embed { padding: 0 0.5rem; }
+    .video-block .section-title { font-size: 1rem; }
+}
 
 
 
