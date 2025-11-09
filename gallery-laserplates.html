@@ -303,30 +303,30 @@
           }
         })();
       </script>
-      <script>
+     <script>
         (function(){
           const grid = document.currentScript.parentNode;
-          const base = 'H';
+          const base = 'g';
           const total = 25; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
           for (let i = 1; i <= total; i++) {
             const filename = `${base} (${i}).jpg`;
 
             const item = document.createElement('div');
             item.className = 'gallery-item animate-on-scroll';
-            item.setAttribute('data-category', 'Laserplates');
+            item.setAttribute('data-category', 'Lasergates');
 
             const img = document.createElement('img');
             img.className = 'gallery-img';
             img.loading = 'lazy';
             img.decoding = 'async';
             img.src = encodeURI(filename); // encode spaces and special chars
-            img.alt = 'Laserplates Design(D) ' + i;
+            img.alt = 'Laser Gates ' + i;
 
             const overlay = document.createElement('div');
             overlay.className = 'gallery-overlay';
             const title = document.createElement('h3');
             title.className = 'gallery-title';
-            title.textContent = 'Laserplates Design(D) ' + i;
+            title.textContent = 'Laser Gates ' + i;
             overlay.appendChild(title);
 
             item.appendChild(img);
@@ -565,6 +565,7 @@
 </body>
 
 </html>
+
 
 
 
