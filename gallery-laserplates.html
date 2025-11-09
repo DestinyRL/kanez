@@ -410,6 +410,51 @@
 <a href="https://wa.me/2348141298704?text=Hello%20Steel%20Doctor!,%20I%20would%20like%20to%20make%20an%20inquiry." target="_blank" rel="noopener" title="Chat with Steel Doctor on WhatsApp" style="position:fixed;bottom:18px;right:12px;background:#25D366;color:#fff;border-radius:50%;width:35px;height:35px;padding:0;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.18);text-decoration:none;z-index:1000;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:28px;height:28px;display:block;">
 </a>
+ <script>
+    // Mobile autoplay/loop compatibility helper
+    (function(){
+      try {
+        const v = document.querySelector('.video-embed video');
+        if (!v) return;
+
+        // Ensure video is muted and has playsinline for mobile autoplay policies
+        function ensurePlay() {
+          try {
+            v.muted = true;
+            v.loop = true;
+            v.playsInline = true;
+            v.setAttribute('playsinline', '');
+            const p = v.play();
+            if (p && p.then) p.catch(() => {/* ignore autoplay rejection */});
+          } catch (err) {
+            // ignored
+          }
+        }
+
+        // Try to start as soon as possible
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          ensurePlay();
+        } else {
+          document.addEventListener('DOMContentLoaded', ensurePlay);
+        }
+
+        // Many mobile browsers unblock media on first user interaction
+        const onFirstTouch = function() { ensurePlay(); document.removeEventListener('touchstart', onFirstTouch); };
+        document.addEventListener('touchstart', onFirstTouch, { passive: true });
+
+        // If the video ends for some reason, restart it
+        v.addEventListener('ended', function() { try { v.currentTime = 0; v.play(); } catch(e){} });
+
+        // Resume playback when page becomes visible again
+        document.addEventListener('visibilitychange', function(){ if (!document.hidden) ensurePlay(); });
+
+        // If paused unexpectedly, attempt a quick restart
+        v.addEventListener('pause', function(){ setTimeout(()=>{ if (v.paused) ensurePlay(); }, 200); });
+      } catch (err) {
+        // nothing
+      }
+    })();
+  </script>
 
   <script>
      // Hamburger menu functionality
@@ -488,6 +533,7 @@
 </body>
 
 </html>
+
 
 
 
