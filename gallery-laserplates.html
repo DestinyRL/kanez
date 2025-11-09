@@ -72,6 +72,17 @@
 
   <main class="container">
     <h1 class="section-title">Laser-Plates Design</h1>
+    <div class="video-block container" aria-label="Laser plates demo video">
+      <h2 class="section-title" style="font-size:1.15rem; margin-top:0.5rem;">Watch: Laser Plate Cutting Demo</h2>
+      <div class="video-embed">
+          <video controls playsinline preload="metadata" poster="videos/laserplates-poster.jpg" autoplay muted loop>
+          <source src="video.mp4" type="video/mp4">
+          <!-- Fallback: link to YouTube or a hosted copy if the MP4 isn't available -->
+          Your browser does not support the video tag. You can view the demo on
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a>.
+        </video>
+      </div>
+    </div>
     <p class="section-subtitle">Decorative laser-cut plates</p>
     <section class="gallery-info container">
       <p class="lead">We produce Laser Plate Designs on Pre-Order — customized to your preferred design, thickness, and size. Perfect for gates, railings, balconies, wall screens, and decorative panels.</p>
@@ -95,6 +106,9 @@
       <p>We’ll confirm your quote, timeline, and delivery details instantly.</p>
     </section>
 
+    <!-- Video demo: Laser plates cutting / design walkthrough -->
+   
+
     <div class="gallery-grid">
 <script>
         (function(){
@@ -105,7 +119,7 @@
             const num = String(i).padStart(4, '0');
             const filename = prefix + num + '.jpg';
 
-            const item = document.createElement('div');
+            const item = document.createElement('div'); 
             item.className = 'gallery-item animate-on-scroll';
             item.setAttribute('data-category', 'laserplates');
 
@@ -314,15 +328,15 @@
             <h3 class="section-title" style="font-size:1.25rem; margin-bottom:0.75rem;">More galleries</h3>
             <div style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
                 <a class="filter-btn" href="gallery.html">All</a>
-                <a class="filter-btn" href="gallery-construction.html">Iron For Construction/Reinforcement Materials</a>
-              <a class="filter-btn" href="gallery-laserplates.html">Laser cut plates Designs</a>
+                <a class="filter-btn" href="gallery-designs.html">Wrought Iron Catalogue</a>
                 <a class="filter-btn" href="gallery-materials.html">Wrought Iron Materials</a>
+                <a class="filter-btn" href="gallery-gates.html">Wrought Iron Gates</a>
                 <a class="filter-btn" href="gallery-staircases.html">Wrought Iron Railing Designs(Staircase and Balcony)</a>
-              <a class="filter-btn" href="gallery-stainlessrailings.html">Stainless Railings Designs</a>
-                <a class="filter-btn" href="gallery-steel.html">Stainless Steel</a> 
-               <a class="filter-btn" href="gallery-gates.html">Wrought Iron Gates</a>
-              <a class="filter-btn" href="gallery-designs.html">Wrought Iron Catalogue</a>
-                <a class="filter-btn" href="gallery-welding.html">Welding machine & Accessories</a>a>
+                <a class="filter-btn" href="gallery-laserplates.html">Laserplates Designs</a>
+                <a class="filter-btn" href="gallery-construction.html">Iron For Construction/Reinforcement Materials</a>
+                <a class="filter-btn" href="gallery-welding.html">Welding & Accessories</a>
+                <a class="filter-btn" href="gallery-stainlessrailings.html">Stainless Railings Designs</a>
+                <a class="filter-btn" href="gallery-steel.html">Stainless Steel</a>
             </div>
         </div>
 
@@ -462,10 +476,6 @@
 </body>
 
 </html>
-
-
-
-
 
 
 
