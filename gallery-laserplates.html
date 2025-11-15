@@ -342,7 +342,7 @@
         (function(){
           const grid = document.currentScript.parentNode;
           const base = 'H';
-          const total = 35; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
+          const total = 25; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
           for (let i = 1; i <= total; i++) {
             const filename = `${base} (${i}).jpg`;
 
@@ -370,7 +370,38 @@
           }
         })();
       </script>
+       <script>
+        (function(){
+          const grid = document.currentScript.parentNode;
+          const base = 'H';
+          const total = 10; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
+          for (let i = 1; i <= total; i++) {
+            const filename = `${base}(${i}).JPG`;
 
+            const item = document.createElement('div');
+            item.className = 'gallery-item animate-on-scroll';
+            item.setAttribute('data-category', 'Laserplates');
+
+            const img = document.createElement('img');
+            img.className = 'gallery-img';
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.src = encodeURI(filename); // encode spaces and special chars
+            img.alt = 'Laserplates Design(E) ' + i;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            const title = document.createElement('h3');
+            title.className = 'gallery-title';
+            title.textContent = 'Laserplates Design(E) ' + i;
+            overlay.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(overlay);
+            grid.appendChild(item);
+          }
+        })();
+      </script>
     </div>
   </main>
    <!-- Related Materials You May Also Need (below gallery) -->
@@ -601,6 +632,7 @@
 </body>
 
 </html>
+
 
 
 
