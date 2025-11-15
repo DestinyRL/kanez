@@ -374,8 +374,8 @@
         (function(){
           const grid = document.currentScript.parentNode;
           const base = 'H';
-          const total = 10; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
-          for (let i = 1; i <= total; i++) {
+          const total = 34; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
+          for (let i = 26; i <= total; i++) {
             const filename = `${base}(${i}).JPG`;
 
             const item = document.createElement('div');
@@ -387,13 +387,13 @@
             img.loading = 'lazy';
             img.decoding = 'async';
             img.src = encodeURI(filename); // encode spaces and special chars
-            img.alt = 'Laserplates Design(E) ' + i;
+            img.alt = 'Laserplates Design(D) ' + i;
 
             const overlay = document.createElement('div');
             overlay.className = 'gallery-overlay';
             const title = document.createElement('h3');
             title.className = 'gallery-title';
-            title.textContent = 'Laserplates Design(E) ' + i;
+            title.textContent = 'Laserplates Design(D) ' + i;
             overlay.appendChild(title);
 
             item.appendChild(img);
@@ -632,6 +632,7 @@
 </body>
 
 </html>
+
 
 
 
