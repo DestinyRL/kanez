@@ -116,27 +116,27 @@
        <script>
         (function(){
           const grid = document.currentScript.parentNode;
-          const base = 'Laser Stair Railings2';
-          const total = 30; // assumption: up to 40 images named "stain (1).jpg" .. change if you have more
+          const prefix = 'Gorilla';
+          const total = 30 // generate up to 31 images
           for (let i = 1; i <= total; i++) {
-            const filename = `${base} ${i}.jpg`;
+            const num = String(i).padStart(4, '0');
+            const filename = prefix + num + '.jpg';
 
             const item = document.createElement('div');
             item.className = 'gallery-item animate-on-scroll';
-            item.setAttribute('data-category', 'Laserplates');
+            item.setAttribute('data-category', 'laserplates');
 
             const img = document.createElement('img');
-            img.className = Gorilla';
+            img.className = 'gallery-img';
+            img.src = filename;
+            img.alt = img.alt = 'laserplates design(new) ' + i;
             img.loading = 'lazy';
-            img.decoding = 'async';
-            img.src = encodeURI(filename); // encode spaces and special chars
-            img.alt = 'Laser Stair Railings ' + i;
 
             const overlay = document.createElement('div');
             overlay.className = 'gallery-overlay';
             const title = document.createElement('h3');
             title.className = 'gallery-title';
-            title.textContent = 'Laserplate Design(new) ' + i;
+            title.textContent = 'laserplates design(new) ' + i;
             overlay.appendChild(title);
 
             item.appendChild(img);
