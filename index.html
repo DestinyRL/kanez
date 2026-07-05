@@ -20,15 +20,25 @@
     <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=1560156251820544&ev=PageView&noscript=1"/></noscript>
     <!-- End Facebook Pixel Code -->
+    <!-- Inside <head> - Add these for QR code -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.12.1/JsBarcode.all.min.js"></script>
+<!-- Optional QR lib if you want pure QR (recommended) -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 </head>
 <body>
-    <!-- Loader -->
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="spinner"></div>
-            <h2>Welcome to Finest Steel, your trusted partner in Iron and Stainless Steel Solutions</h2>
+ <!-- Enhanced Green Progress Loader -->
+<div class="loader" id="loader">
+    <div class="loader-content">
+        <div class="progress-container">
+            <div class="progress-bar-bg">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <div id="progressText" class="progress-text">0%</div>
         </div>
+        <h2>Welcome to Finest Steel – Building Nigeria's Future</h2>
+        <p>Premium Iron & Stainless Steel Solutions</p>
     </div>
+</div>
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -419,11 +429,28 @@
     </a>
     <script>
      // Loader
-        window.addEventListener('load', function() {
+        // Enhanced Loader with Green Progress
+window.addEventListener('load', function() {
+    let progress = 0;
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const loader = document.getElementById('loader');
+
+    const interval = setInterval(() => {
+        progress += Math.random() * 15 + 5;
+        if (progress > 100) progress = 100;
+
+        progressBar.style.width = `${progress}%`;
+        progressText.textContent = `${Math.floor(progress)}%`;
+
+        if (progress >= 100) {
+            clearInterval(interval);
             setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1000);
-        });
+                loader.classList.add('hidden');
+            }, 400);
+        }
+    }, 80);
+});
 
 
         // Navbar scroll effect
