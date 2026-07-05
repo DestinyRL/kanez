@@ -2006,6 +2006,64 @@ video-block .video-embed {
     .video-block .section-title { font-size: 1rem; }
 }
 
+/* Loader Styles - Green Progress Bar */
+.loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease;
+}
+
+.loader.hidden { opacity: 0; pointer-events: none; }
+
+.loader-content {
+    text-align: center;
+    color: white;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.progress-container {
+    width: 320px;
+    margin: 0 auto 25px;
+}
+
+.progress-bar-bg {
+    height: 28px;
+    background: #222;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.6);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A, #4CAF50);
+    border-radius: 20px;
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.progress-text {
+    margin-top: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ddd;
+}
+
 
 
 
