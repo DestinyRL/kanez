@@ -114,37 +114,39 @@
 
     <div class="gallery-grid">
        <script>
-        (function(){
-          const grid = document.currentScript.parentNode;
-          const prefix = 'Gorilla';
-          const total = 30 // generate up to 31 images
-          for (let i = 1; i <= total; i++) {
-            const num = String(i).padStart(4, '0');
-            const filename = prefix + num + '.jpg';
+(function(){
+  const grid = document.currentScript.parentNode;
+  const prefix = 'Gorilla ';
+  const total = 30; // change as needed
+  const extension = '.jpeg';
 
-            const item = document.createElement('div');
-            item.className = 'gallery-item animate-on-scroll';
-            item.setAttribute('data-category', 'laserplates');
+  for (let i = 1; i <= total; i++) {
+    const filename = prefix + i + extension;   // → "Gorilla 1.jpeg"
 
-            const img = document.createElement('img');
-            img.className = 'gallery-img';
-            img.src = filename;
-            img.alt = img.alt = 'laserplates design(new) ' + i;
-            img.loading = 'lazy';
+    const item = document.createElement('div');
+    item.className = 'gallery-item animate-on-scroll';
+    item.setAttribute('data-category', 'laserplates');
 
-            const overlay = document.createElement('div');
-            overlay.className = 'gallery-overlay';
-            const title = document.createElement('h3');
-            title.className = 'gallery-title';
-            title.textContent = 'laserplates design(new) ' + i;
-            overlay.appendChild(title);
+    const img = document.createElement('img');
+    img.className = 'gallery-img';
+    img.src = filename;
+    img.alt = 'laserplates design(new) ' + i;
+    img.loading = 'lazy';
 
-            item.appendChild(img);
-            item.appendChild(overlay);
-            grid.appendChild(item);
-          }
-        })();
-      </script>
+    const overlay = document.createElement('div');
+    overlay.className = 'gallery-overlay';
+    
+    const title = document.createElement('h3');
+    title.className = 'gallery-title';
+    title.textContent = 'laserplates design(new) ' + i;
+    overlay.appendChild(title);
+
+    item.appendChild(img);
+    item.appendChild(overlay);
+    grid.appendChild(item);
+  }
+})();
+</script>
 <script>
         (function(){
           const grid = document.currentScript.parentNode;
